@@ -1,0 +1,132 @@
+[
+  {
+    "type": "Frontend",
+    "description": "I love bringing design to life",
+    "skills": {
+      "level-1": [
+        {
+          "title": "HTML/CSS",
+          "levelAcquired": 3,
+          "levelTotal": 3,
+          "needs": []
+        }
+      ],
+      "level-2": [
+        {
+          "title": "Javascript",
+          "levelAcquired": 3,
+          "levelTotal": 3,
+          "needs": ["HTML/CSS"]
+        },
+        {
+          "title": "Typescript",
+          "levelAcquired": 3,
+          "levelTotal": 3,
+          "needs": ["HTML/CSS"]
+        }
+      ],
+      "level-3": [
+        {
+          "title": "VueJS",
+          "levelAcquired": 3,
+          "levelTotal": 3,
+          "needs": ["Javascript", "Typescript"]
+        },
+        {
+          "title": "React",
+          "levelAcquired": 1,
+          "levelTotal": 3,
+          "needs": ["Javascript"]
+        },
+        {
+          "title": "Angular",
+          "levelAcquired": 1,
+          "levelTotal": 3,
+          "needs": ["Javascript"]
+        }
+      ]
+    }
+  },
+  {
+    "type": "Backend",
+    "description": "I have fun solving puzzles",
+    "skills": {
+      "level-1": [
+        {
+          "title": "C++",
+          "levelAcquired": 2,
+          "levelTotal": 3,
+          "needs": []
+        }
+      ],
+      "level-2": [
+        {
+          "title": "Java",
+          "levelAcquired": 2,
+          "levelTotal": 3,
+          "needs": ["C++"]
+        },
+        {
+          "title": "Python",
+          "levelAcquired": 3,
+          "levelTotal": 3,
+          "needs": ["C++"]
+        }
+      ],
+      "level-3": [
+        {
+          "title": "C#",
+          "levelAcquired": 1,
+          "levelTotal": 3,
+          "needs": ["Java"]
+        },
+        {
+          "title": "PySpark",
+          "levelAcquired": 2,
+          "levelTotal": 3,
+          "needs": ["Python"]
+        },
+        {
+          "title": "AWS",
+          "levelAcquired": 2,
+          "levelTotal": 3,
+          "needs": ["Python"]
+        }
+      ]
+    }
+  },
+  {
+    "type": "Soft skills",
+    "description": "I",
+    "skills": {
+      "level-1": [
+        {
+          "title": "Empathy",
+          "levelAcquired": 1,
+          "levelTotal": 1,
+          "needs": []
+        },
+        {
+          "title": "Adaptability",
+          "levelAcquired": 1,
+          "levelTotal": 1,
+          "needs": []
+        }
+      ],
+      "level-2": [
+        {
+          "title": "Creativity",
+          "levelAcquired": 1,
+          "levelTotal": 1,
+          "needs": ["Empathy"]
+        },
+        {
+          "title": "Problem-solving",
+          "levelAcquired": 1,
+          "levelTotal": 1,
+          "needs": ["Adaptability"]
+        }
+      ]
+    }
+  }
+]

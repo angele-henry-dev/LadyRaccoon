@@ -1,0 +1,97 @@
+@import './css/base.css';
+@import './css/media.css';
+@import './css/header.css';
+@import './css/contact.css';
+@import './css/footer.css';
+@import './css/heart.css';
+
+#app {
+  margin: 0 auto;
+  max-width: 1324px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 3rem;
+}
+
+main {
+  flex-grow: 1;
+}
+
+h1 {
+  font-size: 4.5rem;
+  line-height: 1.1;
+}
+
+p {
+  margin: 10px 0;
+}
+
+a .svg-inline--fa {
+  color: var(--color-text);
+}
+a:hover .svg-inline--fa,
+.svg-inline--fa.pink {
+  color: var(--vt-c-pink);
+}
+a {
+  text-decoration: none;
+  color: var(--color-text);
+  transition: 0.4s;
+  padding: 3px;
+}
+a:hover {
+  color: var(--vt-c-pink);
+}
+
+.align-center {
+  text-align: center;
+}
+
+span.separator {
+  margin: 0 10px;
+}
+span.highlight {
+  color: var(--vt-c-pink-light);
+}
+
+.grow {
+  flex-grow: 1;
+}
+.rounded {
+  border-radius: 10px;
+}
+
+/* Custom scrollbar */
+
+body {
+  overflow-y: scroll;
+}
+body::-webkit-scrollbar {
+  width: 5px;
+}
+body::-moz-scrollbar {
+  width: 5px;
+}
+body::-webkit-scrollbar-track {
+  background: var(--vt-c-black);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--vt-c-pink);
+}
+
+.black-cover {
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 1));
+  z-index: 2;
+}
+
+/* Specific css */
+
+header,
+#description,
+#skills,
+#projects {
+  margin-bottom: calc(var(--section-gap));
+}
