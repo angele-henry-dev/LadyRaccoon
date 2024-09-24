@@ -224,7 +224,7 @@ let selectedIndex = ref(0)
   overflow: hidden;
 }
 .iso-description ul li {
-  height: 100%;
+  height: calc(100% - 70px);
   position: absolute;
   overflow-y: auto;
   opacity: 0;
@@ -249,6 +249,7 @@ let selectedIndex = ref(0)
   right: 0;
   opacity: 1;
   transform: scale(1);
+  z-index: 5;
 }
 .carousel__activator:nth-of-type(1):checked ~ .carousel__controls:nth-of-type(1),
 .carousel__activator:nth-of-type(2):checked ~ .carousel__controls:nth-of-type(2),

@@ -159,6 +159,9 @@ a {
   padding: 2px;
   border: 1px solid transparent;
   cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
 }
 .chunk-item:hover {
   border: 1px solid #fff;
@@ -168,6 +171,6 @@ a {
 }
 .chunk-item img {
   display: inline-block;
-  height: 100%;
+  height: 50px;
 }
 </style>

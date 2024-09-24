@@ -32,11 +32,12 @@ const props = defineProps(['skills'])
 
 <style scoped>
 .skills-container {
+  --gap: 50px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 50px;
+  gap: var(--gap);
 
   ul {
     list-style-type: none;
@@ -111,6 +112,9 @@ const props = defineProps(['skills'])
 .hexagon.master {
   --b: 3px;
 }
+.hexagon.mid {
+  --b: 2px;
+}
 .hexagon::before {
   content: '';
   display: block;
@@ -141,13 +145,13 @@ const props = defineProps(['skills'])
 .soft .hexagon.master {
   background: var(--vt-c-lime);
 }
-/* .frontend .hexagon.master::before {
-  box-shadow: inset 0 0 3px 3px var(--vt-c-pink-light);
+
+.needed::after {
+  display: block;
+  position: absolute;
+  content: '';
+  width: 1px;
+  height: var(--gap);
+  border-right: 1px solid white;
 }
-.backend .hexagon.master::before {
-  box-shadow: inset 0 0 3px 3px var(--vt-c-cyan-light);
-}
-.soft .hexagon.master::before {
-  box-shadow: inset 0 0 3px 3px var(--vt-c-lime-light);
-} */
 </style>
