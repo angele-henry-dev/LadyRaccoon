@@ -124,6 +124,15 @@ a {
   min-width: 305px;
   max-width: 480px;
 }
+.carousel-container {
+  order: 1;
+}
+.text-container {
+  border: 1px solid var(--vt-c-divider-dark-2);
+  padding: 20px;
+  order: 2;
+}
+
 .carousel-item {
   position: relative;
   width: 100%;

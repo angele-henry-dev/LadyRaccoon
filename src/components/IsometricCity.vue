@@ -202,6 +202,7 @@ let selectedIndex = ref(0)
   min-width: 400px;
   max-width: 560px;
   height: 520px;
+  border: 1px solid var(--vt-c-divider-dark-2);
 }
 @media (width <= 1217px) {
   .iso-description {
