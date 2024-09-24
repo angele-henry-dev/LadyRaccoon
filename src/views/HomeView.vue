@@ -29,7 +29,7 @@ import projects from '@/assets/models/projects.json' with { type: 'json' }
       </p>
     </div>
 
-    <h2 title="Skills"><FontAwesomeIcon :icon="faHatWizard" /> Skills</h2>
+    <h2 title="Skills"><FontAwesomeIcon :icon="faHatWizard" /> Skills at your service</h2>
     <div id="skills">
       <SkillsTree :skills="skills" />
     </div>

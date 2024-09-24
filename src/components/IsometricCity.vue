@@ -161,6 +161,7 @@ let selectedIndex = ref(0)
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
   margin-bottom: 70px;
 }
 

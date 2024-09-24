@@ -10,4 +10,11 @@
   nav a:not(:first-of-type) {
     display: none !important;
   }
+
+  header,
+  #description,
+  #skills,
+  #projects {
+    margin-bottom: calc(var(--section-gap)) !important;
+  }
 }

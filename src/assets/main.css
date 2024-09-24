@@ -93,5 +93,5 @@ header,
 #description,
 #skills,
 #projects {
-  margin-bottom: calc(var(--section-gap));
+  margin-bottom: calc(var(--section-gap) * 2);
 }

@@ -8,8 +8,14 @@
   --vt-c-black-soft: #222222;
   --vt-c-black-mute: #282828;
 
-  --vt-c-pink: hsl(334, 86%, 45%);
-  --vt-c-pink-light: hsl(334, 86%, 80%);
+  --vt-c-pink: hsl(334, 86%, 50%);
+  --vt-c-pink-light: hsl(334, 86%, 85%);
+  --vt-c-lime: hsl(76, 100%, 50%);
+  --vt-c-lime-light: hsl(76, 100%, 85%);
+  --vt-c-cyan: hsl(190, 100%, 50%);
+  --vt-c-cyan-light: hsl(190, 100%, 85%);
+  --vt-c-violet: hsl(268, 100%, 50%);
+  --vt-c-violet-light: hsl(268, 100%, 85%);
 
   --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
   --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
