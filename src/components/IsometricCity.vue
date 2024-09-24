@@ -8,6 +8,53 @@ let selectedIndex = ref(0)
 
 <template>
   <div class="isometric-city">
+    <div class="iso-description grow">
+      <ul ref="iso-description-container">
+        <input
+          v-for="(item, i) in experience"
+          :key="i"
+          type="radio"
+          :id="i.toString()"
+          class="carousel__activator"
+          name="activator"
+          :checked="selectedIndex === i ? true : false"
+          @change="selectedIndex = i"
+        />
+        <div v-for="(item, i) in experience" :key="i" class="carousel__controls">
+          <label
+            class="carousel__control carousel__control--backward"
+            :for="i === 0 ? (experience.length - 1).toString() : (i - 1).toString()"
+          ></label>
+          <label
+            class="carousel__control carousel__control--forward"
+            :for="i === experience.length - 1 ? (0).toString() : (i + 1).toString()"
+          ></label>
+        </div>
+        <li v-for="(item, i) in experience" :key="i">
+          <div>
+            <h2>{{ item.what }}</h2>
+            <p>
+              {{ item.from }}<span v-if="item.to"> - {{ item.to }}</span
+              >, {{ item.where }}
+            </p>
+            <div class="pins">
+              <span v-for="(techno, j) in item.technologies" :key="j">{{ techno }}</span>
+            </div>
+            <div>
+              <p v-for="(description, j) in item.descriptions" :key="j">{{ description }}</p>
+            </div>
+          </div>
+        </li>
+        <div class="carousel__indicators">
+          <label
+            v-for="(item, i) in experience"
+            :key="i"
+            class="carousel__indicator"
+            :for="i.toString()"
+          ></label>
+        </div>
+      </ul>
+    </div>
     <div class="iso-container">
       <div ref="ground" class="ground night">
         <div class="shadow-right"></div>
@@ -80,53 +127,6 @@ let selectedIndex = ref(0)
         </div>
       </div>
     </div>
-    <div class="iso-description grow">
-      <ul ref="iso-description-container">
-        <input
-          v-for="(item, i) in experience"
-          :key="i"
-          type="radio"
-          :id="i.toString()"
-          class="carousel__activator"
-          name="activator"
-          :checked="selectedIndex === i ? true : false"
-          @change="selectedIndex = i"
-        />
-        <div v-for="(item, i) in experience" :key="i" class="carousel__controls">
-          <label
-            class="carousel__control carousel__control--backward"
-            :for="i === 0 ? (experience.length - 1).toString() : (i - 1).toString()"
-          ></label>
-          <label
-            class="carousel__control carousel__control--forward"
-            :for="i === experience.length - 1 ? (0).toString() : (i + 1).toString()"
-          ></label>
-        </div>
-        <li v-for="(item, i) in experience" :key="i">
-          <div>
-            <h2>{{ item.what }}</h2>
-            <p>
-              {{ item.from }}<span v-if="item.to"> - {{ item.to }}</span
-              >, {{ item.where }}
-            </p>
-            <div class="pins">
-              <span v-for="(techno, j) in item.technologies" :key="j">{{ techno }}</span>
-            </div>
-            <div>
-              <p v-for="(description, j) in item.descriptions" :key="j">{{ description }}</p>
-            </div>
-          </div>
-        </li>
-        <div class="carousel__indicators">
-          <label
-            v-for="(item, i) in experience"
-            :key="i"
-            class="carousel__indicator"
-            :for="i.toString()"
-          ></label>
-        </div>
-      </ul>
-    </div>
   </div>
 </template>
 
@@ -177,36 +177,31 @@ let selectedIndex = ref(0)
 
 .iso-container {
   width: 560px;
-  margin-left: -55px;
 }
 .ground {
   width: 360px;
   height: 360px;
 }
-@media (495px < width <= 1217px) {
-  .iso-container {
-    width: 100%;
-    height: 500px;
-    margin-top: -55px;
-    transform: scale(0.75);
-  }
-}
-@media (width <= 495px) {
-  .iso-container {
-    width: 100%;
-    margin-top: -75px;
-    transform: scale(0.5);
-  }
-}
 .iso-description {
-  min-width: 400px;
+  min-width: 420px;
   max-width: 560px;
-  height: 520px;
+  height: 550px;
   border: 1px solid var(--vt-c-divider-dark-2);
 }
-@media (width <= 1217px) {
+@media (600px < width <= 1217px) {
+  .iso-container {
+    height: 570px;
+  }
+}
+@media (width <= 600px) {
+  .iso-container {
+    margin-top: -100px;
+    margin-left: -60px;
+    margin-left: -15%;
+    transform: scale(0.5);
+  }
   .iso-description {
-    width: 100%;
+    flex-grow: 0;
     min-width: 365px;
   }
 }

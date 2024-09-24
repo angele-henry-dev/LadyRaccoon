@@ -17,10 +17,4 @@
   #projects {
     margin-bottom: calc(var(--section-gap)) !important;
   }
-
-  .skills-container,
-  .carousel,
-  .isometric-city {
-    justify-content: flex-start !important;
-  }
 }
