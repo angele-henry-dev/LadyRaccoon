@@ -57,44 +57,51 @@ const arrChunk = computed(() => {
 
 <template>
   <div class="carousel">
-    <div class="carousel-item">
-      <div class="black-cover">
-        <h2>
-          <FontAwesomeIcon
-            :icon="iconSet[props.items[currImgIdx].type as keyof typeof iconSet]"
-            size="xl"
-          />
-          {{ props.items[currImgIdx].title }}
-        </h2>
-        <sub>{{ props.items[currImgIdx].subtitle }}</sub>
-        <p>{{ props.items[currImgIdx].description }}</p>
+    <div class="text-container">
+      <h2>
+        <FontAwesomeIcon
+          :icon="iconSet[props.items[currImgIdx].type as keyof typeof iconSet]"
+          size="xl"
+        />
+        {{ props.items[currImgIdx].title }}
+      </h2>
+      <p>{{ props.items[currImgIdx].when }}</p>
+      <div class="pins">
+        <span v-for="(techno, j) in props.items[currImgIdx].technologies" :key="j">{{
+          techno
+        }}</span>
       </div>
-      <img
-        :title="props.items[currImgIdx].title"
-        :alt="props.items[currImgIdx].title"
-        class="currImg"
-        :src="getImageUrl(`${props.items[currImgIdx].src}`)"
-        width="100%"
-      />
+      <p>{{ props.items[currImgIdx].description }}</p>
     </div>
-    <div class="crop" :name="transition_name" tag="div">
-      <a @click="prev">
-        <FontAwesomeIcon :icon="faChevronLeft" size="2xl" />
-      </a>
-      <div class="carousel-chunk" v-for="(chunk, i) in arrChunk" v-show="currSlide == i" :key="i">
-        <div
-          class="chunk-item"
-          v-for="(item, j) in chunk"
-          :key="j"
-          @click="currImgIdx = j + i * chunkSize"
-          :class="{ curr: item.src == props.items[currImgIdx].src }"
-        >
-          <img :title="item.title" :alt="item.title" :src="getImageUrl(`${item.src}`)" />
-        </div>
+    <div class="carousel-container">
+      <div class="carousel-item">
+        <img
+          :title="props.items[currImgIdx].title"
+          :alt="props.items[currImgIdx].title"
+          class="currImg"
+          :src="getImageUrl(`${props.items[currImgIdx].src}`)"
+          width="100%"
+        />
       </div>
-      <a @click="next">
-        <FontAwesomeIcon :icon="faChevronRight" size="2xl" />
-      </a>
+      <div class="crop" :name="transition_name" tag="div">
+        <a @click="prev">
+          <FontAwesomeIcon :icon="faChevronLeft" size="2xl" />
+        </a>
+        <div class="carousel-chunk" v-for="(chunk, i) in arrChunk" v-show="currSlide == i" :key="i">
+          <div
+            class="chunk-item"
+            v-for="(item, j) in chunk"
+            :key="j"
+            @click="currImgIdx = j + i * chunkSize"
+            :class="{ curr: item.src == props.items[currImgIdx].src }"
+          >
+            <img :title="item.title" :alt="item.title" :src="getImageUrl(`${item.src}`)" />
+          </div>
+        </div>
+        <a @click="next">
+          <FontAwesomeIcon :icon="faChevronRight" size="2xl" />
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -103,24 +110,24 @@ const arrChunk = computed(() => {
 a {
   cursor: pointer;
 }
+
 .carousel {
-  margin: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+.text-container,
+.carousel-container {
   width: 50%;
   min-width: 305px;
   max-width: 480px;
-  .carousel-item {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-  .black-cover {
-    position: absolute;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: end;
-  }
+}
+.carousel-item {
+  position: relative;
+  width: 100%;
+  max-height: 480px;
 }
 
 .carousel-chunk {

@@ -112,7 +112,7 @@ let selectedIndex = ref(0)
             <div class="pins">
               <span v-for="(techno, j) in item.technologies" :key="j">{{ techno }}</span>
             </div>
-            <div class="job-description">
+            <div>
               <p v-for="(description, j) in item.descriptions" :key="j">{{ description }}</p>
             </div>
           </div>
@@ -208,17 +208,6 @@ let selectedIndex = ref(0)
     width: 100%;
     min-width: 365px;
   }
-}
-.pins {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 5px;
-}
-.pins span {
-  border: 1px solid var(--building-1-window);
-  border-radius: 15px;
-  padding: 2px 10px;
 }
 
 /* Carousel */

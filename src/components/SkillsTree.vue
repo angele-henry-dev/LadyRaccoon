@@ -37,7 +37,6 @@ const props = defineProps(['skills'])
   flex-wrap: wrap;
   justify-content: center;
   gap: 50px;
-  margin-top: 50px;
 
   ul {
     list-style-type: none;
