@@ -145,15 +145,15 @@ let selectedIndex = ref(0)
   --tree-trunc: hsl(25, 100%, 17%);
   --parking: hsl(0, 0%, 100%);
 
-  --water: hsl(186, 100%, 38%);
-  --water-drop: hsl(187, 100%, 86%);
-  --tree: hsl(122, 100%, 35%);
+  --water: var(--vt-c-cyan);
+  --water-drop: var(--vt-c-white);
+  --tree: var(--vt-c-lime);
   --building-1: hsl(283, 34%, 32%);
   --building-1-dark: hsl(283, 34%, 12%);
-  --building-1-window: hsl(334, 86%, 45%);
+  --building-1-window: var(--vt-c-pink);
   --roof: hsl(283, 34%, 32%);
   --roof-light: hsl(283, 34%, 52%);
-  --car-1: hsl(60, 100%, 50%);
+  --car-1: var(--vt-c-violet);
   --car-2: hsl(33, 100%, 50%);
 }
 
