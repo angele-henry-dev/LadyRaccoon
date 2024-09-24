@@ -200,13 +200,24 @@ let selectedIndex = ref(0)
 .iso-description {
   min-width: 400px;
   max-width: 560px;
-  height: 500px;
+  height: 520px;
 }
 @media (width <= 1217px) {
   .iso-description {
     width: 100%;
     min-width: 365px;
   }
+}
+.pins {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.pins span {
+  border: 1px solid var(--building-1-window);
+  border-radius: 15px;
+  padding: 2px 10px;
 }
 
 /* Carousel */
