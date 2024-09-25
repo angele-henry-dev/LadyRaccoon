@@ -1,130 +1,106 @@
 [
   {
     "type": "frontend",
-    "description": "I love bringing design to life",
-    "skills": {
-      "level-1": [
-        {
-          "title": "Javascript",
-          "levelAcquired": 3,
-          "levelTotal": 3,
-          "needs": null,
-          "needed": true
-        },
-        {
-          "title": "Typescript",
-          "levelAcquired": 3,
-          "levelTotal": 3,
-          "needs": null,
-          "needed": false
-        }
-      ],
-      "level-2": [
-        {
-          "title": "VueJS",
-          "levelAcquired": 3,
-          "levelTotal": 3,
-          "needs": "Javascript",
-          "needed": false
-        },
-        {
-          "title": "React",
-          "levelAcquired": 1,
-          "levelTotal": 3,
-          "needs": "Javascript",
-          "needed": false
-        },
-        {
-          "title": "Angular",
-          "levelAcquired": 1,
-          "levelTotal": 3,
-          "needs": "Javascript",
-          "needed": false
-        }
-      ]
-    }
+    "skills": [
+      {
+        "title": "JavaScript",
+        "levelAcquired": 3,
+        "levelTotal": 3,
+        "children": [
+          {
+            "title": "TypeScript",
+            "levelAcquired": 3,
+            "levelTotal": 3,
+            "children": [
+              {
+                "title": "VueJS",
+                "levelAcquired": 3,
+                "levelTotal": 3,
+                "children": []
+              },
+              {
+                "title": "React",
+                "levelAcquired": 1,
+                "levelTotal": 3,
+                "children": []
+              },
+              {
+                "title": "Angular",
+                "levelAcquired": 1,
+                "levelTotal": 3,
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "backend",
-    "description": "I have fun solving puzzles",
-    "skills": {
-      "level-1": [
-        {
-          "title": "C#",
-          "levelAcquired": 1,
-          "levelTotal": 3,
-          "needs": null,
-          "needed": false
-        },
-        {
-          "title": "Python",
-          "levelAcquired": 3,
-          "levelTotal": 3,
-          "needs": null,
-          "needed": true
-        }
-      ],
-      "level-2": [
-        {
-          "title": "Flask",
-          "levelAcquired": 2,
-          "levelTotal": 3,
-          "needs": "Python",
-          "needed": false
-        },
-        {
-          "title": "PySpark",
-          "levelAcquired": 2,
-          "levelTotal": 3,
-          "needs": "Python",
-          "needed": false
-        },
-        {
-          "title": "AWS",
-          "levelAcquired": 3,
-          "levelTotal": 3,
-          "needs": "Python",
-          "needed": false
-        }
-      ]
-    }
+    "skills": [
+      {
+        "title": "C#",
+        "levelAcquired": 1,
+        "levelTotal": 3,
+        "children": []
+      },
+      {
+        "title": "Python",
+        "levelAcquired": 3,
+        "levelTotal": 3,
+        "children": [
+          {
+            "title": "Flask",
+            "levelAcquired": 2,
+            "levelTotal": 3,
+            "children": []
+          },
+          {
+            "title": "PySpark",
+            "levelAcquired": 2,
+            "levelTotal": 3,
+            "children": []
+          },
+          {
+            "title": "AWS",
+            "levelAcquired": 2,
+            "levelTotal": 3,
+            "children": []
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "soft",
-    "description": "I",
-    "skills": {
-      "level-1": [
-        {
-          "title": "Empathy",
-          "levelAcquired": 1,
-          "levelTotal": 1,
-          "needs": null,
-          "needed": true
-        },
-        {
-          "title": "Adaptability",
-          "levelAcquired": 1,
-          "levelTotal": 1,
-          "needs": null,
-          "needed": true
-        }
-      ],
-      "level-2": [
-        {
-          "title": "Creativity",
-          "levelAcquired": 1,
-          "levelTotal": 1,
-          "needs": "Empathy",
-          "needed": false
-        },
-        {
-          "title": "Problem-solving",
-          "levelAcquired": 1,
-          "levelTotal": 1,
-          "needs": "Adaptability",
-          "needed": false
-        }
-      ]
-    }
+    "skills": [
+      {
+        "title": "Empathy",
+        "levelAcquired": 1,
+        "levelTotal": 1,
+        "children": [
+          {
+            "title": "Creativity",
+            "levelAcquired": 1,
+            "levelTotal": 1,
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "Adaptability",
+        "levelAcquired": 1,
+        "levelTotal": 1,
+        "children": [
+          {
+            "title": "Problem-solving",
+            "levelAcquired": 1,
+            "levelTotal": 1,
+            "children": []
+          }
+        ]
+      }
+    ]
   }
 ]
