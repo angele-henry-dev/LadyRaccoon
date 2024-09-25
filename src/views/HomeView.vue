@@ -4,7 +4,6 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import { faHatWizard } from '@fortawesome/free-solid-svg-icons'
 import { faDragon } from '@fortawesome/free-solid-svg-icons'
 import { faBook } from '@fortawesome/free-solid-svg-icons'
-import { faArrowDownLong } from '@fortawesome/free-solid-svg-icons'
 
 import LightEffect from '@/components/LightEffect.vue'
 import SkillsTree from '@/components/SkillsTree.vue'

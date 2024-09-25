@@ -17,11 +17,19 @@ onMounted(() => {
 })
 
 // Methods
-function convertSitemapToJSON(xml: Document) {
-  const urls = Array.from(xml.getElementsByTagName('loc')).map((node: any) => node.textContent)
+interface SiteMapNode {
+  title: string
+  url: string
+  children: SiteMapNode[]
+}
+
+function convertSitemapToJSON(xml: Document): SiteMapNode[] {
+  const urls = Array.from(xml.getElementsByTagName('loc')).map(
+    (node: any) => node.textContent as string
+  )
 
   const baseUrl = urls[0] // Assuming the first URL is the root (home page)
-  const rootObject = {
+  const rootObject: SiteMapNode = {
     title: 'Home',
     url: baseUrl,
     children: []
@@ -33,7 +41,7 @@ function convertSitemapToJSON(xml: Document) {
     rootObject.children.push({
       title: title,
       url: url,
-      children: [] // Assuming no deeper nesting for now
+      children: []
     })
   })
 
