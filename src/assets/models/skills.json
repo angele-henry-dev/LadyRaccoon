@@ -40,12 +40,6 @@
     "type": "backend",
     "skills": [
       {
-        "title": "C#",
-        "levelAcquired": 1,
-        "levelTotal": 3,
-        "children": []
-      },
-      {
         "title": "Python",
         "levelAcquired": 3,
         "levelTotal": 3,

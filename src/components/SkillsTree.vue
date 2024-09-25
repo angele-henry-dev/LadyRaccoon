@@ -9,25 +9,18 @@ const props = defineProps(['skills'])
   <div class="skills-container">
     <div v-for="(item, i) in props.skills" :key="i" :class="`tree-container ${item.type}`">
       <h3>{{ item.type }}</h3>
-      <TreeLeave :skills="item.skills" />
+      <TreeLeave :skills="item.skills" :parent="true" />
     </div>
   </div>
 </template>
 
 <style scoped>
 .skills-container {
-  --gap: 50px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  gap: var(--gap);
-
-  ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
+  gap: 50px;
 }
 .tree-container {
   min-width: fit-content;

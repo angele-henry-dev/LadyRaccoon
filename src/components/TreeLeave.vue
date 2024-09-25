@@ -1,41 +1,45 @@
 <script setup lang="ts">
 // Props
-const props = defineProps(['skills'])
+const props = defineProps(['skills', 'parent'])
 </script>
 
 <template>
-  <ul class="level">
-    <li v-for="(skill, j) in props.skills" :key="j" class="element">
+  <ul v-if="props.skills.length > 0" class="level">
+    <li
+      v-for="(skill, j) in props.skills"
+      :key="j"
+      :class="`element
+        ${props.parent === false && props.skills.length > 1 && j < props.skills.length - 1 ? ' sisters' : ''}
+        ${props.parent === false ? ' before' : ''}
+        ${skill.children.length > 0 ? ' after' : ''}`"
+    >
       <div
-        :class="`hexagon ${skill.levelTotal - skill.levelAcquired === 0 ? 'master' : skill.levelTotal - skill.levelAcquired === 1 ? 'mid' : ''}`"
+        :class="`hexagon
+        ${skill.levelTotal - skill.levelAcquired === 0 ? ' master' : skill.levelTotal - skill.levelAcquired === 1 ? ' mid' : ''}`"
       ></div>
       <div class="text">
         <sub>{{ skill.levelAcquired }}/{{ skill.levelTotal }}</sub>
         <span>{{ skill.title }}</span>
       </div>
-      <TreeLeave v-if="skill.children" :skills="skill.children" />
+      <TreeLeave v-if="skill.children.length > 0" :skills="skill.children" :parent="false" />
     </li>
   </ul>
 </template>
 
 <style scoped>
-/* .tree {
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-} */
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: var(--gap);
+}
 
 .level {
-  /* display: flex;
+  --gap: 50px;
+  display: flex;
   flex-direction: row;
+  gap: 1rem;
+  align-items: start;
   justify-content: center;
-  gap: 1rem; */
-
-  ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
 }
 
 .element {
@@ -59,6 +63,7 @@ const props = defineProps(['skills'])
   font-weight: bold !important;
 }
 .hexagon {
+  margin: auto;
   --b: 1px; /* adjust to control the border  */
   height: 100px; /* adjust to control the size  */
   aspect-ratio: 1 / cos(30deg);
@@ -83,15 +88,6 @@ const props = defineProps(['skills'])
 .hexagon.mid {
   --b: 2px;
 }
-.hexagon::before {
-  content: '';
-  display: block;
-  position: absolute;
-  top: -5px;
-  left: -5px;
-  width: calc(100% + 10px);
-  height: calc(100% + 10px);
-}
 .frontend .hexagon {
   background: var(--vt-c-pink-light);
 }
@@ -114,17 +110,24 @@ const props = defineProps(['skills'])
   background: var(--vt-c-lime);
 }
 
-.needs::before,
-.needed::after {
+.before::before,
+.after::after {
+  content: '';
   display: block;
   position: absolute;
   left: 50%;
-  content: '';
-  width: 1px;
   height: calc(var(--gap) / 2);
-  border-right: 1px solid white;
+  width: 1px;
+  border-left: 1px solid white;
 }
-.needs::before {
-  top: calc(0px - (var(--gap) / 2));
+.after::after {
+  top: 100px;
+}
+.before::before {
+  top: -25px;
+}
+.sisters::before {
+  width: calc(100% + 16px);
+  border-top: 1px solid white;
 }
 </style>
