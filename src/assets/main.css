@@ -94,6 +94,12 @@ header,
   margin-bottom: calc(var(--section-gap));
 }
 
+#skills {
+  padding: 20px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-background);
+}
+
 .pins {
   display: flex;
   flex-direction: row;

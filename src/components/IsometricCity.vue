@@ -153,7 +153,7 @@ let selectedIndex = ref(0)
   --building-1-window: var(--vt-c-pink);
   --roof: hsl(283, 34%, 32%);
   --roof-light: hsl(283, 34%, 52%);
-  --car-1: var(--vt-c-violet);
+  --car-1: var(--vt-c-yellow);
   --car-2: hsl(33, 100%, 50%);
 }
 

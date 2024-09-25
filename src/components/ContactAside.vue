@@ -2,7 +2,6 @@
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faSquareGithub } from '@fortawesome/free-brands-svg-icons'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
-import { faChevronUp } from '@fortawesome/free-solid-svg-icons'
 </script>
 
 <template>
@@ -26,9 +25,5 @@ import { faChevronUp } from '@fortawesome/free-solid-svg-icons'
     >
       <FontAwesomeIcon :icon="faLinkedin" size="xl" />
     </a>
-    <span class="grow"></span>
-    <RouterLink to="#" title="Go on top">
-      <FontAwesomeIcon :icon="faChevronUp" size="2xl" />
-    </RouterLink>
   </div>
 </template>
