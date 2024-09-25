@@ -13,7 +13,7 @@ const days = ref('"278"')
 
 <template>
   <div class="current-level">
-    <span>Current level {{ years }} (years)</span>
+    <span>Level {{ years }} (years)</span>
     <div class="range"></div>
   </div>
   <div class="skills-container">

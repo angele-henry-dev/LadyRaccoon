@@ -18,7 +18,7 @@ const props = defineProps(['skills', 'parent'])
         ${skill.levelTotal - skill.levelAcquired === 0 ? ' master' : skill.levelTotal - skill.levelAcquired === 1 ? ' mid' : ''}`"
       ></div>
       <div class="text">
-        <sub>{{ skill.levelAcquired }}/{{ skill.levelTotal }}</sub>
+        <span class="level-acquired"></span>
         <span>{{ skill.title }}</span>
       </div>
       <TreeLeave v-if="skill.children.length > 0" :skills="skill.children" :parent="false" />
@@ -66,9 +66,10 @@ ul {
 }
 
 .hexagon {
-  --b: 1px;
+  --b: 3px;
   margin: auto;
   height: 100px; /* Size */
+  background: var(--vt-c-white);
   aspect-ratio: 1 / cos(30deg);
   clip-path: polygon(
     0 50%,
@@ -86,33 +87,12 @@ ul {
   );
 }
 
-.hexagon.master {
-  --b: 3px;
-}
-.hexagon.mid {
-  --b: 2px;
-}
-
-.frontend .hexagon {
-  background: var(--vt-c-pink-light);
-}
-.frontend .hexagon.mid,
 .frontend .hexagon.master {
   background: var(--vt-c-pink);
 }
-
-.backend .hexagon {
-  background: var(--vt-c-cyan-light);
-}
-.backend .hexagon.mid,
 .backend .hexagon.master {
   background: var(--vt-c-cyan);
 }
-
-.soft .hexagon {
-  background: var(--vt-c-lime-light);
-}
-.soft .hexagon.mid,
 .soft .hexagon.master {
   background: var(--vt-c-lime);
 }
@@ -154,5 +134,19 @@ ul {
 .soft .element::before,
 .soft .element::after {
   border-color: var(--vt-c-lime);
+}
+
+.level-acquired {
+  width: 50px;
+  height: 10px;
+  -webkit-mask: linear-gradient(90deg, #000 70%, #0000 0) 0/35%;
+  background: linear-gradient(var(--vt-c-yellow) 0 0) 0/0% no-repeat var(--color-border);
+  background-size: 33%;
+}
+.mid ~ .text .level-acquired {
+  background-size: 66%;
+}
+.master ~ .text .level-acquired {
+  background-size: 99%;
 }
 </style>
