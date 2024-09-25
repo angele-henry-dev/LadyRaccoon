@@ -27,6 +27,10 @@ const props = defineProps(['skills', 'parent'])
 </template>
 
 <style scoped>
+.level {
+  --gap: 50px;
+}
+
 ul {
   list-style-type: none;
   padding: 0;
@@ -34,7 +38,6 @@ ul {
 }
 
 .level {
-  --gap: 50px;
   display: flex;
   flex-direction: row;
   gap: 1rem;
@@ -58,14 +61,14 @@ ul {
   gap: 15px;
   line-height: 1rem;
 }
-
-.hexagon.master ~ div.text span {
+.master ~ .text span {
   font-weight: bold !important;
 }
+
 .hexagon {
+  --b: 1px;
   margin: auto;
-  --b: 1px; /* adjust to control the border  */
-  height: 100px; /* adjust to control the size  */
+  height: 100px; /* Size */
   aspect-ratio: 1 / cos(30deg);
   clip-path: polygon(
     0 50%,
@@ -82,28 +85,32 @@ ul {
     var(--b) 50%
   );
 }
+
 .hexagon.master {
   --b: 3px;
 }
 .hexagon.mid {
   --b: 2px;
 }
+
 .frontend .hexagon {
   background: var(--vt-c-pink-light);
-}
-.backend .hexagon {
-  background: var(--vt-c-cyan-light);
-}
-.soft .hexagon {
-  background: var(--vt-c-lime-light);
 }
 .frontend .hexagon.mid,
 .frontend .hexagon.master {
   background: var(--vt-c-pink);
 }
+
+.backend .hexagon {
+  background: var(--vt-c-cyan-light);
+}
 .backend .hexagon.mid,
 .backend .hexagon.master {
   background: var(--vt-c-cyan);
+}
+
+.soft .hexagon {
+  background: var(--vt-c-lime-light);
 }
 .soft .hexagon.mid,
 .soft .hexagon.master {
@@ -116,18 +123,36 @@ ul {
   display: block;
   position: absolute;
   left: 50%;
-  height: calc(var(--gap) / 2);
   width: 1px;
-  border-left: 1px solid white;
+  border: 0 solid white;
+  border-left-width: 3px;
 }
-.after::after {
-  top: 100px;
-}
+
 .before::before {
   top: -25px;
+  height: calc(var(--gap) / 2);
 }
+
+.after::after {
+  top: 100px;
+  height: calc(var(--gap) / 2);
+}
+
 .sisters::before {
   width: calc(100% + 16px);
-  border-top: 1px solid white;
+  border-top-width: 3px;
+}
+
+.frontend .element::before,
+.frontend .element::after {
+  border-color: var(--vt-c-pink);
+}
+.backend .element::before,
+.backend .element::after {
+  border-color: var(--vt-c-cyan);
+}
+.soft .element::before,
+.soft .element::after {
+  border-color: var(--vt-c-lime);
 }
 </style>
