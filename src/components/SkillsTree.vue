@@ -10,11 +10,15 @@ const props = defineProps(['skills'])
 const now = ref(new Date())
 const firstDay = ref(new Date('2015-08-05'))
 const oneDay = ref(1000 * 60 * 60 * 24)
-
 const startDay = ref(getStartDay())
 const endDay = ref(getEndDay())
+
+const dayNumber = ref(getDayNumber())
+const totalDays = ref(getTotalDays())
+
 const level = ref(getLevel())
-const experience = ref(getExperience())
+const experience = ref(`'${dayNumber.value}/${totalDays.value}'`)
+const percentage = ref(`${(dayNumber.value * 100) / totalDays.value}`)
 
 // Methods
 function getStartDay() {
@@ -46,11 +50,13 @@ function getLevel() {
   return Math.floor(diff / oneDay.value / 31 / 12)
 }
 
-function getExperience() {
+function getDayNumber() {
   const diff = now.value.valueOf() - startDay.value.valueOf()
-  const dayNumber = Math.floor(diff / oneDay.value)
-  const totalDays = Math.floor((endDay.value.valueOf() - startDay.value.valueOf()) / oneDay.value)
-  return `'${dayNumber}/${totalDays}'`
+  return Math.floor(diff / oneDay.value)
+}
+
+function getTotalDays() {
+  return Math.floor((endDay.value.valueOf() - startDay.value.valueOf()) / oneDay.value)
 }
 </script>
 
@@ -71,7 +77,7 @@ function getExperience() {
 .current-level {
   text-align: center;
   margin-bottom: 50px;
-  font-family: 'Orbitron', monospace;
+  font-family: monospace;
 }
 
 .skills-container {
@@ -88,11 +94,11 @@ function getExperience() {
     text-align: center;
     text-transform: uppercase;
     margin-bottom: 20px;
+    font-family: monospace;
   }
 }
 
 .range {
-  --p: 60;
   position: relative;
   margin: auto;
   background-color: var(--color-border);
@@ -101,10 +107,9 @@ function getExperience() {
   max-width: 300px;
   height: 15px;
   transform: skew(30deg);
-  font-family: 'Orbitron', monospace;
 
   &:before {
-    --width: calc(var(--p) * 1%);
+    --width: calc(v-bind(percentage) * 1%);
 
     content: '';
     position: absolute;
@@ -120,13 +125,13 @@ function getExperience() {
   }
 
   &:after {
-    counter-reset: progress var(--p);
+    counter-reset: progress v-bind(percentage);
     content: v-bind(experience);
     color: #000;
     font-size: 0.75rem;
     margin-top: 1px;
     position: absolute;
-    left: 5%;
+    left: 5px;
     top: 50%;
     transform: translateY(-50%) skewX(-30deg);
     z-index: 1;
