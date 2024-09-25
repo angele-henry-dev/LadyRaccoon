@@ -5,18 +5,11 @@
     "from": 2023,
     "to": 2024,
     "descriptions": [
-      "Design and development of applications on Skywise using Slate and Workshop.",
-      "Development of the backend using datasets with PySpark."
+      "I implemented all the necessary measures to improve the team's development methods.",
+      "My role also included supporting junior developers.",
+      "I had the opportunity to familiarize myself with the Skywise platform by Palantir and Apache's PySpark technology."
     ],
-    "technologies": [
-      "Foundry",
-      "Python",
-      "PySpark",
-      "PostgreSQL",
-      "Javascript",
-      "ui/ux",
-      "Mentorat"
-    ],
+    "technologies": ["Foundry", "Python", "PySpark", "SQL", "Javascript", "ui/ux", "Mentorat"],
     "position": "bottom: 30px; left: 20px;",
     "building": "brickbuilding"
   },
