@@ -7,29 +7,50 @@ import { ref } from 'vue'
 const props = defineProps(['skills'])
 
 // Variables
-const firstDay = ref(new Date('2015-08-05'))
-const startDay = ref(new Date('2024-08-05'))
-const endDay = ref(new Date('2025-08-05'))
 const now = ref(new Date())
+const firstDay = ref(new Date('2015-08-05'))
 const oneDay = ref(1000 * 60 * 60 * 24)
 
+const startDay = ref(getStartDay())
+const endDay = ref(getEndDay())
 const level = ref(getLevel())
 const experience = ref(getExperience())
 
 // Methods
+function getStartDay() {
+  const currentYear = now.value.getFullYear()
+
+  const currentYearDate = new Date(firstDay.value)
+  currentYearDate.setFullYear(currentYear)
+
+  const previousYearDate = new Date(firstDay.value)
+  previousYearDate.setFullYear(currentYear - 1)
+
+  return now.value.valueOf() > currentYearDate.valueOf() ? currentYearDate : previousYearDate
+}
+
+function getEndDay() {
+  const currentYear = now.value.getFullYear()
+
+  const currentYearDate = new Date(firstDay.value)
+  currentYearDate.setFullYear(currentYear)
+
+  const nextYearDate = new Date(firstDay.value)
+  nextYearDate.setFullYear(currentYear + 1)
+
+  return now.value.valueOf() < currentYearDate.valueOf() ? currentYearDate : nextYearDate
+}
+
 function getLevel() {
   const diff = endDay.value.valueOf() - firstDay.value.valueOf()
   return Math.floor(diff / oneDay.value / 31 / 12)
 }
-function getExperience() {
-  const diff =
-    now.value.valueOf() -
-    startDay.value.valueOf() +
-    (startDay.value.getTimezoneOffset() - now.value.getTimezoneOffset()) * 60 * 1000
-  const dayNumber = Math.floor(diff / oneDay.value)
 
-  const total = endDay.value.valueOf() - startDay.value.valueOf()
-  return `'${dayNumber}/${Math.floor(total / oneDay.value)}'`
+function getExperience() {
+  const diff = now.value.valueOf() - startDay.value.valueOf()
+  const dayNumber = Math.floor(diff / oneDay.value)
+  const totalDays = Math.floor((endDay.value.valueOf() - startDay.value.valueOf()) / oneDay.value)
+  return `'${dayNumber}/${totalDays}'`
 }
 </script>
 

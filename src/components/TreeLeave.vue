@@ -61,9 +61,6 @@ ul {
   gap: 21px;
   line-height: 1rem;
 }
-.master ~ .text span {
-  font-weight: bold !important;
-}
 
 .hexagon {
   --b: 3px;
