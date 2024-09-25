@@ -4,6 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import { faCopyright } from '@fortawesome/free-solid-svg-icons'
 import ContactAside from '@/components/ContactAside.vue'
+
+// Methods
+function getCurrentYear() {
+  return new Date().getFullYear()
+}
 </script>
 
 <template>
@@ -41,7 +46,7 @@ import ContactAside from '@/components/ContactAside.vue'
       <span class="separator">&#8226;</span>
       Copyright
       <FontAwesomeIcon :icon="faCopyright" />
-      2024 Lady Raccoon - All rights reserved
+      {{ getCurrentYear() }} Lady Raccoon - All rights reserved
     </p>
   </footer>
 </template>

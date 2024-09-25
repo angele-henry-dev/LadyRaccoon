@@ -7,13 +7,35 @@ import { ref } from 'vue'
 const props = defineProps(['skills'])
 
 // Variables
-const years = ref('10')
-const days = ref('"278"')
+const firstDay = ref(new Date('2015-08-05'))
+const startDay = ref(new Date('2024-08-05'))
+const endDay = ref(new Date('2025-08-05'))
+const now = ref(new Date())
+const oneDay = ref(1000 * 60 * 60 * 24)
+
+const level = ref(getLevel())
+const experience = ref(getExperience())
+
+// Methods
+function getLevel() {
+  const diff = endDay.value.valueOf() - firstDay.value.valueOf()
+  return Math.floor(diff / oneDay.value / 31 / 12)
+}
+function getExperience() {
+  const diff =
+    now.value.valueOf() -
+    startDay.value.valueOf() +
+    (startDay.value.getTimezoneOffset() - now.value.getTimezoneOffset()) * 60 * 1000
+  const dayNumber = Math.floor(diff / oneDay.value)
+
+  const total = endDay.value.valueOf() - startDay.value.valueOf()
+  return `'${dayNumber}/${Math.floor(total / oneDay.value)}'`
+}
 </script>
 
 <template>
   <div class="current-level">
-    <span>Level {{ years }} (years)</span>
+    <span>Level {{ level }} (years)</span>
     <div class="range"></div>
   </div>
   <div class="skills-container">
@@ -78,7 +100,7 @@ const days = ref('"278"')
 
   &:after {
     counter-reset: progress var(--p);
-    content: v-bind(days) '/365';
+    content: v-bind(experience);
     color: #000;
     font-size: 0.75rem;
     margin-top: 1px;
