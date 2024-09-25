@@ -4,6 +4,7 @@ import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { faGamepad } from '@fortawesome/free-solid-svg-icons'
 import { faMicrophone } from '@fortawesome/free-solid-svg-icons'
+import { faMobileScreen } from '@fortawesome/free-solid-svg-icons'
 
 import { ref, watch, computed } from 'vue'
 
@@ -13,7 +14,8 @@ const props = defineProps(['items'])
 // Variables
 const iconSet = {
   game: faGamepad,
-  talk: faMicrophone
+  talk: faMicrophone,
+  application: faMobileScreen
 }
 const chunkSize = ref(4)
 let currImgIdx = ref(0)
@@ -24,7 +26,7 @@ let currLightboxImg = ref(0)
 // Methods
 function prev() {
   if (arrChunk.value.length <= 1) {
-    currImgIdx.value === 0 ? (currImgIdx.value = arrChunk.value.length + 1) : currImgIdx.value--
+    currImgIdx.value = currImgIdx.value === 0 ? chunkSize.value - 1 : currImgIdx.value - 1
   } else {
     transition_name.value = 'slide_prev'
     currSlide.value = currSlide.value == 0 ? arrChunk.value.length - 1 : currSlide.value - 1
@@ -32,7 +34,7 @@ function prev() {
 }
 function next() {
   if (arrChunk.value.length <= 1) {
-    currImgIdx.value === arrChunk.value.length + 1 ? (currImgIdx.value = 0) : currImgIdx.value++
+    currImgIdx.value = currImgIdx.value === chunkSize.value - 1 ? 0 : currImgIdx.value + 1
   } else {
     transition_name.value = 'slide_next'
     currSlide.value = currSlide.value == arrChunk.value.length - 1 ? 0 : currSlide.value + 1

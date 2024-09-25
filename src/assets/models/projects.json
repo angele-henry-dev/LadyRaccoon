@@ -1,5 +1,14 @@
 [
   {
+    "src": "dnd.webp",
+    "title": "DnD Application",
+    "when": "2024 - In progress",
+    "type": "application",
+    "subtitle": "Application for iOS and Android",
+    "technologies": ["NativeScript", "Vue.js"],
+    "description": "This app is the perfect companion for managing your D&D sessions. It allows players to easily track their character sheets, while providing powerful tools for game masters. With the built-in combat simulator, GMs can create and manage battles in real-time, simplifying the handling of complex encounters."
+  },
+  {
     "src": "balloon.png",
     "title": "I Balloons",
     "when": "2024 - In progress",
@@ -7,14 +16,6 @@
     "subtitle": "Video game for iOS and Android",
     "technologies": ["Unity3D", "C#"],
     "description": "Tap on multiple colorful balloons to pop them all! The game will test your reflexes and your patience. It features colorful and friendly visuals and progressive levels."
-  },
-  {
-    "src": "womeninit.webp",
-    "title": "Women in IT",
-    "when": "2024, Airbus Toulouse",
-    "type": "talk",
-    "subtitle": "",
-    "description": "This conference explores the historical and current contributions of women in computing, highlights the challenges posed by gender stereotypes, and examines ongoing efforts to promote greater diversity and inclusion in the tech field."
   },
   {
     "src": "raqyx.webp",
@@ -26,12 +27,11 @@
     "description": "Players navigate a dynamic space, strategically creating territories while avoiding ennemies. The game features immersive visuals, progressive levels, and an engaging 8-bit soundtrack, offering a unique and enjoyable gaming adventure."
   },
   {
-    "src": "dnd.webp",
-    "title": "DnD Application",
-    "when": "2024 - In progress",
-    "type": "application",
-    "subtitle": "Application for iOS and Android",
-    "technologies": ["NativeScript", "Vue.js"],
-    "description": "This app is the perfect companion for managing your D&D sessions. It allows players to easily track their character sheets, while providing powerful tools for game masters. With the built-in combat simulator, GMs can create and manage battles in real-time, simplifying the handling of complex encounters."
+    "src": "womeninit.webp",
+    "title": "Women in IT",
+    "when": "2024, Airbus Toulouse",
+    "type": "talk",
+    "subtitle": "",
+    "description": "This conference explores the historical and current contributions of women in computing, highlights the challenges posed by gender stereotypes, and examines ongoing efforts to promote greater diversity and inclusion in the tech field."
   }
 ]
