@@ -89,8 +89,7 @@ body::-webkit-scrollbar-thumb {
   margin-bottom: calc(var(--section-gap) * 1.5);
 }
 header,
-#skills,
-#projects {
+#skills {
   margin-bottom: calc(var(--section-gap));
 }
 

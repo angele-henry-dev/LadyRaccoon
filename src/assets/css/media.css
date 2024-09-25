@@ -11,10 +11,7 @@
     display: none !important;
   }
 
-  header,
-  #description,
-  #skills,
-  #projects {
+  #description {
     margin-bottom: calc(var(--section-gap)) !important;
   }
 }

@@ -21,7 +21,7 @@ import projects from '@/assets/models/projects.json' with { type: 'json' }
     <div id="description" class="align-center">
       <h1>Looking for a <span class="highlight">technical leader</span> to boost your team?</h1>
       <p>
-        As a senior fullstack developer, my main quest is simple: to prevent your project from
+        As a senior software engineer, my main quest is simple: to prevent your project from
         reaching a game over due to a bug-infested application.
       </p>
       <p class="animated-heart">
@@ -34,16 +34,16 @@ import projects from '@/assets/models/projects.json' with { type: 'json' }
       <SkillsTree :skills="skills" />
     </div>
 
-    <h2 title="Projects"><FontAwesomeIcon :icon="faDragon" /> Projects</h2>
-    <div id="projects">
-      <CustomCarousel :items="projects" />
-    </div>
-
     <h2 title="Professional experience">
       <FontAwesomeIcon :icon="faBook" /> Professional experience
     </h2>
     <div id="experience">
       <IsometricCity />
+    </div>
+
+    <h2 title="Projects"><FontAwesomeIcon :icon="faDragon" /> Projects</h2>
+    <div id="projects">
+      <CustomCarousel :items="projects" />
     </div>
   </main>
 </template>
