@@ -10,7 +10,7 @@ const props = defineProps(['skills', 'parent'])
       :key="j"
       :class="`element
         ${props.parent === false && props.skills.length > 1 && j < props.skills.length - 1 ? ' sisters' : ''}
-        ${props.parent === false ? ' before' : ''}
+        ${props.parent === false ? ' before' : 'parent'}
         ${skill.children.length > 0 ? ' after' : ''}`"
     >
       <div
@@ -43,6 +43,9 @@ ul {
   gap: 1rem;
   align-items: start;
   justify-content: center;
+}
+.level:has(.parent) {
+  flex-wrap: wrap;
 }
 
 .element {
@@ -90,7 +93,7 @@ ul {
 .backend .hexagon.master {
   background: var(--vt-c-cyan);
 }
-.soft .hexagon.master {
+.leader .hexagon.master {
   background: var(--vt-c-lime);
 }
 
@@ -128,8 +131,8 @@ ul {
 .backend .element::after {
   border-color: var(--vt-c-cyan);
 }
-.soft .element::before,
-.soft .element::after {
+.leader .element::before,
+.leader .element::after {
   border-color: var(--vt-c-lime);
 }
 

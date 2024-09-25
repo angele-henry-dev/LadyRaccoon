@@ -1,6 +1,6 @@
 [
   {
-    "what": "Fullstack developer",
+    "what": "Software engineer",
     "where": "Alten as a Freelance",
     "from": 2023,
     "to": 2024,
@@ -8,7 +8,15 @@
       "Design and development of applications on Skywise using Slate and Workshop.",
       "Development of the backend using datasets with PySpark."
     ],
-    "technologies": ["Skywise Palantir", "Python", "PySpark", "PostgreSQL", "Javascript", "CSS"],
+    "technologies": [
+      "Foundry",
+      "Python",
+      "PySpark",
+      "PostgreSQL",
+      "Javascript",
+      "ui/ux",
+      "Mentorat"
+    ],
     "position": "bottom: 30px; left: 20px;",
     "building": "brickbuilding"
   },
@@ -29,7 +37,8 @@
       "JavaScript",
       "Typescript",
       "AWS",
-      "Tailwind"
+      "Tailwind",
+      "ui/ux"
     ],
     "position": "top: 125px; left: 20px;",
     "building": "brickbuilding"
@@ -43,7 +52,7 @@
       "Develop and manage a platform for airplane companies to follow the evolution of multiple systems to detect dangerous or alerting trends.",
       "Development of a ServiceNow portal for the management of the various ITSM processes."
     ],
-    "technologies": ["Java", "CSS", "Javascript", "ServiceNow"],
+    "technologies": ["Java", "ui/ux", "Javascript", "ServiceNow"],
     "position": "top: 5px; left: 120px;",
     "building": "brickbuilding"
   },
@@ -61,7 +70,7 @@
       "Liferay",
       "Java",
       "Hibernate",
-      "CSS",
+      "ui/ux",
       "Javascript",
       "JQuery",
       "BRMS RedHat",
@@ -80,7 +89,7 @@
     "descriptions": [
       "Design and development of patients files management and 3D image manipulation software for medical sector."
     ],
-    "technologies": ["C++", "QT5", "MySQL", "PHPMyAdmin", "PHP"],
+    "technologies": ["C++", "QT5", "MySQL", "PHPMyAdmin", "PHP", "ui/ux"],
     "position": "bottom: 100px; right: 125px;",
     "building": "brickhouse"
   },
@@ -106,7 +115,7 @@
       "Installation and management of a radio automation software.",
       "Realization of radio broadcasts as a radio animator and as a sound technician."
     ],
-    "technologies": ["CSS", "Javascript", "JQuery", "PHP"],
+    "technologies": ["ui/ux", "Javascript", "JQuery", "PHP"],
     "position": "top: 30px; right: 35px;",
     "building": "brickhouse"
   }

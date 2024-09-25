@@ -1,5 +1,49 @@
 [
   {
+    "type": "Tech leader",
+    "skills": [
+      {
+        "title": "Agile methods",
+        "levelAcquired": 1,
+        "levelTotal": 1,
+        "children": [
+          {
+            "title": "Leadership",
+            "levelAcquired": 1,
+            "levelTotal": 1,
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "Empathy",
+        "levelAcquired": 1,
+        "levelTotal": 1,
+        "children": [
+          {
+            "title": "Mentorat",
+            "levelAcquired": 1,
+            "levelTotal": 1,
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "Creativity",
+        "levelAcquired": 1,
+        "levelTotal": 1,
+        "children": [
+          {
+            "title": "Adaptability",
+            "levelAcquired": 1,
+            "levelTotal": 1,
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
     "type": "frontend",
     "skills": [
       {
@@ -55,45 +99,14 @@
             "levelAcquired": 2,
             "levelTotal": 3,
             "children": []
-          },
-          {
-            "title": "AWS",
-            "levelAcquired": 2,
-            "levelTotal": 3,
-            "children": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "type": "soft",
-    "skills": [
-      {
-        "title": "Empathy",
-        "levelAcquired": 1,
-        "levelTotal": 1,
-        "children": [
-          {
-            "title": "Creativity",
-            "levelAcquired": 1,
-            "levelTotal": 1,
-            "children": []
           }
         ]
       },
       {
-        "title": "Adaptability",
-        "levelAcquired": 1,
-        "levelTotal": 1,
-        "children": [
-          {
-            "title": "Problem-solving",
-            "levelAcquired": 1,
-            "levelTotal": 1,
-            "children": []
-          }
-        ]
+        "title": "AWS",
+        "levelAcquired": 2,
+        "levelTotal": 3,
+        "children": []
       }
     ]
   }
