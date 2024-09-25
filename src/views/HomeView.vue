@@ -25,7 +25,7 @@ import projects from '@/assets/models/projects.json' with { type: 'json' }
         reaching a game over due to a bug-infested application.
       </p>
       <p class="animated-heart">
-        <FontAwesomeIcon :icon="faHeart" />
+        <FontAwesomeIcon :icon="faHeart" size="xl" />
       </p>
     </div>
 
