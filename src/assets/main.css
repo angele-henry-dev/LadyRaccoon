@@ -54,8 +54,8 @@ a:hover {
 span.separator {
   margin: 0 10px;
 }
-span.highlight {
-  color: var(--vt-c-pink-light);
+.highlight {
+  color: var(--vt-c-pink);
 }
 
 .grow {
@@ -86,7 +86,7 @@ body::-webkit-scrollbar-thumb {
 /* Specific css */
 
 #description {
-  margin-bottom: calc(var(--section-gap) * 2);
+  margin-bottom: calc(var(--section-gap));
 }
 header,
 #skills,

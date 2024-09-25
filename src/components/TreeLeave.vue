@@ -58,7 +58,7 @@ ul {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 15px;
+  gap: 21px;
   line-height: 1rem;
 }
 .master ~ .text span {
@@ -140,6 +140,7 @@ ul {
   width: 50px;
   height: 10px;
   -webkit-mask: linear-gradient(90deg, #000 70%, #0000 0) 0/35%;
+  mask: linear-gradient(90deg, #000 70%, #0000 0) 0/35%;
   background: linear-gradient(var(--vt-c-yellow) 0 0) 0/0% no-repeat var(--color-border);
   background-size: 33%;
 }

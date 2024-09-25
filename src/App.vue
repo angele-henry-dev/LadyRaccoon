@@ -20,10 +20,6 @@ import ContactAside from '@/components/ContactAside.vue'
     <div class="wrapper">
       <nav>
         <RouterLink class="static" to="/">Lady Raccoon</RouterLink>
-        <RouterLink class="static" to="#description">.Description</RouterLink>
-        <RouterLink class="static" to="#skills">.Skills</RouterLink>
-        <RouterLink class="static" to="#projects">.Projects</RouterLink>
-        <RouterLink class="static" to="#experience">.Experience</RouterLink>
       </nav>
     </div>
   </header>
