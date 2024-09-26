@@ -5,108 +5,102 @@
       {
         "title": "Agile methods",
         "levelAcquired": 1,
-        "levelTotal": 1,
-        "children": [
-          {
-            "title": "Leadership",
-            "levelAcquired": 1,
-            "levelTotal": 1,
-            "children": []
-          }
-        ]
+        "levelTotal": 1
+      },
+      {
+        "title": "Leadership",
+        "levelAcquired": 1,
+        "levelTotal": 1
       },
       {
         "title": "Empathy",
         "levelAcquired": 1,
-        "levelTotal": 1,
-        "children": [
-          {
-            "title": "Mentorat",
-            "levelAcquired": 1,
-            "levelTotal": 1,
-            "children": []
-          }
-        ]
+        "levelTotal": 1
+      },
+      {
+        "title": "Mentorat",
+        "levelAcquired": 1,
+        "levelTotal": 1
       },
       {
         "title": "Creativity",
         "levelAcquired": 1,
-        "levelTotal": 1,
-        "children": [
-          {
-            "title": "Adaptability",
-            "levelAcquired": 1,
-            "levelTotal": 1,
-            "children": []
-          }
-        ]
+        "levelTotal": 1
+      },
+      {
+        "title": "Adaptability",
+        "levelAcquired": 1,
+        "levelTotal": 1
       }
     ]
   },
   {
-    "type": "frontend",
+    "type": "Frontend",
     "skills": [
       {
         "title": "JavaScript",
         "levelAcquired": 3,
-        "levelTotal": 3,
-        "children": [
-          {
-            "title": "TypeScript",
-            "levelAcquired": 3,
-            "levelTotal": 3,
-            "children": [
-              {
-                "title": "VueJS",
-                "levelAcquired": 3,
-                "levelTotal": 3,
-                "children": []
-              },
-              {
-                "title": "React",
-                "levelAcquired": 1,
-                "levelTotal": 3,
-                "children": []
-              },
-              {
-                "title": "Angular",
-                "levelAcquired": 1,
-                "levelTotal": 3,
-                "children": []
-              }
-            ]
-          }
-        ]
+        "levelTotal": 3
+      },
+      {
+        "title": "TypeScript",
+        "levelAcquired": 3,
+        "levelTotal": 3
+      },
+      {
+        "title": "VueJS",
+        "levelAcquired": 3,
+        "levelTotal": 3
+      },
+      {
+        "title": "React",
+        "levelAcquired": 1,
+        "levelTotal": 3
+      },
+      {
+        "title": "Angular",
+        "levelAcquired": 1,
+        "levelTotal": 3
+      },
+      {
+        "title": "CSS",
+        "levelAcquired": 3,
+        "levelTotal": 3
       }
     ]
   },
   {
-    "type": "backend",
+    "type": "Backend",
     "skills": [
       {
         "title": "Python",
         "levelAcquired": 3,
-        "levelTotal": 3,
-        "children": [
-          {
-            "title": "Flask",
-            "levelAcquired": 2,
-            "levelTotal": 3,
-            "children": []
-          },
-          {
-            "title": "PySpark",
-            "levelAcquired": 2,
-            "levelTotal": 3,
-            "children": []
-          }
-        ]
+        "levelTotal": 3
+      },
+      {
+        "title": "Flask",
+        "levelAcquired": 2,
+        "levelTotal": 3
+      },
+      {
+        "title": "PySpark",
+        "levelAcquired": 2,
+        "levelTotal": 3
       },
       {
         "title": "AWS",
         "levelAcquired": 2,
-        "levelTotal": 3,
-        "children": []
+        "levelTotal": 3
+      },
+      {
+        "title": "SQL",
+        "levelAcquired": 2,
+        "levelTotal": 3
+      },
+      {
+        "title": "NoSQL",
+        "levelAcquired": 2,
+        "levelTotal": 3
       }
     ]
   }
