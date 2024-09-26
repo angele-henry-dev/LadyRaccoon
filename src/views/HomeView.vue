@@ -6,7 +6,7 @@ import { faDragon } from '@fortawesome/free-solid-svg-icons'
 import { faBook } from '@fortawesome/free-solid-svg-icons'
 
 import LightEffect from '@/components/LightEffect.vue'
-import SkillsTree from '@/components/SkillsTree.vue'
+import CarouselCards from '@/components/CarouselCards.vue'
 import CustomCarousel from '@/components/CustomCarousel.vue'
 import IsometricCity from '@/components/IsometricCity.vue'
 
@@ -31,7 +31,7 @@ import projects from '@/assets/models/projects.json' with { type: 'json' }
 
     <h2 title="Skills"><FontAwesomeIcon :icon="faHatWizard" /> Skills at your service</h2>
     <div id="skills">
-      <SkillsTree :skills="skills" />
+      <CarouselCards :skills="skills" />
     </div>
 
     <h2 title="Professional experience">
