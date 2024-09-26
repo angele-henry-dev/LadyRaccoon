@@ -1,0 +1,87 @@
+/* Header */
+
+header {
+  width: 100%;
+  display: flex;
+  place-items: center;
+  padding: 0 0.5rem;
+  position: sticky;
+  top: 0px;
+  border: 1px solid var(--color-border);
+  background-color: hsla(0, 0%, 9%, 0.9);
+  z-index: 100;
+}
+header .wrapper {
+  width: 100%;
+}
+
+.logo {
+  display: block;
+  margin: 0.5rem 1rem;
+}
+
+nav {
+  width: 100%;
+  text-align: left;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: row;
+}
+nav a:not(.static).router-link-exact-active {
+  color: var(--vt-c-pink);
+}
+nav a.router-link-exact-active:hover {
+  background-color: transparent;
+}
+nav a {
+  padding: 0 1rem;
+}
+nav a:first-of-type {
+  flex-grow: 1;
+  font-size: 1.6rem;
+}
+
+/* Footer */
+
+footer {
+  text-align: center;
+  background: var(--color-background);
+  border-top: 1px solid var(--color-border);
+  width: 100%;
+  margin-top: calc(var(--section-gap) / 2);
+}
+
+/* Aside */
+
+#lateral-left {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  text-align: center;
+  width: 35px;
+  height: 100%;
+  top: 0;
+  right: 20px;
+  z-index: 1;
+}
+@media (width <= 1356px) {
+  #lateral-left {
+    right: 5px;
+  }
+}
+
+#lateral-left .box-vl {
+  height: 200px;
+  margin-bottom: 10px;
+}
+
+#lateral-left .vl {
+  border-right: 2px solid var(--vt-c-pink);
+  width: 2px;
+  height: 100%;
+  margin: auto;
+}
+
+#lateral-left a:last-child {
+  margin-bottom: 20px;
+}

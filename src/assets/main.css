@@ -1,8 +1,6 @@
 @import './css/base.css';
 @import './css/media.css';
-@import './css/header.css';
-@import './css/contact.css';
-@import './css/footer.css';
+@import './css/out.css';
 @import './css/heart.css';
 
 #app {
