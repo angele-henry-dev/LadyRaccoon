@@ -1,21 +1,26 @@
 <script setup lang="ts">
 // Props
-const props = defineProps(['skills', 'parent'])
+const { skills, parent } = defineProps<{ skills: Array<any>; parent: boolean }>()
 </script>
 
 <template>
-  <ul v-if="props.skills.length > 0" class="level">
+  <ul v-if="skills.length > 0" class="level">
     <li
-      v-for="(skill, j) in props.skills"
-      :key="j"
-      :class="`element
-        ${props.parent === false && props.skills.length > 1 && j < props.skills.length - 1 ? ' sisters' : ''}
-        ${props.parent === false ? ' before' : 'parent'}
-        ${skill.children.length > 0 ? ' after' : ''}`"
+      v-for="(skill, index) in skills"
+      :key="index"
+      :class="[
+        'element',
+        parent === false && skills.length > 1 && index < skills.length - 1 ? 'sisters' : '',
+        parent === false ? 'before' : 'parent',
+        skill.children.length > 0 ? 'after' : ''
+      ]"
     >
       <div
-        :class="`hexagon
-        ${skill.levelTotal - skill.levelAcquired === 0 ? ' master' : skill.levelTotal - skill.levelAcquired === 1 ? ' mid' : ''}`"
+        :class="{
+          hexagon: true,
+          master: skill.levelTotal - skill.levelAcquired === 0,
+          mid: skill.levelTotal - skill.levelAcquired === 1
+        }"
       ></div>
       <div class="text">
         <span class="level-acquired"></span>

@@ -120,7 +120,7 @@ let selectedIndex = ref(0)
             </div>
             <div
               :ref="`roof${i}`"
-              :class="`roof ${selectedIndex === i ? 'selected' : ''}`"
+              :class="`roof${selectedIndex === i ? ' selected' : ''}`"
               @click="selectedIndex = i"
             ></div>
           </div>
