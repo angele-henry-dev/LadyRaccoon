@@ -3,69 +3,82 @@
     "type": "Tech leader",
     "skills": [
       {
-        "title": "Agile methods",
+        "title": "Agile methodology",
         "levelAcquired": 1,
-        "levelTotal": 1
-      },
-      {
-        "title": "Leadership",
-        "levelAcquired": 1,
-        "levelTotal": 1
+        "levelTotal": 1,
+        "children": []
       },
       {
         "title": "Empathy",
         "levelAcquired": 1,
-        "levelTotal": 1
+        "levelTotal": 1,
+        "children": []
       },
       {
         "title": "Mentorat",
         "levelAcquired": 1,
-        "levelTotal": 1
+        "levelTotal": 1,
+        "children": []
       },
       {
         "title": "Creativity",
         "levelAcquired": 1,
-        "levelTotal": 1
+        "levelTotal": 1,
+        "children": []
       },
       {
         "title": "Adaptability",
         "levelAcquired": 1,
-        "levelTotal": 1
+        "levelTotal": 1,
+        "children": []
       }
     ]
   },
   {
-    "type": "Frontend",
+    "type": "Frontend pihdgilehfurjg rfgihe rfogubh erofjg herdfjsg djgbr",
     "skills": [
       {
         "title": "JavaScript",
         "levelAcquired": 3,
-        "levelTotal": 3
+        "levelTotal": 3,
+        "children": [
+          {
+            "title": "VueJS",
+            "levelAcquired": 3,
+            "levelTotal": 3,
+            "children": []
+          },
+          {
+            "title": "React",
+            "levelAcquired": 1,
+            "levelTotal": 3,
+            "children": []
+          },
+          {
+            "title": "Angular",
+            "levelAcquired": 1,
+            "levelTotal": 3,
+            "children": []
+          }
+        ]
       },
       {
         "title": "TypeScript",
         "levelAcquired": 3,
-        "levelTotal": 3
-      },
-      {
-        "title": "VueJS",
-        "levelAcquired": 3,
-        "levelTotal": 3
-      },
-      {
-        "title": "React",
-        "levelAcquired": 1,
-        "levelTotal": 3
-      },
-      {
-        "title": "Angular",
-        "levelAcquired": 1,
-        "levelTotal": 3
+        "levelTotal": 3,
+        "children": []
       },
       {
         "title": "CSS",
         "levelAcquired": 3,
-        "levelTotal": 3
+        "levelTotal": 3,
+        "children": []
+      },
+      {
+        "title": "UI/UX",
+        "levelAcquired": 3,
+        "levelTotal": 3,
+        "children": []
       }
     ]
   },
@@ -75,32 +88,75 @@
       {
         "title": "Python",
         "levelAcquired": 3,
-        "levelTotal": 3
+        "levelTotal": 3,
+        "children": [
+          {
+            "title": "Flask",
+            "levelAcquired": 2,
+            "levelTotal": 3,
+            "children": []
+          },
+          {
+            "title": "PySpark",
+            "levelAcquired": 2,
+            "levelTotal": 3,
+            "children": []
+          }
+        ]
       },
       {
-        "title": "Flask",
+        "title": "Java",
         "levelAcquired": 2,
-        "levelTotal": 3
+        "levelTotal": 3,
+        "children": [
+          {
+            "title": "Hibernate",
+            "levelAcquired": 2,
+            "levelTotal": 3,
+            "children": []
+          }
+        ]
       },
       {
-        "title": "PySpark",
+        "title": "C++",
         "levelAcquired": 2,
-        "levelTotal": 3
-      },
+        "levelTotal": 3,
+        "children": [
+          {
+            "title": "QT",
+            "levelAcquired": 2,
+            "levelTotal": 3,
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "AWS",
+    "skills": [
       {
-        "title": "AWS",
+        "title": "AWS Lambda",
         "levelAcquired": 2,
-        "levelTotal": 3
-      },
+        "levelTotal": 3,
+        "children": []
+      }
+    ]
+  },
+  {
+    "type": "Databases",
+    "skills": [
       {
         "title": "SQL",
         "levelAcquired": 2,
-        "levelTotal": 3
+        "levelTotal": 3,
+        "children": []
       },
       {
         "title": "NoSQL",
         "levelAcquired": 2,
-        "levelTotal": 3
+        "levelTotal": 3,
+        "children": []
       }
     ]
   }
