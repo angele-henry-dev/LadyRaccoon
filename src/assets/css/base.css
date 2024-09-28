@@ -32,6 +32,7 @@
   --color-border-hover: var(--vt-c-divider-dark-1);
 
   --color-text: var(--vt-c-text-dark-2);
+  --color-text-oposite: var(--vt-c-black-soft);
 
   --section-gap: 160px;
 }

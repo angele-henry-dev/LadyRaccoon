@@ -1,100 +1,83 @@
 <script setup lang="ts">
+import CarouselCard from '@/components/CarouselCard.vue'
+import { ref } from 'vue'
+
+// Variables
+let selectedIndex = ref(4)
+
 // Props
 const props = defineProps(['skills'])
+
+// Mthodes
+function setSelectedIndex(index: number) {}
 </script>
 
 <template>
-  <div class="cards-line">
-    <div
-      v-for="(item, index) in props.skills"
-      :key="index"
-      :class="`card-item${index === 0 ? ' card-active' : ''}`"
-    >
-      <div class="card-frame"></div>
-      <div class="card-inner">
-        {{ item.type }}
-      </div>
+  <div class="cards-container">
+    <div class="cards-line">
+      <CarouselCard
+        v-for="(item, index) in props.skills"
+        :key="index"
+        v-bind:class="`cloned${index === selectedIndex ? ' card-active' : ''}`"
+        :item="item"
+        @click="setSelectedIndex(index)"
+      />
+      <CarouselCard
+        v-for="(item, index) in props.skills"
+        :key="props.skills.length + index"
+        v-bind:class="`${props.skills.length + index === selectedIndex ? ' card-active' : ''}`"
+        :item="item"
+        @click="setSelectedIndex(props.skills.length + index)"
+      />
+      <CarouselCard
+        v-for="(item, index) in props.skills"
+        :key="props.skills.length * 2 + index"
+        v-bind:class="`cloned${props.skills.length * 2 + index === selectedIndex ? ' card-active' : ''}`"
+        :item="item"
+        @click="setSelectedIndex(props.skills.length * 2 + index)"
+      />
     </div>
   </div>
 </template>
 
 <style scoped>
-.cards-line {
-  /** 315 par 420 mobile */
+@media (width > 48em) {
+  .cards-container {
+    --card-width: 360px;
+  }
+}
+@media (width > 48em) {
+  .cards-container {
+    --card-height: 480px;
+  }
+}
+@media (width > 20.3125em) {
+  .cards-container {
+    --card-width: 315px;
+  }
+}
+@media (width < 47.99em) {
+  .cards-container {
+    --card-height: 420px;
+  }
+}
+.cards-container {
   --gap: 10px;
-  margin-bottom: 50px;
+  position: relative;
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  height: calc(var(--card-height));
+  margin-bottom: 50px;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   &::-webkit-scrollbar {
     display: none;
   }
 }
-@media (width > 48em) {
-  .cards-line {
-    --card-width: 360px;
-  }
-}
-@media (width > 48em) {
-  .cards-line {
-    --card-height: 480px;
-  }
-}
-@media (width > 20.3125em) {
-  .cards-line {
-    --card-width: 315px;
-  }
-}
-@media (width < 47.99em) {
-  .cards-line {
-    --card-height: 420px;
-  }
-}
-
-.card-item {
-  position: relative;
-  width: var(--card-width);
-  height: var(--card-height);
-  flex: 0 0 auto;
-}
-.card-frame {
-  -webkit-transform: scale(0.9445, 0.7625);
-  transform: scale(0.9445, 0.7625);
-  transition:
-    background 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    -webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-  background-color: #fff;
-}
-.card-frame,
-.card-frame:after,
-.card-frame:before {
+.cards-line {
   position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: var(--vt-c-black-mute);
-  border: 1px solid var(--color-border);
-  border-radius: 15px;
-}
-.card-active .card-frame {
-  -webkit-transform: scale(1);
-  transform: scale(1);
-  background-color: var(--vt-c-white-mute);
-}
-
-.card-inner {
-  height: 100%;
-  width: 100%;
-  padding: 57px 10px;
-  display: -webkit-flex;
-  display: -ms-flexbox;
+  left: -100%;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }
 </style>
