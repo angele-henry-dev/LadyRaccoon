@@ -1,15 +1,86 @@
 <script setup lang="ts">
 import CarouselCard from '@/components/CarouselCard.vue'
-import { ref } from 'vue'
+import { type Skill } from '@/types/Skills'
+import { ref, onMounted, onUnmounted } from 'vue'
 
-// Variables
-let selectedIndex = ref(4)
+// Define Props types for TypeScript
+interface Props {
+  skills: Skill[]
+}
 
 // Props
-const props = defineProps(['skills'])
+const props = defineProps<Props>()
 
-// Mthodes
-function setSelectedIndex(index: number) {}
+// Refs
+const cardsLine = ref<HTMLElement | null>(null)
+let selectedIndex = ref(4)
+
+// Variables for drag behavior
+let isDown = false
+let startX = 0
+let scrollLeft = 0
+
+// Event listeners for mouse and touch events
+onMounted(() => {
+  const line = cardsLine.value
+
+  if (!line) return
+
+  const handleMouseDown = (e: MouseEvent) => {
+    isDown = true
+    line.classList.add('active')
+    startX = e.pageX - line.offsetLeft
+    scrollLeft = line.scrollLeft
+  }
+
+  const handleMouseLeaveOrUp = () => {
+    isDown = false
+    line.classList.remove('active')
+  }
+
+  const handleMouseMove = (e: MouseEvent) => {
+    if (!isDown) return
+    e.preventDefault()
+    const x = e.pageX - line.offsetLeft
+    const walk = (x - startX) * 2
+    line.scrollLeft = scrollLeft - walk
+  }
+
+  const handleTouchStart = (e: TouchEvent) => {
+    isDown = true
+    startX = e.touches[0].pageX - line.offsetLeft
+    scrollLeft = line.scrollLeft
+  }
+
+  const handleTouchMove = (e: TouchEvent) => {
+    if (!isDown) return
+    const x = e.touches[0].pageX - line.offsetLeft
+    const walk = (x - startX) * 2
+    line.scrollLeft = scrollLeft - walk
+  }
+
+  // Add event listeners for mouse
+  line.addEventListener('mousedown', handleMouseDown)
+  line.addEventListener('mouseleave', handleMouseLeaveOrUp)
+  line.addEventListener('mouseup', handleMouseLeaveOrUp)
+  line.addEventListener('mousemove', handleMouseMove)
+
+  // Add event listeners for touch
+  line.addEventListener('touchstart', handleTouchStart)
+  line.addEventListener('touchend', handleMouseLeaveOrUp)
+  line.addEventListener('touchmove', handleTouchMove)
+
+  // Cleanup event listeners on unmount
+  onUnmounted(() => {
+    line.removeEventListener('mousedown', handleMouseDown)
+    line.removeEventListener('mouseleave', handleMouseLeaveOrUp)
+    line.removeEventListener('mouseup', handleMouseLeaveOrUp)
+    line.removeEventListener('mousemove', handleMouseMove)
+    line.removeEventListener('touchstart', handleTouchStart)
+    line.removeEventListener('touchend', handleMouseLeaveOrUp)
+    line.removeEventListener('touchmove', handleTouchMove)
+  })
+})
 </script>
 
 <template>
@@ -20,21 +91,18 @@ function setSelectedIndex(index: number) {}
         :key="index"
         v-bind:class="`cloned${index === selectedIndex ? ' card-active' : ''}`"
         :item="item"
-        @click="setSelectedIndex(index)"
       />
       <CarouselCard
         v-for="(item, index) in props.skills"
         :key="props.skills.length + index"
         v-bind:class="`${props.skills.length + index === selectedIndex ? ' card-active' : ''}`"
         :item="item"
-        @click="setSelectedIndex(props.skills.length + index)"
       />
       <CarouselCard
         v-for="(item, index) in props.skills"
         :key="props.skills.length * 2 + index"
         v-bind:class="`cloned${props.skills.length * 2 + index === selectedIndex ? ' card-active' : ''}`"
         :item="item"
-        @click="setSelectedIndex(props.skills.length * 2 + index)"
       />
     </div>
   </div>
