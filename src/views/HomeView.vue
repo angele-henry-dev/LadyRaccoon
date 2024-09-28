@@ -10,7 +10,7 @@ import CarouselCards from '@/components/CarouselCards.vue'
 import CustomCarousel from '@/components/CustomCarousel.vue'
 import IsometricCity from '@/components/IsometricCity.vue'
 
-import { type Skill } from '@/types/Skills'
+import { type Skills } from '@/types/Skills'
 
 import skills from '@/assets/models/skills.json' with { type: 'json' }
 import projects from '@/assets/models/projects.json' with { type: 'json' }
@@ -33,7 +33,7 @@ import projects from '@/assets/models/projects.json' with { type: 'json' }
 
     <h2 title="Skills"><FontAwesomeIcon :icon="faHatWizard" /> Skills at your service</h2>
     <div id="skills">
-      <CarouselCards :skills="skills as Skill[]" />
+      <CarouselCards :skills="skills as Skills[]" />
     </div>
 
     <h2 title="Professional experience">

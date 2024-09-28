@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import CarouselCard from '@/components/CarouselCard.vue'
-import { type Skill } from '@/types/Skills'
+import { type Skills } from '@/types/Skills'
 import { ref, onMounted, onUnmounted } from 'vue'
 
 // Define Props types for TypeScript
 interface Props {
-  skills: Skill[]
+  skills: Skills[]
 }
 
 // Props
