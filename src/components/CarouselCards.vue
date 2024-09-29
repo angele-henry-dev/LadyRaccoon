@@ -10,8 +10,8 @@ interface Props {
 const props = defineProps<Props>()
 
 // Refs
-const cardsLine = ref<HTMLElement | null>(null)
-let selectedIndex = ref(0)
+const cardsContainer = ref<HTMLElement | null>(null)
+let selectedIndex = ref(1)
 
 // Variables for drag behavior
 let isDown = false
@@ -20,7 +20,7 @@ let scrollLeft = 0
 
 // Event listeners for mouse and touch events
 onMounted(() => {
-  const line = cardsLine.value
+  const line = cardsContainer.value
 
   if (!line) return
 
@@ -34,6 +34,10 @@ onMounted(() => {
   const handleMouseLeaveOrUp = () => {
     isDown = false
     line.classList.remove('active')
+    const focusedCard = getFocusedCard(line.scrollWidth)
+    if (focusedCard && focusedCard.id) {
+      selectedIndex.value = +focusedCard.id
+    }
   }
 
   const handleMouseMove = (e: MouseEvent) => {
@@ -79,15 +83,53 @@ onMounted(() => {
     line.removeEventListener('touchmove', handleTouchMove)
   })
 })
+
+// Functions
+function getFocusedCard(size: number): null | Element {
+  const boxes = document.querySelectorAll('.card-item')
+  const focus = (size / boxes.length) * 2 + 15
+
+  let closestBox = null
+  let closestDistance = Infinity
+
+  boxes.forEach((box) => {
+    const boxRect = box.getBoundingClientRect()
+    const boxCenter = boxRect.left + boxRect.width / 2
+
+    const distanceToCenter = Math.abs(boxCenter - focus)
+
+    if (distanceToCenter < closestDistance) {
+      closestDistance = distanceToCenter
+      closestBox = box
+    }
+  })
+
+  return closestBox
+}
 </script>
 
 <template>
-  <div ref="cardsLine" class="cards-container">
+  <div ref="cardsContainer" class="cards-container">
     <div class="cards-line">
       <CarouselCard
         v-for="(item, index) in props.skills"
         :key="index"
-        v-bind:class="`${index === selectedIndex ? ' card-active' : ''}`"
+        :id="index"
+        v-bind:class="`cloned${index === selectedIndex ? ' card-active' : ''}`"
+        :item="item"
+      />
+      <CarouselCard
+        v-for="(item, index) in props.skills"
+        :key="props.skills.length + index"
+        :id="props.skills.length + index"
+        v-bind:class="`${props.skills.length + index === selectedIndex ? ' card-active' : ''}`"
+        :item="item"
+      />
+      <CarouselCard
+        v-for="(item, index) in props.skills"
+        :key="props.skills.length * 2 + index"
+        :id="props.skills.length * 2 + index"
+        v-bind:class="`cloned${props.skills.length * 2 + index === selectedIndex ? ' card-active' : ''}`"
         :item="item"
       />
     </div>
@@ -123,10 +165,10 @@ onMounted(() => {
   margin-bottom: 50px;
   cursor: grab;
   overflow-x: auto;
-  /* -webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;
   &::-webkit-scrollbar {
     display: none;
-  } */
+  }
 }
 .cards-container.active {
   cursor: grabbing;
