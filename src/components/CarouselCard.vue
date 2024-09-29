@@ -20,11 +20,11 @@ const props = defineProps(['item'])
   flex: 0 0 auto;
 }
 .card-frame {
-  -webkit-transform: scale(0.9445, 0.7625);
-  transform: scale(0.9445, 0.7625);
+  -webkit-transform: scale(0.95, 0.8);
+  transform: scale(0.95, 0.8);
   transition:
-    background 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    -webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+    background 0.4s cubic-bezier(0.25, 0.45, 0.45, 0.9),
+    -webkit-transform 0.6s cubic-bezier(0.2, 1, 0.2, 1);
   background-color: #fff;
 }
 .card-frame,

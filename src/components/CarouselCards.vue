@@ -24,28 +24,24 @@ onMounted(() => {
 
   if (!line) return
 
+  const handleMouseLeaveOrUp = () => {
+    isDown = false
+    line.classList.remove('active')
+  }
+
   const handleMouseDown = (e: MouseEvent) => {
     isDown = true
     line.classList.add('active')
     startX = e.pageX - line.offsetLeft
     scrollLeft = line.scrollLeft
   }
-
-  const handleMouseLeaveOrUp = () => {
-    isDown = false
-    line.classList.remove('active')
-    const focusedCard = getFocusedCard(line.scrollWidth)
-    if (focusedCard && focusedCard.id) {
-      selectedIndex.value = +focusedCard.id
-    }
-  }
-
   const handleMouseMove = (e: MouseEvent) => {
     if (!isDown) return
     e.preventDefault()
     const x = e.pageX - line.offsetLeft
     const walk = (x - startX) * 2
     line.scrollLeft = scrollLeft - walk
+    selectCard()
   }
 
   const handleTouchStart = (e: TouchEvent) => {
@@ -53,12 +49,12 @@ onMounted(() => {
     startX = e.touches[0].pageX - line.offsetLeft
     scrollLeft = line.scrollLeft
   }
-
   const handleTouchMove = (e: TouchEvent) => {
     if (!isDown) return
     const x = e.touches[0].pageX - line.offsetLeft
     const walk = (x - startX) * 2
     line.scrollLeft = scrollLeft - walk
+    selectCard()
   }
 
   // Add event listeners for mouse
@@ -87,7 +83,8 @@ onMounted(() => {
 // Functions
 function getFocusedCard(size: number): null | Element {
   const boxes = document.querySelectorAll('.card-item')
-  const focus = (size / boxes.length) * 2 + 15
+  const focus = size / 2
+  //console.log(focus)
 
   let closestBox = null
   let closestDistance = Infinity
@@ -105,6 +102,14 @@ function getFocusedCard(size: number): null | Element {
   })
 
   return closestBox
+}
+
+function selectCard() {
+  if (!cardsContainer.value) return
+  const focusedCard = getFocusedCard(cardsContainer.value.clientWidth)
+  if (focusedCard && focusedCard.id) {
+    selectedIndex.value = +focusedCard.id
+  }
 }
 </script>
 
@@ -137,38 +142,16 @@ function getFocusedCard(size: number): null | Element {
 </template>
 
 <style scoped>
-@media (width > 48em) {
-  .cards-container {
-    --card-width: 360px;
-  }
-}
-@media (width > 48em) {
-  .cards-container {
-    --card-height: 480px;
-  }
-}
-@media (width > 20.3125em) {
-  .cards-container {
-    --card-width: 315px;
-  }
-}
-@media (width < 47.99em) {
-  .cards-container {
-    --card-height: 420px;
-  }
-}
 .cards-container {
+  --card-width: 300px;
+  --card-height: 400px;
   --gap: 10px;
   position: relative;
   width: 100%;
   height: calc(var(--card-height) + 20px);
   margin-bottom: 50px;
   cursor: grab;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  overflow: hidden;
 }
 .cards-container.active {
   cursor: grabbing;
