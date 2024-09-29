@@ -7,7 +7,15 @@ const props = defineProps(['item'])
   <div class="card-item">
     <div class="card-frame"></div>
     <div class="card-inner">
-      {{ props.item.type }}
+      <h3>{{ props.item.type }}</h3>
+      <ul>
+        <li v-for="(skill, index) in props.item.skills" :key="index">
+          {{ skill.title }}
+          <ul class="children">
+            <li v-for="(child, j) in skill.children" :key="j">{{ child.title }}</li>
+          </ul>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -44,12 +52,8 @@ const props = defineProps(['item'])
   position: relative;
   height: 100%;
   width: 100%;
-  padding: 57px 10px;
-  display: -webkit-flex;
-  display: -ms-flexbox;
+  padding: 60px 20px;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
   z-index: 10;
 }
@@ -61,5 +65,22 @@ const props = defineProps(['item'])
 }
 .card-active .card-inner {
   color: var(--color-text-oposite);
+}
+
+.card-inner h3 {
+  text-transform: uppercase;
+  font-size: 1em;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.card-inner ul.children {
+  height: 0;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+.card-active .card-inner ul.children {
+  height: fit-content;
+  opacity: 1;
+  transition: opacity 0.5s 0.25s;
 }
 </style>
