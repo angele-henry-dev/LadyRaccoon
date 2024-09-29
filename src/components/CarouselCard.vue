@@ -18,7 +18,6 @@ const props = defineProps(['item'])
   width: var(--card-width);
   height: var(--card-height);
   flex: 0 0 auto;
-  cursor: pointer;
 }
 .card-frame {
   -webkit-transform: scale(0.9445, 0.7625);

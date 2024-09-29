@@ -3,17 +3,15 @@ import CarouselCard from '@/components/CarouselCard.vue'
 import { type Skills } from '@/types/Skills'
 import { ref, onMounted, onUnmounted } from 'vue'
 
-// Define Props types for TypeScript
+// Props
 interface Props {
   skills: Skills[]
 }
-
-// Props
 const props = defineProps<Props>()
 
 // Refs
 const cardsLine = ref<HTMLElement | null>(null)
-let selectedIndex = ref(4)
+let selectedIndex = ref(0)
 
 // Variables for drag behavior
 let isDown = false
@@ -84,24 +82,12 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="cards-container">
+  <div ref="cardsLine" class="cards-container">
     <div class="cards-line">
       <CarouselCard
         v-for="(item, index) in props.skills"
         :key="index"
-        v-bind:class="`cloned${index === selectedIndex ? ' card-active' : ''}`"
-        :item="item"
-      />
-      <CarouselCard
-        v-for="(item, index) in props.skills"
-        :key="props.skills.length + index"
-        v-bind:class="`${props.skills.length + index === selectedIndex ? ' card-active' : ''}`"
-        :item="item"
-      />
-      <CarouselCard
-        v-for="(item, index) in props.skills"
-        :key="props.skills.length * 2 + index"
-        v-bind:class="`cloned${props.skills.length * 2 + index === selectedIndex ? ' card-active' : ''}`"
+        v-bind:class="`${index === selectedIndex ? ' card-active' : ''}`"
         :item="item"
       />
     </div>
@@ -133,17 +119,21 @@ onMounted(() => {
   --gap: 10px;
   position: relative;
   width: 100%;
-  height: calc(var(--card-height));
+  height: calc(var(--card-height) + 20px);
   margin-bottom: 50px;
+  cursor: grab;
   overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+  /* -webkit-overflow-scrolling: touch;
   &::-webkit-scrollbar {
     display: none;
-  }
+  } */
+}
+.cards-container.active {
+  cursor: grabbing;
 }
 .cards-line {
   position: absolute;
-  left: -100%;
+  left: 0;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
