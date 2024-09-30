@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import CarouselCard from '@/components/CarouselCard.vue'
 import { type Skills } from '@/types/Skills'
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, reactive, watch, onMounted, onUnmounted } from 'vue'
 
 // Props
 interface Props {
@@ -10,13 +10,15 @@ interface Props {
 const props = defineProps<Props>()
 
 // Refs
+const skillsList = reactive([...props.skills])
 const cardsContainer = ref<HTMLElement | null>(null)
-let selectedIndex = ref(props.skills.length)
+let selectedIndex = ref(skillsList.length + 1)
 
 // Variables for drag behavior
 let isDown = false
 let startX = 0
 let scrollLeft = 0
+let cardWidth = 300
 
 // Event listeners for mouse and touch events
 onMounted(() => {
@@ -43,7 +45,7 @@ onMounted(() => {
     const x = e.pageX - line.offsetLeft
     const walk = x - startX
     line.scrollLeft = scrollLeft - walk
-    checkBoundary()
+    //checkBoundary()
     selectCard()
   }
 
@@ -57,7 +59,7 @@ onMounted(() => {
     const x = e.touches[0].pageX - line.offsetLeft
     const walk = x - startX
     line.scrollLeft = scrollLeft - walk
-    checkBoundary()
+    //checkBoundary()
     selectCard()
   }
 
@@ -88,21 +90,15 @@ onMounted(() => {
 function scrollToMiddle() {
   if (cardsContainer.value) {
     const middleScrollPosition =
-      cardsContainer.value.scrollWidth / 2 - cardsContainer.value.clientWidth / 2
+      cardsContainer.value.scrollWidth / 2 - cardsContainer.value.clientWidth / 2 + cardWidth * 1.5
     cardsContainer.value.scrollLeft = middleScrollPosition
   }
 }
 function checkBoundary() {
   if (!cardsContainer.value || !cardsContainer.value) return
-  const maxScroll = cardsContainer.value.scrollWidth - cardsContainer.value.clientWidth
+  const maxScroll = cardsContainer.value.scrollWidth - cardsContainer.value.clientWidth - cardWidth
 
-  // If scrolled too far to the left, reset to the right side
-  if (cardsContainer.value.scrollLeft <= 0) {
-    cardsContainer.value.scrollLeft = maxScroll / 2
-  }
-
-  // If scrolled too far to the right, reset to the left side
-  if (cardsContainer.value.scrollLeft >= maxScroll) {
+  if (cardsContainer.value.scrollLeft <= 0 || cardsContainer.value.scrollLeft >= maxScroll) {
     cardsContainer.value.scrollLeft = maxScroll / 2
   }
 }
@@ -134,13 +130,28 @@ function selectCard() {
     selectedIndex.value = +focusedCard.id.substring(6)
   }
 }
+
+// Watch
+watch(selectedIndex, (newVal, oldVal) => {
+  if (newVal < oldVal) {
+    const lastElement = skillsList.pop()
+    if (lastElement) {
+      skillsList.unshift(lastElement)
+    }
+  } else if (oldVal < newVal) {
+    const firstElement = skillsList.shift()
+    if (firstElement) {
+      skillsList.push(firstElement)
+    }
+  }
+})
 </script>
 
 <template>
   <div ref="cardsContainer" class="cards-container">
     <div ref="cardsContainer" class="cards-line">
       <CarouselCard
-        v-for="(item, index) in [...props.skills, ...props.skills]"
+        v-for="(item, index) in [...skillsList, ...skillsList]"
         :key="index"
         :id="`skill-${index}`"
         v-bind:class="`${index === selectedIndex ? 'card-active' : ''}`"
