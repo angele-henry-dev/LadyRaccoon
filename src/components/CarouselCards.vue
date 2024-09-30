@@ -52,7 +52,7 @@ watch(selectedIndex, (newVal) => {
       cardsContainer.value.scrollLeft = scrollToMiddle() + 150
       break
     case 4:
-      cardsContainer.value.scrollLeft = scrollToMiddle() + 300
+      cardsContainer.value.scrollLeft = cardsContainer.value.scrollWidth
   }
 })
 </script>
