@@ -140,6 +140,36 @@
         "levelAcquired": 2,
         "levelTotal": 3,
         "children": []
+      },
+      {
+        "title": "AWS Simple Storage Serv (S3)",
+        "levelAcquired": 2,
+        "levelTotal": 3,
+        "children": []
+      },
+      {
+        "title": "AWS CloudFront",
+        "levelAcquired": 2,
+        "levelTotal": 3,
+        "children": []
+      },
+      {
+        "title": "AWS Lightsail",
+        "levelAcquired": 2,
+        "levelTotal": 3,
+        "children": []
+      },
+      {
+        "title": "AWS API Gateway",
+        "levelAcquired": 2,
+        "levelTotal": 3,
+        "children": []
+      },
+      {
+        "title": "AWS Identity and Access Man",
+        "levelAcquired": 2,
+        "levelTotal": 3,
+        "children": []
       }
     ]
   },
@@ -150,13 +180,39 @@
         "title": "SQL",
         "levelAcquired": 2,
         "levelTotal": 3,
-        "children": []
+        "children": [
+          {
+            "title": "MySQL",
+            "levelAcquired": 2,
+            "levelTotal": 3,
+            "children": []
+          },
+          {
+            "title": "PostgreSQL",
+            "levelAcquired": 2,
+            "levelTotal": 3,
+            "children": []
+          },
+          {
+            "title": "MariaDB",
+            "levelAcquired": 2,
+            "levelTotal": 3,
+            "children": []
+          }
+        ]
       },
       {
         "title": "NoSQL",
         "levelAcquired": 2,
         "levelTotal": 3,
-        "children": []
+        "children": [
+          {
+            "title": "AWS DynamoDB",
+            "levelAcquired": 2,
+            "levelTotal": 3,
+            "children": []
+          }
+        ]
       }
     ]
   }
