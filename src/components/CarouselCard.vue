@@ -7,7 +7,7 @@ const props = defineProps(['item'])
   <div class="card-item">
     <div class="card-frame"></div>
     <div class="card-inner">
-      <h3>{{ props.item.type }}</h3>
+      <h2>{{ props.item.type }}</h2>
       <ul>
         <li v-for="(skill, index) in props.item.skills" :key="index" class="parent">
           {{ skill.title }}
@@ -59,18 +59,11 @@ const props = defineProps(['item'])
   z-index: 10;
 }
 
-.card-active .card-frame {
-  -webkit-transform: scale(1);
-  transform: scale(1);
-  background-color: var(--vt-c-white-mute);
-}
-.card-active .card-inner {
-  color: var(--color-text-oposite);
-}
-
-.card-inner h3 {
+.card-inner h2 {
+  border-bottom: 1px solid var(--vt-c-pink);
   text-transform: uppercase;
   font-size: 1em;
+  padding-bottom: 15px;
   margin-bottom: 20px;
 }
 .card-inner ul {
@@ -79,13 +72,22 @@ const props = defineProps(['item'])
   list-style: none;
 }
 .card-inner ul li.parent {
-  border-radius: 15px;
   padding: 5px;
 }
 .card-inner ul.children {
   height: 0;
   opacity: 0;
   transition: opacity 0.25s;
+}
+
+.card-active .card-frame {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  background-color: var(--vt-c-white-mute);
+}
+.card-active .card-inner {
+  color: var(--color-text-oposite);
+  padding-top: 20px;
 }
 .card-active .card-inner ul.children {
   height: fit-content;
@@ -94,7 +96,7 @@ const props = defineProps(['item'])
 }
 .card-active .card-inner ul li.parent {
   margin-bottom: 10px;
-  border: 1px solid var(--vt-c-pink);
+  border-bottom: 1px dashed var(--vt-c-pink);
   font-weight: bold;
 }
 </style>
