@@ -1,5 +1,48 @@
 [
   {
+    "type": "Databases",
+    "skills": [
+      {
+        "title": "SQL",
+        "levelAcquired": 2,
+        "levelTotal": 3,
+        "children": [
+          {
+            "title": "MySQL",
+            "levelAcquired": 2,
+            "levelTotal": 3,
+            "children": []
+          },
+          {
+            "title": "PostgreSQL",
+            "levelAcquired": 2,
+            "levelTotal": 3,
+            "children": []
+          },
+          {
+            "title": "MariaDB",
+            "levelAcquired": 2,
+            "levelTotal": 3,
+            "children": []
+          }
+        ]
+      },
+      {
+        "title": "NoSQL",
+        "levelAcquired": 2,
+        "levelTotal": 3,
+        "children": [
+          {
+            "title": "AWS DynamoDB",
+            "levelAcquired": 2,
+            "levelTotal": 3,
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
     "type": "Tech leader",
     "skills": [
       {
@@ -170,49 +213,6 @@
         "levelAcquired": 2,
         "levelTotal": 3,
         "children": []
-      }
-    ]
-  },
-  {
-    "type": "Databases",
-    "skills": [
-      {
-        "title": "SQL",
-        "levelAcquired": 2,
-        "levelTotal": 3,
-        "children": [
-          {
-            "title": "MySQL",
-            "levelAcquired": 2,
-            "levelTotal": 3,
-            "children": []
-          },
-          {
-            "title": "PostgreSQL",
-            "levelAcquired": 2,
-            "levelTotal": 3,
-            "children": []
-          },
-          {
-            "title": "MariaDB",
-            "levelAcquired": 2,
-            "levelTotal": 3,
-            "children": []
-          }
-        ]
-      },
-      {
-        "title": "NoSQL",
-        "levelAcquired": 2,
-        "levelTotal": 3,
-        "children": [
-          {
-            "title": "AWS DynamoDB",
-            "levelAcquired": 2,
-            "levelTotal": 3,
-            "children": []
-          }
-        ]
       }
     ]
   }
