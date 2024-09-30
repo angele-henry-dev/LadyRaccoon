@@ -21,8 +21,10 @@ let scrollLeft = 0
 // Event listeners for mouse and touch events
 onMounted(() => {
   const line = cardsContainer.value
-
   if (!line) return
+
+  // Set initial scroll position to the middle
+  scrollToMiddle()
 
   const handleMouseLeaveOrUp = () => {
     isDown = false
@@ -41,6 +43,7 @@ onMounted(() => {
     const x = e.pageX - line.offsetLeft
     const walk = x - startX
     line.scrollLeft = scrollLeft - walk
+    checkBoundary()
     selectCard()
   }
 
@@ -54,6 +57,7 @@ onMounted(() => {
     const x = e.touches[0].pageX - line.offsetLeft
     const walk = x - startX
     line.scrollLeft = scrollLeft - walk
+    checkBoundary()
     selectCard()
   }
 
@@ -81,10 +85,30 @@ onMounted(() => {
 })
 
 // Functions
+function scrollToMiddle() {
+  if (cardsContainer.value) {
+    const middleScrollPosition =
+      cardsContainer.value.scrollWidth / 2 - cardsContainer.value.clientWidth / 2
+    cardsContainer.value.scrollLeft = middleScrollPosition
+  }
+}
+function checkBoundary() {
+  if (!cardsContainer.value || !cardsContainer.value) return
+  const maxScroll = cardsContainer.value.scrollWidth - cardsContainer.value.clientWidth
+
+  // If scrolled too far to the left, reset to the right side
+  if (cardsContainer.value.scrollLeft <= 0) {
+    cardsContainer.value.scrollLeft = maxScroll / 2
+  }
+
+  // If scrolled too far to the right, reset to the left side
+  if (cardsContainer.value.scrollLeft >= maxScroll) {
+    cardsContainer.value.scrollLeft = maxScroll / 2
+  }
+}
 function getFocusedCard(size: number): null | Element {
   const boxes = document.querySelectorAll('.card-item')
   const focus = size / 2 + size / boxes.length
-  //console.log(focus)
 
   let closestBox = null
   let closestDistance = Infinity
@@ -103,7 +127,6 @@ function getFocusedCard(size: number): null | Element {
 
   return closestBox
 }
-
 function selectCard() {
   if (!cardsContainer.value) return
   const focusedCard = getFocusedCard(cardsContainer.value.clientWidth)
@@ -115,26 +138,12 @@ function selectCard() {
 
 <template>
   <div ref="cardsContainer" class="cards-container">
-    <div class="cards-line">
+    <div ref="cardsContainer" class="cards-line">
       <CarouselCard
-        v-for="(item, index) in props.skills"
+        v-for="(item, index) in [...props.skills, ...props.skills]"
         :key="index"
         :id="`skill-${index}`"
-        v-bind:class="`cloned${index === selectedIndex ? ' card-active' : ''}`"
-        :item="item"
-      />
-      <CarouselCard
-        v-for="(item, index) in props.skills"
-        :key="props.skills.length + index"
-        :id="`skill-${props.skills.length + index}`"
-        v-bind:class="`${props.skills.length + index === selectedIndex ? ' card-active' : ''}`"
-        :item="item"
-      />
-      <CarouselCard
-        v-for="(item, index) in props.skills"
-        :key="props.skills.length * 2 + index"
-        :id="`skill-${props.skills.length * 2 + index}`"
-        v-bind:class="`cloned${props.skills.length * 2 + index === selectedIndex ? ' card-active' : ''}`"
+        v-bind:class="`${index === selectedIndex ? 'card-active' : ''}`"
         :item="item"
       />
     </div>
@@ -153,14 +162,17 @@ function selectCard() {
   cursor: grab;
   overflow: hidden;
 }
+
 .cards-container.active {
   cursor: grabbing;
 }
+
 .cards-line {
   position: absolute;
   left: 0;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  transition: all 0.3s ease;
 }
 </style>
