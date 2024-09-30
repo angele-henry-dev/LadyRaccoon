@@ -26,6 +26,7 @@ const props = defineProps(['item'])
   width: var(--card-width);
   height: var(--card-height);
   flex: 0 0 auto;
+  cursor: pointer;
 }
 .card-frame {
   -webkit-transform: scale(0.95, 0.8);
@@ -80,6 +81,7 @@ const props = defineProps(['item'])
   transition: opacity 0.25s;
 }
 
+/* Active card */
 .card-active .card-frame {
   -webkit-transform: scale(1);
   transform: scale(1);
