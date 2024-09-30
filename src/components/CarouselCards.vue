@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import CarouselCard from '@/components/CarouselCard.vue'
 import { type Skills } from '@/types/Skills'
-import { ref, onMounted, watch } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
 
 // Props
 interface Props {
@@ -11,6 +11,7 @@ const props = defineProps<Props>()
 
 // Refs
 const cardsContainer = ref<HTMLElement | null>(null)
+const cardsWidth = ref(300)
 let selectedIndex = ref(2)
 
 // Functions
@@ -25,6 +26,11 @@ function scrollToMiddle(): number {
   }
   return 0
 }
+
+// Computed
+const getCardsWidth = computed(() => {
+  return cardsWidth.value + 'px' // '300px'
+})
 
 onMounted(() => {
   if (!cardsContainer.value) {
@@ -43,13 +49,13 @@ watch(selectedIndex, (newVal) => {
       cardsContainer.value.scrollLeft = 0
       break
     case 1:
-      cardsContainer.value.scrollLeft = scrollToMiddle() - 150
+      cardsContainer.value.scrollLeft = scrollToMiddle() - cardsWidth.value
       break
     case 2:
       cardsContainer.value.scrollLeft = scrollToMiddle()
       break
     case 3:
-      cardsContainer.value.scrollLeft = scrollToMiddle() + 150
+      cardsContainer.value.scrollLeft = scrollToMiddle() + cardsWidth.value
       break
     case 4:
       cardsContainer.value.scrollLeft = cardsContainer.value.scrollWidth
@@ -74,7 +80,7 @@ watch(selectedIndex, (newVal) => {
 
 <style scoped>
 .cards-container {
-  --card-width: 300px;
+  --card-width: v-bind('getCardsWidth');
   --card-height: 400px;
   --gap: 10px;
   position: relative;
