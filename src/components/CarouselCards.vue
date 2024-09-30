@@ -11,7 +11,7 @@ const props = defineProps<Props>()
 
 // Refs
 const cardsContainer = ref<HTMLElement | null>(null)
-let selectedIndex = ref(1)
+let selectedIndex = ref(props.skills.length)
 
 // Variables for drag behavior
 let isDown = false
@@ -39,7 +39,7 @@ onMounted(() => {
     if (!isDown) return
     e.preventDefault()
     const x = e.pageX - line.offsetLeft
-    const walk = (x - startX) * 2
+    const walk = x - startX
     line.scrollLeft = scrollLeft - walk
     selectCard()
   }
@@ -52,7 +52,7 @@ onMounted(() => {
   const handleTouchMove = (e: TouchEvent) => {
     if (!isDown) return
     const x = e.touches[0].pageX - line.offsetLeft
-    const walk = (x - startX) * 2
+    const walk = x - startX
     line.scrollLeft = scrollLeft - walk
     selectCard()
   }
@@ -83,7 +83,7 @@ onMounted(() => {
 // Functions
 function getFocusedCard(size: number): null | Element {
   const boxes = document.querySelectorAll('.card-item')
-  const focus = size / 2
+  const focus = size / 2 + size / boxes.length
   //console.log(focus)
 
   let closestBox = null
@@ -108,7 +108,7 @@ function selectCard() {
   if (!cardsContainer.value) return
   const focusedCard = getFocusedCard(cardsContainer.value.clientWidth)
   if (focusedCard && focusedCard.id) {
-    selectedIndex.value = +focusedCard.id
+    selectedIndex.value = +focusedCard.id.substring(6)
   }
 }
 </script>
@@ -119,21 +119,21 @@ function selectCard() {
       <CarouselCard
         v-for="(item, index) in props.skills"
         :key="index"
-        :id="index"
+        :id="`skill-${index}`"
         v-bind:class="`cloned${index === selectedIndex ? ' card-active' : ''}`"
         :item="item"
       />
       <CarouselCard
         v-for="(item, index) in props.skills"
         :key="props.skills.length + index"
-        :id="props.skills.length + index"
+        :id="`skill-${props.skills.length + index}`"
         v-bind:class="`${props.skills.length + index === selectedIndex ? ' card-active' : ''}`"
         :item="item"
       />
       <CarouselCard
         v-for="(item, index) in props.skills"
         :key="props.skills.length * 2 + index"
-        :id="props.skills.length * 2 + index"
+        :id="`skill-${props.skills.length * 2 + index}`"
         v-bind:class="`cloned${props.skills.length * 2 + index === selectedIndex ? ' card-active' : ''}`"
         :item="item"
       />
