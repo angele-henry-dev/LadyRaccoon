@@ -17,27 +17,42 @@ let selectedIndex = ref(2)
 function selectCard(index: number) {
   selectedIndex.value = index
 }
-function scrollToMiddle() {
+function scrollToMiddle(): number {
   if (cardsContainer.value) {
     const middleScrollPosition =
       cardsContainer.value.scrollWidth / 2 - cardsContainer.value.clientWidth / 2
-    cardsContainer.value.scrollLeft = middleScrollPosition
+    return middleScrollPosition
   }
+  return 0
 }
 
 onMounted(() => {
-  scrollToMiddle()
-})
-
-// Watch
-watch(selectedIndex, (newVal, oldVal) => {
   if (!cardsContainer.value) {
     return
   }
-  if (newVal < oldVal) {
-    cardsContainer.value.scrollLeft -= 150
-  } else if (oldVal < newVal) {
-    cardsContainer.value.scrollLeft += 150
+  cardsContainer.value.scrollLeft = scrollToMiddle()
+})
+
+// Watch
+watch(selectedIndex, (newVal) => {
+  if (!cardsContainer.value) {
+    return
+  }
+  switch (newVal) {
+    case 0:
+      cardsContainer.value.scrollLeft = 0
+      break
+    case 1:
+      cardsContainer.value.scrollLeft = scrollToMiddle() - 150
+      break
+    case 2:
+      cardsContainer.value.scrollLeft = scrollToMiddle()
+      break
+    case 3:
+      cardsContainer.value.scrollLeft = scrollToMiddle() + 150
+      break
+    case 4:
+      cardsContainer.value.scrollLeft = scrollToMiddle() + 300
   }
 })
 </script>
@@ -66,7 +81,11 @@ watch(selectedIndex, (newVal, oldVal) => {
   width: 100%;
   height: calc(var(--card-height) + 20px);
   margin-bottom: 50px;
-  overflow: hidden;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .cards-line {
