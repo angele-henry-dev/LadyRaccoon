@@ -23,12 +23,17 @@
 
 /* Isometric city */
 
-@media (600px < width <= 1217px) {
+@media (max-width: 1217px) {
   .isometric-city .iso-container {
     height: 570px;
   }
 }
-@media (width <= 600px) {
+@media (min-width: 600px) {
+  .isometric-city .iso-container {
+    height: 570px;
+  }
+}
+@media (max-width: 600px) {
   .isometric-city .iso-container {
     margin-top: -100px;
     margin-left: -60px;
