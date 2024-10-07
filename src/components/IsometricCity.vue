@@ -24,11 +24,13 @@ let selectedIndex = ref(0)
           <label
             class="carousel__control carousel__control--backward"
             :for="i === 0 ? (experience.length - 1).toString() : (i - 1).toString()"
-          ></label>
+            >&#10148;</label
+          >
           <label
             class="carousel__control carousel__control--forward"
             :for="i === experience.length - 1 ? (0).toString() : (i + 1).toString()"
-          ></label>
+            >&#10148;</label
+          >
         </div>
         <li v-for="(item, i) in experience" :key="i">
           <div>
@@ -51,7 +53,9 @@ let selectedIndex = ref(0)
             :key="i"
             class="carousel__indicator"
             :for="i.toString()"
-          ></label>
+          >
+            &#9679;
+          </label>
         </div>
       </ul>
     </div>
@@ -188,23 +192,6 @@ let selectedIndex = ref(0)
   height: 550px;
   border: 1px solid var(--vt-c-divider-dark-2);
 }
-@media (600px < width <= 1217px) {
-  .iso-container {
-    height: 570px;
-  }
-}
-@media (width <= 600px) {
-  .iso-container {
-    margin-top: -100px;
-    margin-left: -60px;
-    margin-left: -15%;
-    transform: scale(0.5);
-  }
-  .iso-description {
-    flex-grow: 0;
-    min-width: 365px;
-  }
-}
 
 /* Carousel */
 
@@ -259,7 +246,6 @@ let selectedIndex = ref(0)
 .carousel__activator:nth-of-type(6):checked ~ .carousel__controls:nth-of-type(6),
 .carousel__activator:nth-of-type(7):checked ~ .carousel__controls:nth-of-type(7) {
   display: block;
-  opacity: 1;
 }
 .carousel__activator:nth-of-type(1):checked
   ~ .carousel__indicators
@@ -282,34 +268,27 @@ let selectedIndex = ref(0)
 .carousel__activator:nth-of-type(7):checked
   ~ .carousel__indicators
   .carousel__indicator:nth-of-type(7) {
-  opacity: 1;
+  color: #fafafa;
 }
 
 .carousel__control {
-  height: 30px;
-  width: 30px;
-  margin: 0 20px;
-  bottom: 20px;
   position: absolute;
+  bottom: 0;
   display: block;
+  font-size: 3rem;
+  color: #787878;
   cursor: pointer;
-  border-width: 5px 5px 0 0;
-  border-style: solid;
-  border-color: #fafafa;
-  border-radius: 5px;
-  opacity: 0.35;
   z-index: 3;
 }
 .carousel__control:hover {
-  opacity: 1;
+  color: #fff;
 }
 .carousel__control--backward {
   left: 10px;
-  transform: rotate(-135deg);
+  transform: rotate(-180deg);
 }
 .carousel__control--forward {
   right: 10px;
-  transform: rotate(45deg);
 }
 
 .carousel__indicators {
@@ -319,20 +298,17 @@ let selectedIndex = ref(0)
   text-align: center;
 }
 .carousel__indicator {
-  height: 15px;
-  width: 15px;
-  border-radius: 100%;
+  font-size: 20px;
   display: inline-block;
   z-index: 2;
   cursor: pointer;
-  opacity: 0.35;
   margin: 0 2.5px 0 2.5px;
 }
 .carousel__indicator:hover {
-  opacity: 0.75;
+  color: #fafafa;
 }
 .carousel__indicator {
-  background-color: #fafafa;
+  color: #787878;
 }
 
 /* Colors */
@@ -950,7 +926,6 @@ div.one .water-drops div:nth-child(4) {
 .brickbuilding .wall-two div {
   position: absolute;
   display: block;
-  opacity: 1;
 }
 .brickhouse .wall-one div,
 .brickbuilding .wall-one div {

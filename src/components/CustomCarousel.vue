@@ -83,6 +83,7 @@ const arrChunk = computed(() => {
           class="currImg"
           :src="getImageUrl(`${props.items[currImgIdx].src}`)"
           width="100%"
+          height="100%"
         />
       </div>
       <div class="crop" :name="transition_name" tag="div">
@@ -97,7 +98,13 @@ const arrChunk = computed(() => {
             @click="currImgIdx = j + i * chunkSize"
             :class="{ curr: item.src == props.items[currImgIdx].src }"
           >
-            <img :title="item.title" :alt="item.title" :src="getImageUrl(`${item.src}`)" />
+            <img
+              :title="item.title"
+              :alt="item.title"
+              :src="getImageUrl(`${item.src}`)"
+              width="50px"
+              height="50px"
+            />
           </div>
         </div>
         <a @click="next">
@@ -173,6 +180,5 @@ a {
 }
 .chunk-item img {
   display: inline-block;
-  height: 50px;
 }
 </style>

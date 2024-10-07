@@ -1,7 +1,7 @@
 @import './css/base.css';
-@import './css/media.css';
-@import './css/out.css';
 @import './css/heart.css';
+@import './css/out.css';
+@import './css/media.css';
 
 #app {
   margin: 0 auto;
@@ -85,9 +85,7 @@ body::-webkit-scrollbar-thumb {
 
 #description {
   margin-bottom: calc(var(--section-gap) * 1.5);
-}
-header {
-  margin-bottom: calc(var(--section-gap));
+  margin-top: calc(var(--section-gap));
 }
 
 .pins {

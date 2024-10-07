@@ -64,11 +64,6 @@ footer {
   left: 20px;
   z-index: 1;
 }
-@media (width <= 1356px) {
-  #lateral-left {
-    left: 5px;
-  }
-}
 
 #lateral-left .box-vl {
   height: 200px;

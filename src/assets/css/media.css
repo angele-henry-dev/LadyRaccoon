@@ -1,4 +1,4 @@
-@media (width <= 1024px) {
+@media (max-width: 1024px) {
   #app {
     padding: 0 !important;
   }
@@ -13,5 +13,37 @@
 
   #description {
     margin-bottom: calc(var(--section-gap)) !important;
+  }
+}
+@media (max-width: 1356px) {
+  #lateral-left {
+    left: 5px !important;
+  }
+}
+
+/* Isometric city */
+
+@media (600px < width <= 1217px) {
+  .isometric-city .iso-container {
+    height: 570px;
+  }
+}
+@media (width <= 600px) {
+  .isometric-city .iso-container {
+    margin-top: -100px;
+    margin-left: -60px;
+    margin-left: -15%;
+    transform: scale(0.5);
+  }
+  .isometric-city .iso-description {
+    flex-grow: 0;
+    min-width: 365px;
+  }
+}
+@media (prefers-reduced-motion) {
+  .isometric-city .car div.one,
+  .isometric-city .car div.two {
+    display: none !important;
+    animation: none !important;
   }
 }
