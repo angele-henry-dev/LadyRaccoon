@@ -80,6 +80,10 @@
 </template>
 
 <style scoped>
+main {
+  padding: 50px 0;
+}
+
 h1 {
   margin-bottom: 50px;
 }
