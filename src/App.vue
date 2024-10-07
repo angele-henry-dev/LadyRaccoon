@@ -32,7 +32,7 @@ function getCurrentYear() {
     </div>
   </header>
 
-  <RouterView />
+  <RouterView class="main-content" />
 
   <footer>
     <p>

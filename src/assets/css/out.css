@@ -61,12 +61,12 @@ footer {
   width: 35px;
   height: 100%;
   top: 0;
-  right: 20px;
+  left: 20px;
   z-index: 1;
 }
 @media (width <= 1356px) {
   #lateral-left {
-    right: 5px;
+    left: 5px;
   }
 }
 

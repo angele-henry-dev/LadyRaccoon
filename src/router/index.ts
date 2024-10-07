@@ -23,7 +23,17 @@ const router = createRouter({
       path: '/sitemap',
       name: 'sitemap',
       component: () => import('../views/SitemapView.vue')
+    },
+    {
+      path: '/:notFound',
+      name: 'NotFound',
+      component: () => import('../views/NotFound.vue')
     }
+    /* {
+      path: '/:pathMatch(.*)*',
+      name: 'ErrorView',
+      component: () => import('../views/NotFound.vue')
+    } */
   ]
 })
 
