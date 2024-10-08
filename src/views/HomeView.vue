@@ -32,20 +32,20 @@ import projects from '@/assets/models/projects.json' with { type: 'json' }
       </p>
     </div>
 
-    <h2 title="Skills"><FontAwesomeIcon :icon="faHatWizard" /> Skills at your service</h2>
     <div id="skills">
+      <h2 title="Skills"><FontAwesomeIcon :icon="faHatWizard" /> Skills at your service</h2>
       <CarouselCards :skills="skills as Skills[]" />
     </div>
 
-    <h2 title="Professional experience">
-      <FontAwesomeIcon :icon="faBook" /> Professional experience
-    </h2>
     <div id="experience">
+      <h2 title="Professional experience">
+        <FontAwesomeIcon :icon="faBook" /> Professional experience
+      </h2>
       <IsometricCity />
     </div>
 
-    <h2 title="Projects"><FontAwesomeIcon :icon="faDragon" /> Projects</h2>
     <div id="projects">
+      <h2 title="Projects"><FontAwesomeIcon :icon="faDragon" /> Projects</h2>
       <CustomCarousel :items="projects" />
     </div>
   </main>

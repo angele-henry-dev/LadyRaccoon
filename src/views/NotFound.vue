@@ -3,7 +3,7 @@ import { ref } from 'vue'
 
 // Raccoon
 const imgStyle = ref({
-  bottom: `${Math.floor(Math.random() * 50 + 10)}%`,
+  bottom: `${Math.floor(Math.random() * 80 + 10)}%`,
   left: `${Math.floor(Math.random() * 80 + 10)}%`
 })
 const isEscaping = ref(false)
@@ -32,8 +32,8 @@ const resetPosition = () => {
 // Functions Torch
 const moveTorch = (event: { clientY: number; clientX: number }) => {
   torchStyle.value = {
-    top: `${event.clientY - 170}px`,
-    left: `${event.clientX - 240}px`
+    top: `${event.clientY - 100}px`,
+    left: `${event.clientX - 100}px`
   }
 }
 </script>
@@ -65,7 +65,6 @@ const moveTorch = (event: { clientY: number; clientX: number }) => {
 .not-found {
   width: 100%;
   height: 100%;
-  position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -82,7 +81,7 @@ const moveTorch = (event: { clientY: number; clientX: number }) => {
   position: absolute;
   width: 200px;
   height: 200px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 20%, rgba(0, 0, 0, 0) 70%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 20%, rgba(0, 0, 0, 0) 70%);
   border-radius: 50%;
   pointer-events: none;
 }

@@ -3,13 +3,17 @@
 @import './css/out.css';
 @import './css/media.css';
 
+body {
+  overflow: hidden;
+}
 #app {
-  margin: 0 auto;
-  max-width: 1324px;
+  margin: 0;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  padding: 0 3rem;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .main-content {
@@ -65,23 +69,30 @@ span.separator {
 
 /* Custom scrollbar */
 
-body {
-  overflow-y: scroll;
-}
-body::-webkit-scrollbar {
+#app::-webkit-scrollbar {
   width: 5px;
 }
-body::-moz-scrollbar {
+#app::-moz-scrollbar {
   width: 5px;
 }
-body::-webkit-scrollbar-track {
+#app::-webkit-scrollbar-track {
   background: var(--vt-c-black);
 }
-body::-webkit-scrollbar-thumb {
+#app::-webkit-scrollbar-thumb {
   background-color: var(--vt-c-pink);
 }
 
 /* Specific css */
+
+#description,
+#skills,
+#experience,
+#projects {
+  max-width: 1324px;
+  padding: 0 3rem;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 #description {
   margin-bottom: calc(var(--section-gap) * 1.5);
