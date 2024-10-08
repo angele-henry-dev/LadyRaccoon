@@ -14,6 +14,12 @@
   #description {
     margin-bottom: calc(var(--section-gap)) !important;
   }
+  #description,
+  #skills,
+  #experience,
+  #projects {
+    padding: 0 !important;
+  }
 }
 @media (max-width: 1356px) {
   #lateral-left {
@@ -49,6 +55,24 @@
   .isometric-city .car div.one,
   .isometric-city .car div.two {
     display: none !important;
+    animation: none !important;
+  }
+}
+
+/* Hidden raccoon */
+
+@media (max-width: 961px) {
+  .torch {
+    display: none;
+  }
+  .hidden-raccoon {
+    mix-blend-mode: normal !important;
+    bottom: 20px !important;
+    left: 20px !important;
+    width: auto;
+    height: 100%;
+  }
+  .hidden-raccoon.escaping {
     animation: none !important;
   }
 }

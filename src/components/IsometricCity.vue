@@ -187,9 +187,9 @@ let selectedIndex = ref(0)
   height: 360px;
 }
 .iso-description {
-  min-width: 420px;
+  min-width: 300px;
   max-width: 560px;
-  height: 550px;
+  height: 630px;
   border: 1px solid var(--vt-c-divider-dark-2);
 }
 
