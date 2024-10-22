@@ -5,7 +5,7 @@
     "when": "2024 - In progress",
     "type": "application",
     "subtitle": "Application for iOS and Android",
-    "technologies": ["NativeScript", "Vue.js"],
+    "technologies": ["Ionic Framework", "Vue.js"],
     "description": "This app is the perfect companion for managing your D&D sessions. It allows players to easily track their character sheets, while providing powerful tools for game masters. With the built-in combat simulator, GMs can create and manage battles in real-time, simplifying the handling of complex encounters."
   },
   {

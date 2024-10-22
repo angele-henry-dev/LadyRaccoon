@@ -98,8 +98,8 @@
             "children": []
           },
           {
-            "title": "Angular",
-            "levelAcquired": 1,
+            "title": "Ionic Framework",
+            "levelAcquired": 2,
             "levelTotal": 3,
             "children": []
           }
@@ -119,7 +119,7 @@
       },
       {
         "title": "UI/UX",
-        "levelAcquired": 3,
+        "levelAcquired": 2,
         "levelTotal": 3,
         "children": []
       }
@@ -191,7 +191,7 @@
         "children": []
       },
       {
-        "title": "AWS CloudFront",
+        "title": "AWS IoT Core",
         "levelAcquired": 2,
         "levelTotal": 3,
         "children": []
