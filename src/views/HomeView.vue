@@ -22,7 +22,7 @@ import projects from '@/assets/models/projects.json' with { type: 'json' }
     <LightEffect />
 
     <div id="description" class="align-center">
-      <h1>Looking for a <span class="highlight">lead developper</span> to boost your team?</h1>
+      <h1>Looking for a <span class="highlight">lead developer</span> to boost your team?</h1>
       <p>
         As a senior software engineer, my main quest is simple: to prevent your project from
         reaching a game over due to a bug-infested application.
