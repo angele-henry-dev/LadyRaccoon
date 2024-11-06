@@ -44,7 +44,7 @@ const props = defineProps(['item'])
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: var(--vt-c-black-mute);
+  background-color: var(--vt-c-black-soft);
   border: 1px solid var(--color-border);
   border-radius: 15px;
 }
@@ -85,7 +85,7 @@ const props = defineProps(['item'])
 .card-active .card-frame {
   -webkit-transform: scale(1);
   transform: scale(1);
-  background-color: var(--vt-c-white-mute);
+  background-color: var(--vt-c-white-soft);
 }
 .card-active .card-inner {
   color: var(--color-text-oposite);

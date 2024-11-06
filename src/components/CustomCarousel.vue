@@ -129,6 +129,7 @@ a {
 }
 .text-container,
 .carousel-container {
+  background-color: var(--color-background);
   width: 50%;
   min-width: 305px;
   max-width: 480px;

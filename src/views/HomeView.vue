@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import { faHatWizard } from '@fortawesome/free-solid-svg-icons'
 import { faDragon } from '@fortawesome/free-solid-svg-icons'
 import { faBook } from '@fortawesome/free-solid-svg-icons'
 
 import FooterComponent from '@/components/FooterComponent.vue'
-import LightEffect from '@/components/LightEffect.vue'
 import CarouselCards from '@/components/CarouselCards.vue'
 import CustomCarousel from '@/components/CustomCarousel.vue'
 import IsometricCity from '@/components/IsometricCity.vue'
+import RetroBackground from '@/components/RetroBackground.vue'
+import StarsBackground from '@/components/StarsBackground.vue'
 
 import { type Skills } from '@/types/Skills'
 
@@ -19,7 +19,7 @@ import projects from '@/assets/models/projects.json' with { type: 'json' }
 
 <template>
   <main>
-    <LightEffect />
+    <StarsBackground />
 
     <div id="description" class="align-center">
       <h1>Looking for a <span class="highlight">lead developer</span> to boost your team?</h1>
@@ -27,10 +27,9 @@ import projects from '@/assets/models/projects.json' with { type: 'json' }
         As a senior software engineer, my main quest is simple: to prevent your project from
         reaching a game over due to a bug-infested application.
       </p>
-      <p class="animated-heart">
-        <FontAwesomeIcon :icon="faHeart" size="xl" />
-      </p>
     </div>
+
+    <RetroBackground />
 
     <div id="skills">
       <h2 title="Skills"><FontAwesomeIcon :icon="faHatWizard" /> Skills at your service</h2>

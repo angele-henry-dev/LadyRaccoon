@@ -199,7 +199,7 @@ let selectedIndex = ref(0)
   display: inline-block;
   padding: 20px;
   margin-bottom: 20px;
-  background-color: var(--black-light-color);
+  background-color: var(--color-background);
 }
 .iso-description ul {
   height: 100%;
