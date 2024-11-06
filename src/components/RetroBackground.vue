@@ -2,6 +2,7 @@
   <div class="retrobg">
     <div class="retrobg-sky">
       <div class="retrobg-sunWrap">
+        <div class="retrobg-sun-shadow"></div>
         <div class="retrobg-sun"></div>
       </div>
       <div class="retrobg-mountains">
@@ -13,126 +14,94 @@
       <div class="retrobg-linesWrap">
         <div class="retrobg-lines">
           <div class="retrobg-vlines">
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
-            <div class="retrobg-vline"></div>
+            <div v-for="x in 53" :key="x" class="retrobg-vline"></div>
           </div>
           <div class="retrobg-hlines">
-            <div class="retrobg-hline"></div>
-            <div class="retrobg-hline"></div>
-            <div class="retrobg-hline"></div>
-            <div class="retrobg-hline"></div>
-            <div class="retrobg-hline"></div>
-            <div class="retrobg-hline"></div>
-            <div class="retrobg-hline"></div>
-            <div class="retrobg-hline"></div>
+            <div v-for="x in 8" :key="x" class="retrobg-hline"></div>
           </div>
         </div>
       </div>
       <div class="retrobg-groundShadow"></div>
     </div>
   </div>
+
+  <svg height="0" width="0">
+    <defs>
+      <clipPath id="stripes" clipPathUnits="objectBoundingBox">
+        <rect x="0" y="0" width="1" height="0.175" />
+        <rect x="0" y="0.178" width="1" height="0.075" />
+        <rect x="0" y="0.259" width="1" height="0.075" />
+        <rect x="0" y="0.343" width="1" height="0.075" />
+        <rect x="0" y="0.430" width="1" height="0.075" />
+        <rect x="0" y="0.520" width="1" height="0.075" />
+      </clipPath>
+    </defs>
+  </svg>
 </template>
 
 <style scoped>
 .retrobg {
   position: relative;
-  overflow: hidden;
-  height: calc(100vh - 70px);
+  height: calc(80vh - 70px);
   color: var(--vt-c-pink);
 }
 
 .retrobg-sky {
-  position: absolute;
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  top: 0;
   width: 100%;
-  height: 55%;
-  background: linear-gradient(#000000bf 75%, var(--vt-c-pink));
+  height: 100%;
+  background: linear-gradient(#00000000 15%, var(--vt-c-pink));
 }
 
-.retrobg-sunWrap {
-  position: relative;
-  width: 40%;
-  margin-bottom: -15%;
+.retrobg-sun,
+.retrobg-sun-shadow {
+  --glow-color: var(--vt-c-orange);
+  border-radius: 50%;
 }
 .retrobg-sun {
-  --glow-color: var(--vt-c-orange);
-  padding-top: 100%;
-  border-radius: 50%;
+  position: relative;
   background-image: linear-gradient(var(--vt-c-yellow), var(--vt-c-orange), var(--vt-c-pink) 65%);
-  box-shadow: 0 0 160px 80px var(--glow-color);
+  clip-path: url(#stripes);
+  height: 100%;
+  width: 100%;
+}
+.retrobg-sunWrap {
+  position: relative;
+  width: 50%;
+  height: 100%;
+}
+.retrobg-sun-shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 80px 40px var(--glow-color);
+  background-color: var(--glow-color);
+  opacity: 0.5;
+  clip-path: inset(-50% -50% 50% -50%);
   animation: 2s ease infinite alternate retrobg-sun-glow-anim;
 }
 @keyframes retrobg-sun-glow-anim {
   from {
-    box-shadow: 0 0 160px 80px var(--glow-color);
+    box-shadow: 0 0 80px 40px var(--glow-color);
   }
   to {
-    box-shadow: 0 0 200px 95px var(--glow-color);
+    box-shadow: 0 0 160px 40px var(--glow-color);
   }
 }
 
 .retrobg-mountains {
   position: absolute;
   width: 100%;
-  height: 30%;
+  height: 50%;
+  bottom: 300px;
 }
 .retrobg-mountain {
   position: absolute;
-  width: 30%;
+  width: 40%;
   height: 100%;
   background-image: linear-gradient(
     var(--color-background) 70%,
@@ -191,9 +160,10 @@
   position: absolute;
   overflow: hidden;
   width: 100%;
-  height: 45%;
+  height: 50%;
   bottom: 0;
   border-top: 2px solid var(--vt-c-pink);
+  border-bottom: 2px solid var(--vt-c-pink);
   background-color: var(--color-background);
 }
 .retrobg-groundShadow {

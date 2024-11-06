@@ -12,7 +12,7 @@
   }
 
   #description {
-    margin-bottom: calc(var(--section-gap)) !important;
+    margin-bottom: calc(var(--section-gap) / 2) !important;
   }
   #description,
   #skills,

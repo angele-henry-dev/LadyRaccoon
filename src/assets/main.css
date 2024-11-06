@@ -94,7 +94,7 @@ span.separator {
 }
 
 #description {
-  margin-bottom: calc(var(--section-gap) * 1.5);
+  margin-bottom: var(--section-gap);
   margin-top: calc(var(--section-gap));
 }
 
