@@ -1,5 +1,5 @@
 @media (max-width: 1024px) {
-  #app {
+  body {
     padding: 0 !important;
   }
   h1 {
@@ -13,6 +13,7 @@
 
   #description {
     margin-bottom: calc(var(--section-gap) / 2) !important;
+    margin-top: calc(var(--section-gap) / 2) !important;
   }
   #description,
   #skills,

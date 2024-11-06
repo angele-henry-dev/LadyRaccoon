@@ -1,27 +1,44 @@
+<script setup lang="ts">
+import { computed } from 'vue'
+import { useWindowScroll } from '@vueuse/core'
+
+const { y } = useWindowScroll()
+
+const displayY = computed({
+  get() {
+    return y.value.toFixed(1) + 'px'
+  },
+  set(val) {
+    y.value = Number.parseFloat(val)
+  }
+})
+</script>
+
 <template>
-  <div class="retrobg">
-    <div class="retrobg-sky">
-      <div class="retrobg-sunWrap">
-        <div class="retrobg-sun-shadow"></div>
-        <div class="retrobg-sun"></div>
+  <span>{{ displayY }}</span>
+  <div class="retro">
+    <div class="retro-sky">
+      <div class="retro-sunWrap">
+        <div class="retro-sun-shadow"></div>
+        <div class="retro-sun"></div>
       </div>
-      <div class="retrobg-mountains">
-        <div class="retrobg-mountains-left retrobg-mountain"></div>
-        <div class="retrobg-mountains-right retrobg-mountain"></div>
+      <div class="retro-mountains">
+        <div class="retro-mountains-left retro-mountain"></div>
+        <div class="retro-mountains-right retro-mountain"></div>
       </div>
     </div>
-    <div class="retrobg-ground">
-      <div class="retrobg-linesWrap">
-        <div class="retrobg-lines">
-          <div class="retrobg-vlines">
-            <div v-for="x in 53" :key="x" class="retrobg-vline"></div>
+    <div class="retro-ground">
+      <div class="retro-linesWrap">
+        <div ref="retroLines" class="retro-lines">
+          <div class="retro-vlines">
+            <div v-for="x in 53" :key="x" class="retro-vline"></div>
           </div>
-          <div class="retrobg-hlines">
-            <div v-for="x in 8" :key="x" class="retrobg-hline"></div>
+          <div class="retro-hlines">
+            <div v-for="x in 8" :key="x" class="retro-hline"></div>
           </div>
         </div>
       </div>
-      <div class="retrobg-groundShadow"></div>
+      <div class="retro-groundShadow"></div>
     </div>
   </div>
 
@@ -40,39 +57,40 @@
 </template>
 
 <style scoped>
-.retrobg {
+.retro {
   position: relative;
   height: calc(80vh - 70px);
   color: var(--vt-c-pink);
+  margin-bottom: 50px;
 }
 
-.retrobg-sky {
+.retro-sky {
   display: flex;
   align-items: flex-end;
   justify-content: center;
   width: 100%;
   height: 100%;
-  background: linear-gradient(#00000000 15%, var(--vt-c-pink));
+  background: linear-gradient(#00000000 8%, var(--vt-c-pink));
 }
 
-.retrobg-sun,
-.retrobg-sun-shadow {
+.retro-sunWrap {
+  position: relative;
+  width: calc(80vh - 70px);
+  height: 100%;
+}
+.retro-sun,
+.retro-sun-shadow {
   --glow-color: var(--vt-c-orange);
   border-radius: 50%;
 }
-.retrobg-sun {
+.retro-sun {
   position: relative;
   background-image: linear-gradient(var(--vt-c-yellow), var(--vt-c-orange), var(--vt-c-pink) 65%);
   clip-path: url(#stripes);
   height: 100%;
   width: 100%;
 }
-.retrobg-sunWrap {
-  position: relative;
-  width: 50%;
-  height: 100%;
-}
-.retrobg-sun-shadow {
+.retro-sun-shadow {
   position: absolute;
   top: 0;
   left: 0;
@@ -82,9 +100,9 @@
   background-color: var(--glow-color);
   opacity: 0.5;
   clip-path: inset(-50% -50% 50% -50%);
-  animation: 2s ease infinite alternate retrobg-sun-glow-anim;
+  animation: 2s ease infinite alternate retro-sun-glow-anim;
 }
-@keyframes retrobg-sun-glow-anim {
+@keyframes retro-sun-glow-anim {
   from {
     box-shadow: 0 0 80px 40px var(--glow-color);
   }
@@ -93,23 +111,20 @@
   }
 }
 
-.retrobg-mountains {
+.retro-mountains {
   position: absolute;
   width: 100%;
   height: 50%;
-  bottom: 300px;
+  top: 0;
 }
-.retrobg-mountain {
+.retro-mountain {
   position: absolute;
   width: 40%;
   height: 100%;
-  background-image: linear-gradient(
-    var(--color-background) 70%,
-    var(--color-background-soft) 85%,
-    var(--color-background-mute)
-  );
+  background-color: var(--color-background);
+  background-image: linear-gradient(var(--color-background) 80%, var(--color-background-soft));
 }
-.retrobg-mountains-left {
+.retro-mountains-left {
   left: 0;
   clip-path: polygon(
     0% 100%,
@@ -132,7 +147,7 @@
     100% 100%
   );
 }
-.retrobg-mountains-right {
+.retro-mountains-right {
   right: 0;
   clip-path: polygon(
     0% 100%,
@@ -156,7 +171,7 @@
   );
 }
 
-.retrobg-ground {
+.retro-ground {
   position: absolute;
   overflow: hidden;
   width: 100%;
@@ -166,7 +181,7 @@
   border-bottom: 2px solid var(--vt-c-pink);
   background-color: var(--color-background);
 }
-.retrobg-groundShadow {
+.retro-groundShadow {
   position: absolute;
   top: 0;
   width: 100%;
@@ -174,19 +189,21 @@
   background-image: linear-gradient(var(--color-background) 0%, transparent);
 }
 
-.retrobg-linesWrap {
+.retro-linesWrap {
   height: 100%;
   perspective: 1000px;
   perspective-origin: center top;
 }
-.retrobg-lines {
+.retro-lines {
   position: absolute;
   width: 100%;
   height: 100%;
   transform-origin: top center;
-  animation: 0.35s linear infinite retrobg-lines-anim;
+  /* transform: rotateX(84deg) translateY(0); */
+  transform: rotateX(84deg) translateY(v-bind('displayY'));
+  /* animation: 0.35s linear infinite retro-lines-anim; */
 }
-@keyframes retrobg-lines-anim {
+@keyframes retro-lines-anim {
   from {
     transform: rotateX(84deg) translateY(0);
   }
@@ -194,33 +211,33 @@
     transform: rotateX(84deg) translateY(100px);
   }
 }
-.retrobg-hlines,
-.retrobg-vlines {
+.retro-hlines,
+.retro-vlines {
   position: absolute;
   left: calc((900% - 100%) / -2);
   width: 900%;
   height: 500%;
 }
-.retrobg-vlines {
+.retro-vlines {
   display: flex;
   justify-content: center;
 }
-.retrobg-hline,
-.retrobg-vline {
+.retro-hline,
+.retro-vline {
   width: 100%;
   height: 100%;
   background-color: currentColor;
 }
-.retrobg-hline {
+.retro-hline {
   height: 3px;
 }
-.retrobg-vline {
+.retro-vline {
   width: 3px;
 }
-.retrobg-hline + .retrobg-hline {
+.retro-hline + .retro-hline {
   margin-top: 98px;
 }
-.retrobg-vline + .retrobg-vline {
+.retro-vline + .retro-vline {
   margin-left: 48px;
 }
 </style>

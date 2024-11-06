@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
+
 import ContactAside from '@/components/ContactAside.vue'
+import FooterComponent from '@/components/FooterComponent.vue'
 </script>
 
 <template>
@@ -20,6 +22,6 @@ import ContactAside from '@/components/ContactAside.vue'
       </nav>
     </div>
   </header>
-
   <RouterView class="main-content" />
+  <FooterComponent />
 </template>

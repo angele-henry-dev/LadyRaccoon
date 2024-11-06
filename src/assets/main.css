@@ -3,20 +3,13 @@
 @import './css/media.css';
 
 body {
-  overflow: hidden;
-}
-#app {
-  margin: 0;
   height: 100vh;
+  margin: 0;
   display: flex;
   flex-direction: column;
   padding: 0;
   overflow-x: hidden;
   overflow-y: scroll;
-}
-
-.main-content {
-  flex-grow: 1;
 }
 
 h1 {
@@ -68,16 +61,16 @@ span.separator {
 
 /* Custom scrollbar */
 
-#app::-webkit-scrollbar {
+body::-webkit-scrollbar {
   width: 5px;
 }
-#app::-moz-scrollbar {
+body::-moz-scrollbar {
   width: 5px;
 }
-#app::-webkit-scrollbar-track {
+body::-webkit-scrollbar-track {
   background: var(--vt-c-black);
 }
-#app::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb {
   background-color: var(--vt-c-pink);
 }
 
@@ -95,7 +88,7 @@ span.separator {
 
 #description {
   margin-bottom: var(--section-gap);
-  margin-top: calc(var(--section-gap));
+  margin-top: var(--section-gap);
 }
 
 .pins {
