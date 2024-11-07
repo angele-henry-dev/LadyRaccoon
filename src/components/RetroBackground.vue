@@ -9,7 +9,7 @@ import {
 } from '@vueuse/core'
 
 // Props
-defineProps({
+const props = defineProps({
   play: {
     type: Boolean,
     default: false
@@ -54,7 +54,9 @@ function getRandomArbitrary(min: number, max: number) {
 }
 
 onMounted(() => {
-  setInterval(gameOver, 50)
+  if (props.play) {
+    setInterval(gameOver, 50)
+  }
 })
 </script>
 
