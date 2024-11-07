@@ -7,8 +7,8 @@ import { faBook } from '@fortawesome/free-solid-svg-icons'
 import CarouselCards from '@/components/CarouselCards.vue'
 import CustomCarousel from '@/components/CustomCarousel.vue'
 import IsometricCity from '@/components/IsometricCity.vue'
-import RetroBackground from '@/components/RetroBackground.vue'
 import StarsBackground from '@/components/StarsBackground.vue'
+import RetroBackground from '@/components/RetroBackground.vue'
 
 import { type Skills } from '@/types/Skills'
 

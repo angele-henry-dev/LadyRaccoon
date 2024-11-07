@@ -12,7 +12,7 @@ const displayY = computed(() => {
 </script>
 
 <template>
-  <div class="retro">
+  <div class="retro" v-bind="$attrs">
     <div class="retro-sky">
       <div class="retro-sunWrap">
         <div class="retro-sun-shadow"></div>
@@ -195,8 +195,12 @@ const displayY = computed(() => {
   width: 100%;
   height: 100%;
   transform-origin: top center;
+}
+:not(.auto) .retro-lines {
   transform: rotateX(84deg) translateY(v-bind('displayY'));
-  /* animation: 0.35s linear infinite retro-lines-anim; */
+}
+.auto .retro-lines {
+  animation: 0.35s linear infinite retro-lines-anim;
 }
 @keyframes retro-lines-anim {
   from {
