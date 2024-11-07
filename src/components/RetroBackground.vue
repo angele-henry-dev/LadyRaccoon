@@ -31,7 +31,11 @@ const displayY = computed(() => {
   return isVisible.value == true ? scroll.y.value % 100 : 0
 })
 const motoX = computed(() => {
-  return isVisible.value == true ? mouse.x.value : 0
+  return isVisible.value == true
+    ? mouse.x.value > window.width.value
+      ? window.width.value - motoWidth.value
+      : mouse.x.value
+    : 0
 })
 const rockX = computed(() => {
   return getRandomArbitrary(30, window.width.value - 30)
@@ -84,8 +88,9 @@ onMounted(() => {
         </div>
       </div>
       <div ref="retroLines" class="retro-groundShadow"></div>
-      <div ref="motoEl" class="retro-moto-wrapper">
-        <div class="retro-moto"></div>
+      <div class="retro-moto-wrapper">
+        <div ref="motoEl" class="retro-moto"></div>
+        <div class="retro-moto-tail"></div>
       </div>
       <div v-if="play" class="retro-rock-wrapper">
         <div ref="rockEl" class="retro-rock"></div>
@@ -324,14 +329,35 @@ onMounted(() => {
   --width: v-bind('motoWidth + "px"');
   --height: v-bind('motoHeight + "px"');
   position: absolute;
-  bottom: 10px;
+  bottom: calc(var(--height) + 10px);
   left: v-bind('motoX + "px"');
   width: var(--width);
   height: var(--height);
+  perspective: 100px;
 }
 .retro-moto {
   width: var(--width);
   height: var(--height);
-  background-color: beige;
+  border: 3px solid var(--vt-c-yellow);
+  background-color: #000;
+  border-radius: 15px;
+  transform: rotateX(30deg) rotateY(0deg);
+  transform-style: preserve-3d;
+}
+.retro-moto-tail {
+  height: var(--height);
+  width: 3px;
+  background-color: var(--vt-c-yellow);
+  box-shadow: 0 0 20px 1px var(--vt-c-yellow);
+  margin: auto;
+  animation: 2s ease infinite alternate moto-tail-anim;
+}
+@keyframes moto-tail-anim {
+  from {
+    box-shadow: 0 0 20px 2.5px var(--vt-c-yellow);
+  }
+  to {
+    box-shadow: 0 0 20px 5px var(--vt-c-yellow);
+  }
 }
 </style>
