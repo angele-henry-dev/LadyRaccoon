@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { useWindowScroll, useElementVisibility } from '@vueuse/core'
+import { useWindowScroll, useElementVisibility, useMouse } from '@vueuse/core'
 
 // Props
 defineProps({
@@ -10,12 +10,17 @@ defineProps({
   }
 })
 
-const { y } = useWindowScroll()
 const retroLines = ref(null)
+
+const mouse = useMouse({ touch: true })
 const isVisible = useElementVisibility(retroLines)
+const scroll = useWindowScroll()
 
 const displayY = computed(() => {
-  return isVisible.value == true ? (y.value % 100) + 'px' : '0'
+  return isVisible.value == true ? (scroll.y.value % 100) + 'px' : '0'
+})
+const motoX = computed(() => {
+  return mouse.x.value + 'px'
 })
 </script>
 
@@ -46,10 +51,8 @@ const displayY = computed(() => {
       <div v-if="play" class="retro-moto-wrapper">
         <div class="retro-moto"></div>
       </div>
-      <div v-if="play" class="retro-rock-container">
-        <div v-if="play" class="retro-rock-wrapper">
-          <div v-if="play" class="retro-rock"></div>
-        </div>
+      <div v-if="play" class="retro-rock-wrapper">
+        <div class="retro-rock"></div>
       </div>
     </div>
   </div>
@@ -255,42 +258,38 @@ const displayY = computed(() => {
   margin-left: 48px;
 }
 
-.retro-rock-container {
+.retro-rock-wrapper {
   position: absolute;
   top: 0;
-  height: 100%;
-  width: 100%;
-}
-.retro-rock-wrapper {
-  position: relative;
   height: 100%;
   width: 100%;
 }
 .retro-rock {
   position: absolute;
   top: 0;
-  left: 50%;
   width: 20px;
   height: 40px;
   background-color: chocolate;
+  perspective: 1000px;
+  perspective-origin: center top;
   transform-origin: top center;
   animation: calc(0.35s * 8) linear infinite retro-rock-anim;
 }
 @keyframes retro-rock-anim {
-  from {
-    transform: scale(0) rotateX(84deg) translateY(0);
+  0% {
+    top: 0;
   }
-  to {
-    transform: scale(1) rotateX(84deg) translateY(100%);
+  100% {
+    top: 100%;
   }
 }
 
 .retro-moto-wrapper {
   --width: 20px;
-  --height: 40px;
+  --height: 50px;
   position: absolute;
   top: calc(100% - var(--height) - 10px);
-  left: calc(50% - var(--width) / 2);
+  left: v-bind('motoX');
   width: var(--width);
   height: var(--height);
   margin: auto;
