@@ -16,7 +16,7 @@
     margin-top: calc(var(--section-gap) / 2) !important;
   }
   .inBetween {
-    padding: 0 !important;
+    padding: 2px !important;
   }
 }
 @media (max-width: 1356px) {
