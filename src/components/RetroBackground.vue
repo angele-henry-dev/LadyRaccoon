@@ -1,21 +1,18 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import { useWindowScroll } from '@vueuse/core'
+import { computed, ref } from 'vue'
+import { useWindowScroll, useElementVisibility } from '@vueuse/core'
 
 const { y } = useWindowScroll()
+const retroLines = ref(null)
+const isVisible = useElementVisibility(retroLines)
 
-const displayY = computed({
-  get() {
-    return y.value.toFixed(1) + 'px'
-  },
-  set(val) {
-    y.value = Number.parseFloat(val)
-  }
+const displayY = computed(() => {
+  //const newVal = clamp((y.value / 500) * 100, 0, 100)
+  return isVisible.value == true ? (y.value % 100) + 'px' : '0'
 })
 </script>
 
 <template>
-  <span>{{ displayY }}</span>
   <div class="retro">
     <div class="retro-sky">
       <div class="retro-sunWrap">
@@ -29,7 +26,7 @@ const displayY = computed({
     </div>
     <div class="retro-ground">
       <div class="retro-linesWrap">
-        <div ref="retroLines" class="retro-lines">
+        <div class="retro-lines">
           <div class="retro-vlines">
             <div v-for="x in 53" :key="x" class="retro-vline"></div>
           </div>
@@ -38,7 +35,7 @@ const displayY = computed({
           </div>
         </div>
       </div>
-      <div class="retro-groundShadow"></div>
+      <div ref="retroLines" class="retro-groundShadow"></div>
     </div>
   </div>
 
