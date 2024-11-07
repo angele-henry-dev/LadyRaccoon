@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import FooterComponent from '@/components/FooterComponent.vue'
+</script>
+
 <template>
   <main class="inBetween">
     <h1>Privacy policy</h1>
@@ -77,6 +81,8 @@
       </p>
     </div>
   </main>
+
+  <FooterComponent class="footer" />
 </template>
 
 <style scoped>

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import FooterComponent from '@/components/FooterComponent.vue'
+
 import { ref, onMounted } from 'vue'
 
 // Variables
@@ -84,6 +86,8 @@ function generateTitleFromUrl(url: string) {
       </ul>
     </div>
   </main>
+
+  <FooterComponent class="footer" />
 </template>
 
 <style scoped>

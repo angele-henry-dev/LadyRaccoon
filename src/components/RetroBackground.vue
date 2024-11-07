@@ -57,7 +57,6 @@ const displayY = computed(() => {
   position: relative;
   height: calc(80vh - 70px);
   color: var(--vt-c-pink);
-  margin-bottom: 50px;
 }
 
 .retro-sky {

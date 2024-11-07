@@ -4,6 +4,7 @@ import { faHatWizard } from '@fortawesome/free-solid-svg-icons'
 import { faDragon } from '@fortawesome/free-solid-svg-icons'
 import { faBook } from '@fortawesome/free-solid-svg-icons'
 
+import FooterComponent from '@/components/FooterComponent.vue'
 import CarouselCards from '@/components/CarouselCards.vue'
 import CustomCarousel from '@/components/CustomCarousel.vue'
 import IsometricCity from '@/components/IsometricCity.vue'
@@ -47,4 +48,6 @@ import projects from '@/assets/models/projects.json' with { type: 'json' }
       <CustomCarousel :items="projects" />
     </div>
   </main>
+
+  <FooterComponent class="footer" />
 </template>

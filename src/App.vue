@@ -2,7 +2,6 @@
 import { RouterLink, RouterView } from 'vue-router'
 
 import ContactAside from '@/components/ContactAside.vue'
-import FooterComponent from '@/components/FooterComponent.vue'
 </script>
 
 <template>
@@ -23,5 +22,4 @@ import FooterComponent from '@/components/FooterComponent.vue'
     </div>
   </header>
   <RouterView class="main-content" />
-  <FooterComponent />
 </template>
