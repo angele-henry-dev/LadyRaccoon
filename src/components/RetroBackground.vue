@@ -7,7 +7,6 @@ const retroLines = ref(null)
 const isVisible = useElementVisibility(retroLines)
 
 const displayY = computed(() => {
-  //const newVal = clamp((y.value / 500) * 100, 0, 100)
   return isVisible.value == true ? (y.value % 100) + 'px' : '0'
 })
 </script>
