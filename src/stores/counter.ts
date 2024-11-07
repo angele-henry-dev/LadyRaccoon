@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 
 export const useScrollStore = defineStore('scroll', () => {
   const displayScrollY = ref(0)
-  function set(val) {
+  function set(val: number) {
     displayScrollY.value = val
   }
 
