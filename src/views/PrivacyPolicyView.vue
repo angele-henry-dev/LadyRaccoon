@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="inBetween">
     <h1>Privacy policy</h1>
     <p>
       Welcome to Lady Raccoon’s trust zone! Here, your data’s privacy is protected as securely as
@@ -80,10 +80,6 @@
 </template>
 
 <style scoped>
-main {
-  padding: 50px 0;
-}
-
 h1 {
   margin-bottom: 50px;
 }

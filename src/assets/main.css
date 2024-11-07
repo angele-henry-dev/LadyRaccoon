@@ -59,6 +59,13 @@ span.separator {
   border-radius: 10px;
 }
 
+.inBetween {
+  max-width: 1324px;
+  padding: 0 3rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* Custom scrollbar */
 
 body::-webkit-scrollbar {
@@ -75,16 +82,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 /* Specific css */
-
-#description,
-#skills,
-#experience,
-#projects {
-  max-width: 1324px;
-  padding: 0 3rem;
-  margin-left: auto;
-  margin-right: auto;
-}
 
 #description {
   margin-bottom: var(--section-gap);

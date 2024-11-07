@@ -195,7 +195,6 @@ const displayY = computed(() => {
   width: 100%;
   height: 100%;
   transform-origin: top center;
-  /* transform: rotateX(84deg) translateY(0); */
   transform: rotateX(84deg) translateY(v-bind('displayY'));
   /* animation: 0.35s linear infinite retro-lines-anim; */
 }

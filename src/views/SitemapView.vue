@@ -64,7 +64,7 @@ function generateTitleFromUrl(url: string) {
 </script>
 
 <template>
-  <main>
+  <main class="inBetween">
     <h1>Sitemap</h1>
     <div id="sitemap-container">
       <ul>
@@ -87,10 +87,6 @@ function generateTitleFromUrl(url: string) {
 </template>
 
 <style scoped>
-main {
-  padding: 50px 0;
-}
-
 h1 {
   margin-bottom: 50px;
 }

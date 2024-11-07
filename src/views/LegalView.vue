@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="inBetween">
     <h1>Legal Notice</h1>
     <div>
       <h2>Site Editor</h2>
@@ -70,10 +70,6 @@
 </template>
 
 <style scoped>
-main {
-  padding: 50px 0;
-}
-
 h1 {
   margin-bottom: 50px;
 }
