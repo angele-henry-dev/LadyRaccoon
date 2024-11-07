@@ -1,6 +1,12 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
-import { useWindowScroll, useElementVisibility, useMouse } from '@vueuse/core'
+import { computed, ref, onMounted } from 'vue'
+import {
+  useElementSize,
+  useWindowScroll,
+  useElementVisibility,
+  useMouse,
+  useElementBounding
+} from '@vueuse/core'
 
 // Props
 defineProps({
@@ -11,16 +17,44 @@ defineProps({
 })
 
 const retroLines = ref(null)
+const rockEl = ref(null)
+const motoEl = ref(null)
+const motoWidth = ref(20)
+const motoHeight = ref(50)
 
 const mouse = useMouse({ touch: true })
-const isVisible = useElementVisibility(retroLines)
 const scroll = useWindowScroll()
+const window = useElementSize(retroLines)
+const isVisible = useElementVisibility(retroLines)
 
 const displayY = computed(() => {
-  return isVisible.value == true ? (scroll.y.value % 100) + 'px' : '0'
+  return isVisible.value == true ? scroll.y.value % 100 : 0
 })
 const motoX = computed(() => {
-  return mouse.x.value + 'px'
+  return mouse.x.value
+})
+const rockX = computed(() => {
+  return getRandomArbitrary(30, window.width.value - 30)
+})
+
+function gameOver() {
+  const rockY = useElementBounding(rockEl).y || 0
+  const motoY = useElementBounding(motoEl).y || 0
+
+  if (
+    rockY.value + motoHeight.value - 10 >= motoY.value &&
+    motoX.value - motoWidth.value < rockX.value &&
+    rockX.value < motoX.value + motoWidth.value
+  ) {
+    alert('Game over!')
+  }
+}
+function getRandomArbitrary(min: number, max: number) {
+  return Math.random() * (max - min) + min
+}
+
+onMounted(() => {
+  setInterval(gameOver, 50)
 })
 </script>
 
@@ -48,11 +82,11 @@ const motoX = computed(() => {
         </div>
       </div>
       <div ref="retroLines" class="retro-groundShadow"></div>
-      <div v-if="play" class="retro-moto-wrapper">
+      <div v-if="play" ref="motoEl" class="retro-moto-wrapper">
         <div class="retro-moto"></div>
       </div>
       <div v-if="play" class="retro-rock-wrapper">
-        <div class="retro-rock"></div>
+        <div ref="rockEl" class="retro-rock"></div>
       </div>
     </div>
   </div>
@@ -215,7 +249,7 @@ const motoX = computed(() => {
   transform-origin: top center;
 }
 :not(.auto) .retro-lines {
-  transform: rotateX(84deg) translateY(v-bind('displayY'));
+  transform: rotateX(84deg) translateY(v-bind('displayY + "px"'));
 }
 .auto .retro-lines {
   animation: 0.35s linear infinite retro-lines-anim;
@@ -266,7 +300,7 @@ const motoX = computed(() => {
 }
 .retro-rock {
   position: absolute;
-  top: 0;
+  left: v-bind('rockX + "px"');
   width: 20px;
   height: 40px;
   background-color: chocolate;
@@ -277,19 +311,19 @@ const motoX = computed(() => {
 }
 @keyframes retro-rock-anim {
   0% {
-    top: 0;
+    bottom: 100%;
   }
   100% {
-    top: 100%;
+    bottom: 0;
   }
 }
 
 .retro-moto-wrapper {
-  --width: 20px;
-  --height: 50px;
+  --width: v-bind('motoWidth + "px"');
+  --height: v-bind('motoHeight + "px"');
   position: absolute;
-  top: calc(100% - var(--height) - 10px);
-  left: v-bind('motoX');
+  bottom: 10px;
+  left: v-bind('motoX + "px"');
   width: var(--width);
   height: var(--height);
   margin: auto;
