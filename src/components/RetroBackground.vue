@@ -2,6 +2,14 @@
 import { computed, ref } from 'vue'
 import { useWindowScroll, useElementVisibility } from '@vueuse/core'
 
+// Props
+defineProps({
+  play: {
+    type: Boolean,
+    default: false
+  }
+})
+
 const { y } = useWindowScroll()
 const retroLines = ref(null)
 const isVisible = useElementVisibility(retroLines)
@@ -35,6 +43,14 @@ const displayY = computed(() => {
         </div>
       </div>
       <div ref="retroLines" class="retro-groundShadow"></div>
+      <div v-if="play" class="retro-moto-wrapper">
+        <div class="retro-moto"></div>
+      </div>
+      <div v-if="play" class="retro-rock-container">
+        <div v-if="play" class="retro-rock-wrapper">
+          <div v-if="play" class="retro-rock"></div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -237,5 +253,51 @@ const displayY = computed(() => {
 }
 .retro-vline + .retro-vline {
   margin-left: 48px;
+}
+
+.retro-rock-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+.retro-rock-wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.retro-rock {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 20px;
+  height: 40px;
+  background-color: chocolate;
+  transform-origin: top center;
+  animation: calc(0.35s * 8) linear infinite retro-rock-anim;
+}
+@keyframes retro-rock-anim {
+  from {
+    transform: scale(0) rotateX(84deg) translateY(0);
+  }
+  to {
+    transform: scale(1) rotateX(84deg) translateY(100%);
+  }
+}
+
+.retro-moto-wrapper {
+  --width: 20px;
+  --height: 40px;
+  position: absolute;
+  top: calc(100% - var(--height) - 10px);
+  left: calc(50% - var(--width) / 2);
+  width: var(--width);
+  height: var(--height);
+  margin: auto;
+}
+.retro-moto {
+  width: 100%;
+  height: 100%;
+  background-color: beige;
 }
 </style>

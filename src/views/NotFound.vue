@@ -7,7 +7,11 @@ import RetroBackground from '@/components/RetroBackground.vue'
   <main class="mini-game align-center">
     <StarsBackground />
     <h1>404 NOT FOUND</h1>
-    <RetroBackground class="auto" />
+    <div class="toolbar">
+      <span>Score: 0</span>
+      <span>Record: 1000</span>
+    </div>
+    <RetroBackground class="auto" :play="true" />
   </main>
 </template>
 
@@ -23,7 +27,15 @@ import RetroBackground from '@/components/RetroBackground.vue'
 }
 h1 {
   position: absolute;
-  top: 50px;
+  top: 60px;
+  width: 100%;
+}
+.toolbar {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  top: 20px;
   width: 100%;
 }
 </style>
