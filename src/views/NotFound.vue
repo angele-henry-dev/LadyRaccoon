@@ -11,7 +11,7 @@ import RetroBackground from '@/components/RetroBackground.vue'
       <span>Score: 0</span>
       <span>Record: 1000</span>
     </div>
-    <RetroBackground class="auto" :play="true" />
+    <RetroBackground class="auto" :play="false" />
   </main>
 </template>
 
@@ -33,6 +33,7 @@ h1 {
 .toolbar {
   position: absolute;
   display: flex;
+  display: none;
   flex-direction: row;
   justify-content: space-around;
   top: 20px;

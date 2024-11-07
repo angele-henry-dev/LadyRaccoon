@@ -31,7 +31,7 @@ const displayY = computed(() => {
   return isVisible.value == true ? scroll.y.value % 100 : 0
 })
 const motoX = computed(() => {
-  return mouse.x.value
+  return isVisible.value == true ? mouse.x.value : 0
 })
 const rockX = computed(() => {
   return getRandomArbitrary(30, window.width.value - 30)
@@ -84,7 +84,7 @@ onMounted(() => {
         </div>
       </div>
       <div ref="retroLines" class="retro-groundShadow"></div>
-      <div v-if="play" ref="motoEl" class="retro-moto-wrapper">
+      <div ref="motoEl" class="retro-moto-wrapper">
         <div class="retro-moto"></div>
       </div>
       <div v-if="play" class="retro-rock-wrapper">
@@ -316,7 +316,7 @@ onMounted(() => {
     bottom: 100%;
   }
   100% {
-    bottom: 0;
+    bottom: calc(0px - 40px + 10px);
   }
 }
 
@@ -328,11 +328,10 @@ onMounted(() => {
   left: v-bind('motoX + "px"');
   width: var(--width);
   height: var(--height);
-  margin: auto;
 }
 .retro-moto {
-  width: 100%;
-  height: 100%;
+  width: var(--width);
+  height: var(--height);
   background-color: beige;
 }
 </style>

@@ -82,13 +82,17 @@ const stars = ref([
     0 0 2px 1px #fff,
     0 0 3px 2px #fff;
   opacity: 1;
-  animation: shooting-star-move 2s linear;
+  animation: shooting-star-move 30s linear infinite;
   animation-delay: 1s;
 }
 @keyframes shooting-star-move {
   0% {
     opacity: 1;
     transform: translateX(-20px) translateY(-200px) rotate(70deg);
+  }
+  7% {
+    opacity: 0;
+    transform: translateX(1000px) translateY(-600px) rotate(70deg);
   }
   100% {
     opacity: 0;
