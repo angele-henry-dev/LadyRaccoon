@@ -50,7 +50,7 @@ function gameOver() {
     motoX.value - motoWidth.value < rockX.value &&
     rockX.value < motoX.value + motoWidth.value
   ) {
-    alert('Game over!')
+    console.log('Game over!')
   }
 }
 function getRandomArbitrary(min: number, max: number) {
@@ -88,12 +88,25 @@ onMounted(() => {
         </div>
       </div>
       <div ref="retroLines" class="retro-groundShadow"></div>
-      <div class="retro-moto-wrapper">
-        <div ref="motoEl" class="retro-moto"></div>
-        <div class="retro-moto-tail"></div>
-      </div>
       <div v-if="play" class="retro-rock-wrapper">
         <div ref="rockEl" class="retro-rock"></div>
+      </div>
+      <div v-if="play" class="moto-wrapper">
+        <div ref="motoEl" class="moto">
+          <div class="wheel front"></div>
+          <div class="wheel-shadow front"></div>
+          <div class="wheel back"></div>
+          <div class="wheel-shadow back"></div>
+          <div class="frame"></div>
+          <div class="seat"></div>
+          <div class="handlebar left">
+            <div class="headlight"></div>
+          </div>
+          <div class="handlebar right">
+            <div class="headlight"></div>
+          </div>
+          <div class="moto-tail"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -325,39 +338,104 @@ onMounted(() => {
   }
 }
 
-.retro-moto-wrapper {
-  --width: v-bind('motoWidth + "px"');
-  --height: v-bind('motoHeight + "px"');
+/* Motorcycle */
+.moto-wrapper {
   position: absolute;
-  bottom: calc(var(--height) + 10px);
+  bottom: 40px;
   left: v-bind('motoX + "px"');
-  width: var(--width);
-  height: var(--height);
-  perspective: 100px;
+  perspective: 150px;
 }
-.retro-moto {
-  width: var(--width);
-  height: var(--height);
-  border: 3px solid var(--vt-c-yellow);
-  background-color: #000;
+.moto {
+  width: 12px;
+  height: 70px;
   border-radius: 15px;
-  transform: rotateX(30deg) rotateY(0deg);
+  transform: rotateX(30deg) rotateY(0deg) rotateZ(0deg);
   transform-style: preserve-3d;
 }
-.retro-moto-tail {
-  height: var(--height);
-  width: 3px;
+.wheel,
+.wheel-shadow {
+  position: absolute;
+  width: 12px;
+  height: 20px;
   background-color: var(--vt-c-yellow);
   box-shadow: 0 0 20px 1px var(--vt-c-yellow);
-  margin: auto;
-  animation: 2s ease infinite alternate moto-tail-anim;
+  border-radius: 15px;
 }
-@keyframes moto-tail-anim {
-  from {
-    box-shadow: 0 0 20px 2.5px var(--vt-c-yellow);
+.wheel-shadow {
+  width: 6px;
+  height: 20px;
+  background-color: #333;
+  box-shadow: none;
+  animation: 0.08s linear infinite alternate wheel-shadow-anim;
+}
+@keyframes wheel-shadow-anim {
+  0% {
+    opacity: 0.7;
   }
-  to {
-    box-shadow: 0 0 20px 5px var(--vt-c-yellow);
+  100% {
+    opacity: 0.2;
   }
+}
+.wheel.front {
+  top: 0;
+  left: 0;
+}
+.wheel-shadow.front {
+  top: 0;
+  left: 3px;
+}
+.wheel.back {
+  top: 50px;
+  left: 0;
+}
+.wheel-shadow.back {
+  top: 50px;
+  left: 3px;
+}
+.frame {
+  position: absolute;
+  top: 10px;
+  left: 1px;
+  width: 10px;
+  height: 40px;
+  background-color: #333;
+  box-shadow: 0 0 20px 1px var(--vt-c-yellow);
+  border-radius: 3px;
+}
+.seat {
+  position: absolute;
+  top: 30px;
+  left: 0px;
+  width: 12px;
+  height: 10px;
+  background-color: #444;
+  border-radius: 2px;
+}
+.handlebar {
+  position: absolute;
+  width: 15px;
+  height: 5px;
+  background-color: #333;
+  box-shadow: 0 0 20px 1px var(--vt-c-yellow);
+  border-radius: 2px;
+}
+.headlight {
+  width: 6px;
+  height: 6px;
+  background-color: yellow;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 12px;
+}
+.handlebar.left {
+  left: -17px;
+  top: 15px;
+  transform: rotate(-20deg);
+}
+.handlebar.right {
+  left: 13px;
+  top: 16px;
+  transform: rotate(200deg);
 }
 </style>

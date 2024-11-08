@@ -11,7 +11,7 @@ import RetroBackground from '@/components/RetroBackground.vue'
       <span>Score: 0</span>
       <span>Record: 1000</span>
     </div>
-    <RetroBackground class="auto" :play="false" />
+    <RetroBackground class="auto" :play="true" />
   </main>
 </template>
 
