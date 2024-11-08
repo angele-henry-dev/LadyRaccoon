@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import type { UseMouseEventExtractor } from '@vueuse/core'
 import { computed, ref, onMounted } from 'vue'
 import {
   useElementSize,
   useWindowScroll,
   useElementVisibility,
+  useParentElement,
   useMouse,
   useElementBounding
 } from '@vueuse/core'
@@ -16,26 +18,29 @@ const props = defineProps({
   }
 })
 
+const parentEl = useParentElement()
+const extractor: UseMouseEventExtractor = (event: MouseEvent | Touch) =>
+  event instanceof Touch ? null : [event.offsetX, event.offsetY]
+const mouse = useMouse({ target: parentEl, type: extractor, touch: true })
+
 const retroLines = ref(null)
+const window = useElementSize(retroLines)
+const isVisible = useElementVisibility(retroLines)
+
 const rockEl = ref(null)
 const motoEl = ref(null)
 const motoWidth = ref(20)
 const motoHeight = ref(50)
 
-const mouse = useMouse({ touch: true })
-const scroll = useWindowScroll()
-const window = useElementSize(retroLines)
-const isVisible = useElementVisibility(retroLines)
-
 const displayY = computed(() => {
+  const scroll = useWindowScroll()
   return isVisible.value == true ? scroll.y.value % 100 : 0
 })
 const motoX = computed(() => {
-  return isVisible.value == true
-    ? mouse.x.value > window.width.value
-      ? window.width.value - motoWidth.value
-      : mouse.x.value
-    : 0
+  return isVisible.value == true ? mouse.x.value : 0
+})
+const motoZ = computed(() => {
+  return isVisible.value == true ? mouse.x.value : 0
 })
 const rockX = computed(() => {
   return getRandomArbitrary(30, window.width.value - 30)
@@ -65,7 +70,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="retro" v-bind="$attrs">
+  <div ref="parentEl" class="retro" v-bind="$attrs">
     <div class="retro-sky">
       <div class="retro-sunWrap">
         <div class="retro-sun-shadow"></div>
@@ -349,7 +354,7 @@ onMounted(() => {
   width: 12px;
   height: 70px;
   border-radius: 15px;
-  transform: rotateX(30deg) rotateY(0deg) rotateZ(0deg);
+  transform: rotateX(30deg) rotateY(0deg) rotateZ(v-bind('motoZ + "deg"'));
   transform-style: preserve-3d;
 }
 .wheel,
