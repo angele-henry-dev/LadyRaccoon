@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import type { UseMouseEventExtractor } from '@vueuse/core'
 import { computed, ref, onMounted } from 'vue'
 import {
   useElementSize,
   useWindowScroll,
   useElementVisibility,
-  useParentElement,
   useMouse,
   useElementBounding
 } from '@vueuse/core'
@@ -18,11 +16,7 @@ const props = defineProps({
   }
 })
 
-const parentEl = useParentElement()
-const extractor: UseMouseEventExtractor = (event: MouseEvent | Touch) =>
-  event instanceof Touch ? null : [event.offsetX, event.offsetY]
-const mouse = useMouse({ target: parentEl, type: extractor, touch: true })
-
+const mouse = useMouse({ touch: true })
 const retroLines = ref(null)
 const window = useElementSize(retroLines)
 const isVisible = useElementVisibility(retroLines)
@@ -40,7 +34,7 @@ const motoX = computed(() => {
   return isVisible.value == true ? mouse.x.value : 0
 })
 const motoZ = computed(() => {
-  return isVisible.value == true ? mouse.x.value : 0
+  return isVisible.value == true ? (-70 / (window.width.value / 2)) * mouse.x.value + 70 : 0
 })
 const rockX = computed(() => {
   return getRandomArbitrary(30, window.width.value - 30)
@@ -51,7 +45,7 @@ function gameOver() {
   const motoY = useElementBounding(motoEl).y || 0
 
   if (
-    rockY.value + motoHeight.value - 10 >= motoY.value &&
+    rockY.value + motoHeight.value >= motoY.value &&
     motoX.value - motoWidth.value < rockX.value &&
     rockX.value < motoX.value + motoWidth.value
   ) {
