@@ -1,83 +1,5 @@
 [
   {
-    "type": "Databases",
-    "skills": [
-      {
-        "title": "SQL",
-        "levelAcquired": 2,
-        "levelTotal": 3,
-        "children": [
-          {
-            "title": "MySQL",
-            "levelAcquired": 2,
-            "levelTotal": 3,
-            "children": []
-          },
-          {
-            "title": "PostgreSQL",
-            "levelAcquired": 2,
-            "levelTotal": 3,
-            "children": []
-          },
-          {
-            "title": "MariaDB",
-            "levelAcquired": 2,
-            "levelTotal": 3,
-            "children": []
-          }
-        ]
-      },
-      {
-        "title": "NoSQL",
-        "levelAcquired": 2,
-        "levelTotal": 3,
-        "children": [
-          {
-            "title": "AWS DynamoDB",
-            "levelAcquired": 2,
-            "levelTotal": 3,
-            "children": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "type": "Tech leader",
-    "skills": [
-      {
-        "title": "Agile methodology",
-        "levelAcquired": 1,
-        "levelTotal": 1,
-        "children": []
-      },
-      {
-        "title": "Empathy",
-        "levelAcquired": 1,
-        "levelTotal": 1,
-        "children": []
-      },
-      {
-        "title": "Mentorat",
-        "levelAcquired": 1,
-        "levelTotal": 1,
-        "children": []
-      },
-      {
-        "title": "Creativity",
-        "levelAcquired": 1,
-        "levelTotal": 1,
-        "children": []
-      },
-      {
-        "title": "Adaptability",
-        "levelAcquired": 1,
-        "levelTotal": 1,
-        "children": []
-      }
-    ]
-  },
-  {
     "type": "Frontend",
     "skills": [
       {
@@ -176,43 +98,105 @@
     ]
   },
   {
-    "type": "AWS",
+    "type": "Cloud",
     "skills": [
       {
-        "title": "AWS Lambda",
+        "title": "AWS",
         "levelAcquired": 2,
         "levelTotal": 3,
-        "children": []
+        "children": [
+          {
+            "title": "AWS Lambda",
+            "levelAcquired": 2,
+            "levelTotal": 3,
+            "children": []
+          },
+          {
+            "title": "AWS Simple Storage Serv (S3)",
+            "levelAcquired": 2,
+            "levelTotal": 3,
+            "children": []
+          },
+          {
+            "title": "AWS IoT Core",
+            "levelAcquired": 2,
+            "levelTotal": 3,
+            "children": []
+          },
+          {
+            "title": "AWS Lightsail",
+            "levelAcquired": 2,
+            "levelTotal": 3,
+            "children": []
+          },
+          {
+            "title": "AWS API Gateway",
+            "levelAcquired": 2,
+            "levelTotal": 3,
+            "children": []
+          },
+          {
+            "title": "AWS Identity and Access Man",
+            "levelAcquired": 2,
+            "levelTotal": 3,
+            "children": []
+          },
+          {
+            "title": "AWS DynamoDB",
+            "levelAcquired": 2,
+            "levelTotal": 3,
+            "children": []
+          },
+          {
+            "title": "AWS CloudWatch",
+            "levelAcquired": 2,
+            "levelTotal": 3,
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "Databases",
+    "skills": [
+      {
+        "title": "SQL",
+        "levelAcquired": 2,
+        "levelTotal": 3,
+        "children": [
+          {
+            "title": "MySQL",
+            "levelAcquired": 2,
+            "levelTotal": 3,
+            "children": []
+          },
+          {
+            "title": "PostgreSQL",
+            "levelAcquired": 2,
+            "levelTotal": 3,
+            "children": []
+          },
+          {
+            "title": "MariaDB",
+            "levelAcquired": 2,
+            "levelTotal": 3,
+            "children": []
+          }
+        ]
       },
       {
-        "title": "AWS Simple Storage Serv (S3)",
+        "title": "NoSQL",
         "levelAcquired": 2,
         "levelTotal": 3,
-        "children": []
-      },
-      {
-        "title": "AWS IoT Core",
-        "levelAcquired": 2,
-        "levelTotal": 3,
-        "children": []
-      },
-      {
-        "title": "AWS Lightsail",
-        "levelAcquired": 2,
-        "levelTotal": 3,
-        "children": []
-      },
-      {
-        "title": "AWS API Gateway",
-        "levelAcquired": 2,
-        "levelTotal": 3,
-        "children": []
-      },
-      {
-        "title": "AWS Identity and Access Man",
-        "levelAcquired": 2,
-        "levelTotal": 3,
-        "children": []
+        "children": [
+          {
+            "title": "AWS DynamoDB",
+            "levelAcquired": 2,
+            "levelTotal": 3,
+            "children": []
+          }
+        ]
       }
     ]
   }

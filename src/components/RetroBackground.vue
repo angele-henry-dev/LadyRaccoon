@@ -79,7 +79,7 @@ const motoZ = computed(() => {
         <rect x="0" y="0.259" width="1" height="0.075" />
         <rect x="0" y="0.343" width="1" height="0.075" />
         <rect x="0" y="0.430" width="1" height="0.075" />
-        <rect x="0" y="0.520" width="1" height="0.075" />
+        <rect x="0" y="0.520" width="1" height="0.1" />
       </clipPath>
     </defs>
   </svg>
