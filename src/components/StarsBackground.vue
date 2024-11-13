@@ -50,6 +50,7 @@ const stars = ref([
   position: absolute;
   width: 100%;
   height: 100vh;
+  overflow: hidden;
   z-index: -1;
 }
 .retrobg-star {
