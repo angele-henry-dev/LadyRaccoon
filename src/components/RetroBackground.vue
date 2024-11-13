@@ -1,15 +1,9 @@
 <script setup lang="ts">
-import { computed, ref, onMounted } from 'vue'
-import {
-  useElementSize,
-  useWindowScroll,
-  useElementVisibility,
-  useMouse,
-  useElementBounding
-} from '@vueuse/core'
+import { computed, ref } from 'vue'
+import { useElementSize, useWindowScroll, useElementVisibility, useMouse } from '@vueuse/core'
 
 // Props
-const props = defineProps({
+defineProps({
   play: {
     type: Boolean,
     default: false
@@ -21,11 +15,6 @@ const retroLines = ref(null)
 const window = useElementSize(retroLines)
 const isVisible = useElementVisibility(retroLines)
 
-const rockEl = ref(null)
-const motoEl = ref(null)
-const motoWidth = ref(20)
-const motoHeight = ref(50)
-
 const displayY = computed(() => {
   const scroll = useWindowScroll()
   return isVisible.value == true ? scroll.y.value % 100 : 0
@@ -35,31 +24,6 @@ const motoX = computed(() => {
 })
 const motoZ = computed(() => {
   return isVisible.value == true ? (-70 / (window.width.value / 2)) * mouse.x.value + 70 : 0
-})
-const rockX = computed(() => {
-  return getRandomArbitrary(30, window.width.value - 30)
-})
-
-function gameOver() {
-  const rockY = useElementBounding(rockEl).y || 0
-  const motoY = useElementBounding(motoEl).y || 0
-
-  if (
-    rockY.value + motoHeight.value >= motoY.value &&
-    motoX.value - motoWidth.value < rockX.value &&
-    rockX.value < motoX.value + motoWidth.value
-  ) {
-    console.log('Game over!')
-  }
-}
-function getRandomArbitrary(min: number, max: number) {
-  return Math.random() * (max - min) + min
-}
-
-onMounted(() => {
-  if (props.play) {
-    setInterval(gameOver, 50)
-  }
 })
 </script>
 
@@ -87,9 +51,6 @@ onMounted(() => {
         </div>
       </div>
       <div ref="retroLines" class="retro-groundShadow"></div>
-      <div v-if="play" class="retro-rock-wrapper">
-        <div ref="rockEl" class="retro-rock"></div>
-      </div>
       <div v-if="play" class="moto-wrapper">
         <div ref="motoEl" class="moto">
           <div class="wheel front"></div>
@@ -311,38 +272,12 @@ onMounted(() => {
   margin-left: 48px;
 }
 
-.retro-rock-wrapper {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: 100%;
-}
-.retro-rock {
-  position: absolute;
-  left: v-bind('rockX + "px"');
-  width: 20px;
-  height: 40px;
-  background-color: chocolate;
-  perspective: 1000px;
-  perspective-origin: center top;
-  transform-origin: top center;
-  animation: calc(0.35s * 8) linear infinite retro-rock-anim;
-}
-@keyframes retro-rock-anim {
-  0% {
-    bottom: 100%;
-  }
-  100% {
-    bottom: calc(0px - 40px + 10px);
-  }
-}
-
 /* Motorcycle */
 .moto-wrapper {
   position: absolute;
   bottom: 40px;
   left: v-bind('motoX + "px"');
-  perspective: 150px;
+  perspective: 1000px;
 }
 .moto {
   width: 12px;
