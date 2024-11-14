@@ -57,21 +57,11 @@ function handleClick(direction: string) {
         </div>
       </li>
     </ul>
-    <a>
-      <FontAwesomeIcon
-        :icon="faChevronLeft"
-        size="2xl"
-        @click="handleClick('previous')"
-        class="button button--previous"
-      />
+    <a class="button button--previous">
+      <FontAwesomeIcon :icon="faChevronLeft" size="2xl" @click="handleClick('previous')" />
     </a>
-    <a>
-      <FontAwesomeIcon
-        :icon="faChevronRight"
-        size="2xl"
-        @click="handleClick('next')"
-        class="button button--next"
-      />
+    <a class="button button--next">
+      <FontAwesomeIcon :icon="faChevronRight" size="2xl" @click="handleClick('next')" />
     </a>
   </div>
 </template>
@@ -100,7 +90,6 @@ function handleClick(direction: string) {
   height: fit-content;
   scroll-snap-align: center;
   text-align: center;
-  border-radius: 25px;
   overflow: hidden;
 }
 .carousel-wrapper .item .description {
@@ -125,8 +114,6 @@ function handleClick(direction: string) {
 .carousel-wrapper .button {
   position: absolute;
   top: 50%;
-  width: 3rem;
-  height: 3rem;
   cursor: pointer;
 }
 .carousel-wrapper .button--previous {
