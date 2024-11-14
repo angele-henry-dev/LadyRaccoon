@@ -23,20 +23,20 @@ function getImageUrl(path: string) {
   return new URL(`../assets/images/${path}`, import.meta.url).href
 }
 function handleClick(direction: string) {
-  /* if (!carouselImages.value) {
+  if (!carouselImages.value) {
     return
   }
   if (direction === 'previous') {
     carouselImages.value.scrollBy({
-      left: -(carouselImagesSize.width.value / 2),
+      left: -carouselImagesSize.width.value,
       behavior: 'smooth'
     })
   } else {
     carouselImages.value.scrollBy({
-      left: carouselImagesSize.width.value / 2,
+      left: carouselImagesSize.width.value,
       behavior: 'smooth'
     })
-  } */
+  }
 }
 </script>
 
@@ -82,9 +82,8 @@ function handleClick(direction: string) {
 }
 .carousel-wrapper .list {
   display: flex;
-  gap: 8px;
-  padding: 16px;
   list-style: none;
+  padding: 0;
   overflow-x: scroll;
   scrollbar-width: none;
   -ms-overflow-style: none;
