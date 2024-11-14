@@ -14,7 +14,7 @@ let selectedIndex = ref(0)
           v-for="(item, i) in experience"
           :key="i"
           type="radio"
-          :id="i.toString()"
+          :id="'iso_' + i.toString()"
           class="carousel__activator"
           name="activator"
           :checked="selectedIndex === i ? true : false"
@@ -52,7 +52,7 @@ let selectedIndex = ref(0)
             v-for="(item, i) in experience"
             :key="i"
             class="carousel__indicator"
-            :for="i.toString()"
+            :for="'iso_' + i.toString()"
           >
             &#9679;
           </label>

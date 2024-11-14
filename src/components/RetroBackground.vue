@@ -3,7 +3,7 @@ import { computed, ref } from 'vue'
 import { useElementSize, useWindowScroll, useElementVisibility, useMouse } from '@vueuse/core'
 
 // Props
-defineProps({
+const props = defineProps({
   play: {
     type: Boolean,
     default: false
@@ -16,13 +16,22 @@ const window = useElementSize(retroLines)
 const isVisible = useElementVisibility(retroLines)
 
 const displayY = computed(() => {
+  if (!isVisible.value) {
+    return 0
+  }
   const scroll = useWindowScroll()
-  return isVisible.value == true ? scroll.y.value % 100 : 0
+  return scroll.y.value % 100
 })
 const motoX = computed(() => {
+  if (!props.play) {
+    return 0
+  }
   return isVisible.value == true ? mouse.x.value : 0
 })
 const motoZ = computed(() => {
+  if (!props.play) {
+    return 0
+  }
   return isVisible.value == true ? (-70 / (window.width.value / 2)) * mouse.x.value + 70 : 0
 })
 </script>

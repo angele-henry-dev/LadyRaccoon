@@ -6,7 +6,7 @@
     "type": "application",
     "subtitle": "Application for iOS and Android",
     "technologies": ["Ionic Framework", "Vue.js"],
-    "description": "This app is the perfect companion for managing your D&D sessions. It allows players to easily track their character sheets, while providing powerful tools for game masters. With the built-in combat simulator, GMs can create and manage battles in real-time, simplifying the handling of complex encounters."
+    "description": "This app is the perfect companion for managing your D&D sessions. It allows players to easily track their character sheets, while providing powerful tools for game masters. "
   },
   {
     "src": "balloon.png",
@@ -24,7 +24,7 @@
     "type": "game",
     "subtitle": "Video game for iOS and Android",
     "technologies": ["Unity3D", "C#"],
-    "description": "Players navigate a dynamic space, strategically creating territories while avoiding ennemies. The game features immersive visuals, progressive levels, and an engaging 8-bit soundtrack, offering a unique and enjoyable gaming adventure."
+    "description": "You navigate a dynamic space, strategically creating territories while avoiding ennemies. The game features immersive visuals and an engaging 8-bit soundtrack."
   },
   {
     "src": "womeninit.webp",
@@ -32,6 +32,6 @@
     "when": "2024, Airbus Toulouse",
     "type": "talk",
     "subtitle": "",
-    "description": "This conference explores the historical and current contributions of women in computing, highlights the challenges posed by gender stereotypes, and examines ongoing efforts to promote greater diversity and inclusion in the tech field."
+    "description": "Explore the historical contributions of women in computing, examine the challenges posed by gender stereotypes and the ongoing efforts to promote greater inclusion in the tech field."
   }
 ]

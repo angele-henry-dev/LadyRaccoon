@@ -6,10 +6,10 @@ import { faBook } from '@fortawesome/free-solid-svg-icons'
 
 import FooterComponent from '@/components/FooterComponent.vue'
 import CarouselCards from '@/components/CarouselCards.vue'
-import CustomCarousel from '@/components/CustomCarousel.vue'
 import IsometricCity from '@/components/IsometricCity.vue'
 import StarsBackground from '@/components/StarsBackground.vue'
 import RetroBackground from '@/components/RetroBackground.vue'
+import CarouselImages from '@/components/CarouselImages.vue'
 
 import { type Skills } from '@/types/Skills'
 
@@ -22,7 +22,7 @@ import projects from '@/assets/models/projects.json' with { type: 'json' }
     <StarsBackground />
 
     <div id="description" class="inBetween align-center">
-      <h1>Looking for a <span class="highlight">lead developer</span> to boost your team?</h1>
+      <h1>Looking for a <span class="highlight">senior developer</span> to boost your project?</h1>
       <p>
         As a senior software engineer, my main quest is simple: to prevent your project from
         reaching a game over due to a bug-infested application.
@@ -45,7 +45,7 @@ import projects from '@/assets/models/projects.json' with { type: 'json' }
 
     <div id="projects" class="inBetween">
       <h2 title="Projects"><FontAwesomeIcon :icon="faDragon" /> Projects</h2>
-      <CustomCarousel :items="projects" />
+      <CarouselImages :items="projects" />
     </div>
   </main>
 

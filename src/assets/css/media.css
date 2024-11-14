@@ -18,6 +18,17 @@
   .inBetween {
     padding: 2px !important;
   }
+
+  .carousel-wrapper .item {
+    width: 100% !important;
+  }
+  .carousel-wrapper .item .img-shadow {
+    background-image: linear-gradient(
+      rgba(0, 0, 0, 0.4) 0%,
+      rgba(0, 0, 0, 0.8) 20%,
+      rgba(0, 0, 0, 1) 100%
+    ) !important;
+  }
 }
 @media (max-width: 1356px) {
   #lateral-left {
@@ -53,24 +64,6 @@
   .isometric-city .car div.one,
   .isometric-city .car div.two {
     display: none !important;
-    animation: none !important;
-  }
-}
-
-/* Hidden raccoon */
-
-@media (max-width: 961px) {
-  .torch {
-    display: none;
-  }
-  .hidden-raccoon {
-    mix-blend-mode: normal !important;
-    bottom: 20px !important;
-    left: 20px !important;
-    width: auto;
-    height: 100%;
-  }
-  .hidden-raccoon.escaping {
     animation: none !important;
   }
 }
