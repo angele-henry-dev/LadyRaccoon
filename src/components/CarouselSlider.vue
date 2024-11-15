@@ -91,9 +91,6 @@ function getImageUrl(path: string) {
   width: calc(var(--generalWidth) * (v-bind('$props.items.length') * 2));
   height: 100%;
 }
-.slider .slide-track:hover {
-  animation-play-state: paused;
-}
 
 /** SLIDE */
 
@@ -121,9 +118,6 @@ function getImageUrl(path: string) {
 .slider .slide .content .description {
   display: none;
 }
-.slider .slide:hover .content .description {
-  display: block;
-}
 
 .slider .slide .img-shadow {
   position: absolute;
@@ -135,5 +129,17 @@ function getImageUrl(path: string) {
     rgba(0, 0, 0, 0.5) 30%,
     rgba(0, 0, 0, 1) 100%
   );
+}
+
+/** ON HOVER */
+
+.slider .slide-track:hover {
+  animation-play-state: paused;
+}
+.slider .slide:hover .content {
+  justify-content: space-between;
+}
+.slider .slide:hover .content .description {
+  display: block;
 }
 </style>
