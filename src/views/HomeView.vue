@@ -9,7 +9,7 @@ import CarouselCards from '@/components/CarouselCards.vue'
 import IsometricCity from '@/components/IsometricCity.vue'
 import StarsBackground from '@/components/StarsBackground.vue'
 import RetroBackground from '@/components/RetroBackground.vue'
-import CarouselImages from '@/components/CarouselImages.vue'
+import CarouselSlider from '@/components/CarouselSlider.vue'
 
 import { type Skills } from '@/types/Skills'
 
@@ -45,7 +45,7 @@ import projects from '@/assets/models/projects.json' with { type: 'json' }
 
     <div id="projects" class="inBetween">
       <h2 title="Projects"><FontAwesomeIcon :icon="faDragon" /> Projects</h2>
-      <CarouselImages :items="projects" />
+      <CarouselSlider :items="projects" />
     </div>
   </main>
 
