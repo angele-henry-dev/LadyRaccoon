@@ -70,10 +70,15 @@ import projects from '@/assets/models/projects.json' with { type: 'json' }
 </template>
 
 <style scoped>
+#skills,
+#projects,
+#experience {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
 #projects,
 #experience {
   border-top: 2px solid var(--vt-c-pink);
-  padding-top: 40px;
 }
 
 .content {
