@@ -170,8 +170,6 @@ let selectedIndex = ref(0)
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  padding-top: 20px;
-  margin-bottom: 70px;
 }
 
 .night-mode i,
@@ -201,7 +199,6 @@ let selectedIndex = ref(0)
 
 .iso-description {
   display: inline-block;
-  padding: 20px;
   margin-bottom: 20px;
 }
 .iso-description ul {
