@@ -51,3 +51,11 @@ import projects from '@/assets/models/projects.json' with { type: 'json' }
 
   <FooterComponent class="footer" />
 </template>
+
+<style scoped>
+#projects h2,
+#experience h2 {
+  border-top: 4px solid var(--vt-c-pink);
+  padding-top: 40px;
+}
+</style>

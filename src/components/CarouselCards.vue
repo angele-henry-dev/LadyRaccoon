@@ -49,17 +49,8 @@ const active = ref(true)
 /** CARD */
 
 .card {
-  padding: 10px 20px;
   width: 300px;
   min-height: 320px;
-  transition: 0.4s ease-out;
-  position: relative;
-  left: 0px;
-  background-color: var(--vt-c-black-soft);
-  box-shadow: -1rem 0 3rem #000;
-  border: 1px solid var(--color-border);
-  border-radius: 15px;
-  text-align: left;
 }
 .card:not(:first-child) {
   margin-left: -150px;

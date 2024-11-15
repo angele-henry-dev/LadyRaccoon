@@ -23,17 +23,21 @@ let selectedIndex = ref(0)
         <div v-for="(item, i) in experience" :key="i" class="carousel__controls">
           <label
             class="carousel__control carousel__control--backward"
-            :for="i === 0 ? (experience.length - 1).toString() : (i - 1).toString()"
+            :for="
+              i === 0 ? 'iso_' + (experience.length - 1).toString() : 'iso_' + (i - 1).toString()
+            "
             >&#10148;</label
           >
           <label
             class="carousel__control carousel__control--forward"
-            :for="i === experience.length - 1 ? (0).toString() : (i + 1).toString()"
+            :for="
+              i === experience.length - 1 ? 'iso_' + (0).toString() : 'iso_' + (i + 1).toString()
+            "
             >&#10148;</label
           >
         </div>
         <li v-for="(item, i) in experience" :key="i">
-          <div>
+          <div class="card">
             <h2>{{ item.what }}</h2>
             <p>
               {{ item.from }}<span v-if="item.to"> - {{ item.to }}</span
@@ -166,6 +170,7 @@ let selectedIndex = ref(0)
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  padding-top: 20px;
   margin-bottom: 70px;
 }
 
@@ -190,7 +195,6 @@ let selectedIndex = ref(0)
   min-width: 300px;
   max-width: 560px;
   height: 630px;
-  border: 1px solid var(--vt-c-divider-dark-2);
 }
 
 /* Carousel */
@@ -199,7 +203,6 @@ let selectedIndex = ref(0)
   display: inline-block;
   padding: 20px;
   margin-bottom: 20px;
-  background-color: var(--color-background);
 }
 .iso-description ul {
   height: 100%;
@@ -216,6 +219,9 @@ let selectedIndex = ref(0)
   overflow-y: auto;
   opacity: 0;
   overflow: hidden;
+}
+.iso-description ul li .card {
+  height: 100%;
 }
 .carousel__controls,
 .carousel__activator {
