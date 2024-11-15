@@ -16,6 +16,7 @@ const active = ref(true)
       v-for="(item, index) in props.skills"
       :key="index"
       @mouseenter="active = false"
+      @mouseleave="active = true"
       :class="[index === 0 && active ? 'active' : '', 'card']"
     >
       <div class="card-title">
