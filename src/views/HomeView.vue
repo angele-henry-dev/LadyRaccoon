@@ -31,21 +31,23 @@ import projects from '@/assets/models/projects.json' with { type: 'json' }
 
     <RetroBackground />
 
-    <div id="skills" class="inBetween">
-      <h2 title="Skills"><FontAwesomeIcon :icon="faHatWizard" /> Skills at your service</h2>
-      <CarouselCards :skills="skills as Skills[]" />
+    <div id="skills">
+      <h2 class="inBetween" title="Skills">
+        <FontAwesomeIcon :icon="faHatWizard" /> Skills at your service
+      </h2>
+      <CarouselCards class="inBetween" :skills="skills as Skills[]" />
     </div>
 
-    <div id="experience" class="inBetween">
-      <h2 title="Professional experience">
+    <div id="experience">
+      <h2 class="inBetween" title="Professional experience">
         <FontAwesomeIcon :icon="faBook" /> Professional experience
       </h2>
-      <IsometricCity />
+      <IsometricCity class="inBetween" />
     </div>
 
-    <div id="projects" class="inBetween">
-      <h2 title="Projects"><FontAwesomeIcon :icon="faDragon" /> Projects</h2>
-      <CarouselSlider :items="projects" />
+    <div id="projects">
+      <h2 class="inBetween" title="Projects"><FontAwesomeIcon :icon="faDragon" /> Projects</h2>
+      <CarouselSlider class="inBetween" :items="projects" />
     </div>
   </main>
 
@@ -53,9 +55,9 @@ import projects from '@/assets/models/projects.json' with { type: 'json' }
 </template>
 
 <style scoped>
-#projects h2,
-#experience h2 {
-  border-top: 4px solid var(--vt-c-pink);
+#projects,
+#experience {
+  border-top: 2px solid var(--vt-c-pink);
   padding-top: 40px;
 }
 </style>
