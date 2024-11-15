@@ -22,19 +22,19 @@ import projects from '@/assets/models/projects.json' with { type: 'json' }
     <StarsBackground />
 
     <div id="description" class="inBetween align-center">
-      <h1 class="content">
+      <h1 class="main-title">
         Looking for a
-        <div class="content__container highlight">
-          <div class="plop">
-            <ul class="content__container__list">
-              <li class="content__container__list__item">senior</li>
-              <li class="content__container__list__item">lead</li>
-              <li class="content__container__list__item">fullstack</li>
-              <li class="content__container__list__item">frontend</li>
-              <li class="content__container__list__item">backend</li>
+        <div class="main-title-container highlight">
+          <div class="main-title-container__">
+            <ul class="main-title-container__list">
+              <li class="main-title-container__list__item">senior</li>
+              <li class="main-title-container__list__item">lead</li>
+              <li class="main-title-container__list__item">fullstack</li>
+              <li class="main-title-container__list__item">frontend</li>
+              <li class="main-title-container__list__item">backend</li>
             </ul>
           </div>
-          <div class="content__container__text">developer</div>
+          <div class="main-title-container__text">developer</div>
         </div>
         to boost your project?
       </h1>
@@ -64,9 +64,9 @@ import projects from '@/assets/models/projects.json' with { type: 'json' }
       <h2 class="inBetween" title="Projects"><FontAwesomeIcon :icon="faDragon" /> Projects</h2>
       <CarouselSlider class="inBetween" :items="projects" />
     </div>
-  </main>
 
-  <FooterComponent class="footer" />
+    <FooterComponent class="footer" />
+  </main>
 </template>
 
 <style scoped>
@@ -79,7 +79,7 @@ import projects from '@/assets/models/projects.json' with { type: 'json' }
 .content {
   overflow: hidden;
 }
-.content__container {
+.main-title-container {
   position: relative;
   display: flex;
   flex-direction: row;
@@ -89,10 +89,10 @@ import projects from '@/assets/models/projects.json' with { type: 'json' }
   width: fit-content;
   margin: auto;
 }
-.content__container .plop {
+.main-title-container .main-title-container__ {
   overflow: hidden;
 }
-.content__container__list {
+.main-title-container__list {
   padding: 0;
   text-align: center;
   list-style: none;
@@ -101,21 +101,21 @@ import projects from '@/assets/models/projects.json' with { type: 'json' }
   animation-iteration-count: infinite;
 }
 
-.content__container:before {
+.main-title-container:before {
   content: '[';
   position: absolute;
   left: -30px;
   bottom: 0;
 }
-.content__container:after {
+.main-title-container:after {
   content: ']';
   position: absolute;
   right: -30px;
   bottom: 0;
 }
 
-.content__container__list__item,
-.content__container__text {
+.main-title-container__list__item,
+.main-title-container__text {
   line-height: 1em;
 }
 @keyframes swipe {
