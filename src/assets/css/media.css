@@ -29,6 +29,11 @@
       rgba(0, 0, 0, 1) 100%
     ) !important;
   }
+
+  .slider::before,
+  .slider::after {
+    width: 50px !important;
+  }
 }
 @media (max-width: 1356px) {
   #lateral-left {

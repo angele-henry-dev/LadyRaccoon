@@ -60,11 +60,10 @@ function getImageUrl(path: string) {
   --generalHeight: v-bind('generalHeight');
   --generalWidth: v-bind('generalWidth');
   background: var(--color-background);
-  height: var(--generalHeight);
   margin: auto;
   overflow: hidden;
   position: relative;
-  width: calc(100% - 40px);
+  width: 100%;
 }
 .slider::before,
 .slider::after {
@@ -72,7 +71,7 @@ function getImageUrl(path: string) {
   content: '';
   height: var(--generalHeight);
   position: absolute;
-  width: 10px;
+  width: 200px;
   z-index: 2;
 }
 .slider::after {
