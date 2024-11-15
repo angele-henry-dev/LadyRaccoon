@@ -34,6 +34,13 @@
   .slider::after {
     width: 50px !important;
   }
+
+  .main-title-container:before {
+    left: -15px !important;
+  }
+  .main-title-container:after {
+    right: -15px !important;
+  }
 }
 @media (max-width: 1356px) {
   #lateral-left {
