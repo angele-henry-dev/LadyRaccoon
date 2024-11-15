@@ -29,6 +29,7 @@ function getImageUrl(path: string) {
           :alt="item.title"
           :src="getImageUrl(`${item.src}`)"
           :height="generalHeight"
+          :width="generalWidth"
         />
         <div class="content">
           <p class="title">
