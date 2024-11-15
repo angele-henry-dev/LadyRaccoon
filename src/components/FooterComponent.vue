@@ -22,7 +22,6 @@ function getCurrentYear() {
       <RouterLink to="/sitemap">Sitemap</RouterLink>
       <span class="separator">&#8226;</span>
       <a
-        role="button"
         href="https://github.com/angele-henry-dev"
         target="_blank"
         title="Opens Github in a new tab or window"
@@ -30,7 +29,6 @@ function getCurrentYear() {
         <FontAwesomeIcon :icon="faSquareGithub" size="xl" />
       </a>
       <a
-        role="button"
         href="https://www.linkedin.com/in/angele-henry/"
         target="_blank"
         title="Opens LinkedIn in a new tab or window"

@@ -10,7 +10,6 @@ import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
       <div class="vl"></div>
     </div>
     <a
-      role="button"
       href="https://github.com/angele-henry-dev"
       target="_blank"
       title="Opens Github in a new tab or window"
@@ -18,7 +17,6 @@ import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
       <FontAwesomeIcon :icon="faSquareGithub" size="xl" />
     </a>
     <a
-      role="button"
       href="https://www.linkedin.com/in/angele-henry/"
       target="_blank"
       title="Opens LinkedIn in a new tab or window"

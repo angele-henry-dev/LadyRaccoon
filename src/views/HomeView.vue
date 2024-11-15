@@ -22,7 +22,17 @@ import projects from '@/assets/models/projects.json' with { type: 'json' }
     <StarsBackground />
 
     <div id="description" class="inBetween align-center">
-      <h1>Looking for a <span class="highlight">senior developer</span> to boost your project?</h1>
+      <h1>
+        Looking for a
+        <span class="highlight"
+          ><div class="stack">
+            <span style="--index: 0">senior developer</span>
+            <span style="--index: 1">senior developer</span>
+            <span style="--index: 2">senior developer</span>
+          </div></span
+        >
+        to boost your project?
+      </h1>
       <p>
         As a senior software engineer, my main quest is simple: to prevent your project from
         reaching a game over due to a bug-infested application.
