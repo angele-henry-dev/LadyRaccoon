@@ -2,7 +2,6 @@
 import { computed, ref } from 'vue'
 import { useElementSize, useWindowScroll, useElementVisibility, useMouse } from '@vueuse/core'
 
-// Props
 const props = defineProps({
   play: {
     type: Boolean,

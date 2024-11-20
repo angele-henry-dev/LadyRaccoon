@@ -38,10 +38,6 @@ import projects from '@/assets/models/projects.json' with { type: 'json' }
         </div>
         to boost your project?
       </h1>
-      <p>
-        As a senior software engineer, my main quest is simple: to prevent your project from
-        reaching a game over due to a bug-infested application.
-      </p>
     </div>
 
     <RetroBackground />
